@@ -5,6 +5,6 @@ package Tests.LoginModule;
  */
 public class Tests {
 
-@Test
+
 
 }
