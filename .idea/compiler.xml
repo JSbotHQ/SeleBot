@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Framework" />
+        <module name="Selenium-TestNG" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Framework" target="1.5" />
+      <module name="Selenium-TestNG" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
