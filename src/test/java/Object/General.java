@@ -721,9 +721,10 @@ public class General {
         pause(2);
     }
 
-    public ArrayList<String> ReadExcel(String filePath, int SheetNo) {
+    //Entered Sheet Number All Data Read.
+    public ArrayList<String> ReadExcelSheetAllData(String filePath, int SheetNo) {
 
-        ArrayList<String> credList = new ArrayList<String>();
+        ArrayList<String> SheetData = new ArrayList<String>();
         try {
             FileInputStream inputStream = new FileInputStream(new File(filePath));
 
@@ -742,7 +743,7 @@ public class General {
 
                     String CellData = formatter.formatCellValue(cell);
 
-                    credList.add(CellData);
+                    SheetData.add(CellData);
                 }
             }
             inputStream.close();
@@ -752,6 +753,122 @@ public class General {
             e.printStackTrace();
         }
 
-        return credList;
+        return SheetData;
+    }
+
+    //Read Only Enter Row Data.
+    public ArrayList<String> ReadSelectedRow(String filePath, int SheetNo, int RowNo) {
+
+        ArrayList<String> SheetData = new ArrayList<String>();
+        try {
+            FileInputStream inputStream = new FileInputStream(new File(filePath));
+
+            Workbook workbook = new XSSFWorkbook(inputStream);
+            Sheet firstSheet = workbook.getSheetAt(SheetNo);
+            Iterator<Row> iterator = firstSheet.iterator();
+
+
+            while (iterator.hasNext()) {
+                Row nextRow = iterator.next();
+                if (nextRow.getRowNum() == RowNo) {
+
+                    Iterator<Cell> cellIterator = nextRow.cellIterator();
+
+                    while (cellIterator.hasNext()) {
+                        Cell cell = cellIterator.next();
+
+                        DataFormatter formatter = new DataFormatter();
+
+                        String CellData = formatter.formatCellValue(cell);
+
+                        SheetData.add(CellData);
+                    }
+                }
+
+            }
+            inputStream.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return SheetData;
+    }
+
+    //Read Only Enter Column Data.
+    public ArrayList<String> ReadselectColumn(String filePath, int SheetNo, int ColumnNo) {
+
+        ArrayList<String> SheetData = new ArrayList<String>();
+        try {
+            FileInputStream inputStream = new FileInputStream(new File(filePath));
+
+            Workbook workbook = new XSSFWorkbook(inputStream);
+            Sheet firstSheet = workbook.getSheetAt(SheetNo);
+            Iterator<Row> iterator = firstSheet.iterator();
+
+            while (iterator.hasNext()) {
+                Row nextRow = iterator.next();
+                Iterator<Cell> cellIterator = nextRow.cellIterator();
+
+                while (cellIterator.hasNext()) {
+                    Cell cell = cellIterator.next();
+
+                    if (cell.getColumnIndex() == ColumnNo) {
+                        DataFormatter formatter = new DataFormatter();
+
+                        String CellData = formatter.formatCellValue(cell);
+
+                        SheetData.add(CellData);
+                    }
+                }
+            }
+            inputStream.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return SheetData;
+    }
+
+    //Read Only Single Cell.
+    public String ReadSelectedCell(String filePath, int SheetNo, int RowNo, int ColumnNo) {
+
+        String CellValue = null;
+        try {
+            FileInputStream inputStream = new FileInputStream(new File(filePath));
+
+            Workbook workbook = new XSSFWorkbook(inputStream);
+            Sheet firstSheet = workbook.getSheetAt(SheetNo);
+            Iterator<Row> iterator = firstSheet.iterator();
+
+            while (iterator.hasNext()) {
+                Row nextRow = iterator.next();
+
+                if (nextRow.getRowNum() == RowNo) {
+                    Iterator<Cell> cellIterator = nextRow.cellIterator();
+
+                    while (cellIterator.hasNext()) {
+                        Cell cell = cellIterator.next();
+
+                        if (cell.getColumnIndex() == ColumnNo) {
+                            DataFormatter formatter = new DataFormatter();
+
+                           CellValue = formatter.formatCellValue(cell);
+
+                        }
+                    }
+                }
+            }
+            inputStream.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return CellValue;
     }
 }
