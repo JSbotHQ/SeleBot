@@ -2,6 +2,8 @@ package General;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -10,19 +12,19 @@ import org.openqa.selenium.*;
 import java.io.File;
 import java.io.FileInputStream;
 
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
-
 
 
 public class General {
 
     /**
      * Open URL.
+     *
      * @param Driver
-     * @param URL
-     * Open Entered URL Web Page.
+     * @param URL    Open Entered URL Web Page.
      */
     public static void openURL(WebDriver Driver, String URL) {
         Driver.get(URL);
@@ -30,6 +32,7 @@ public class General {
 
     /**
      * Get Current Page URL.
+     *
      * @param Driver
      * @return Return Current Page URL in String.
      */
@@ -42,6 +45,7 @@ public class General {
 
     /**
      * Get Current Page Source.
+     *
      * @param Driver
      * @return Return Current Page Source In String.
      */
@@ -53,6 +57,7 @@ public class General {
 
     /**
      * Web Page refresh.
+     *
      * @param Driver
      */
     public static void refresh(WebDriver Driver) {
@@ -61,6 +66,7 @@ public class General {
 
     /**
      * Go To Previous Page.
+     *
      * @param Driver
      */
     public static void goToPreviuosPage(WebDriver Driver) {
@@ -70,6 +76,7 @@ public class General {
 
     /**
      * Find Web Element By Class_Name.
+     *
      * @param Driver
      * @param ClassName
      * @return Return Web Element.
@@ -82,6 +89,7 @@ public class General {
 
     /**
      * Find Web Element By CssSelector.
+     *
      * @param Driver
      * @param CssSelector
      * @return Return Web Element.
@@ -92,10 +100,11 @@ public class General {
         return element;
     }
 
-    /**ram ID
-     * @re
-     * Find Web Element By ID.
+    /**
+     * ram ID
+     *
      * @param Driver
+     * @re Find Web Element By ID.
      * @paturn Return Web Element.
      */
     public static WebElement id(WebDriver Driver, String ID) {
@@ -106,6 +115,7 @@ public class General {
 
     /**
      * Find Web Element By linkText.
+     *
      * @param Driver
      * @param linkText
      * @return Return Web Element.
@@ -118,6 +128,7 @@ public class General {
 
     /**
      * Find Web Element By Name.
+     *
      * @param Driver
      * @param Name
      * @return Return Web Element.
@@ -130,6 +141,7 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text.
+     *
      * @param Driver
      * @param PartialLinkText
      * @return Return Web Element.
@@ -142,6 +154,7 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name.
+     *
      * @param Driver
      * @param TagName
      * @return Return Web Element.
@@ -154,6 +167,7 @@ public class General {
 
     /**
      * Find Web Element By xpath.
+     *
      * @param Driver
      * @param XpathExpression
      * @return Return Web Element.
@@ -166,8 +180,8 @@ public class General {
 
     /**
      * Click On Web Element.
-     * @param Element
-     * Click on Web Element.
+     *
+     * @param Element Click on Web Element.
      */
     public static void click(WebElement Element) {
         Element.click();
@@ -175,9 +189,9 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Click.
+     *
      * @param Driver
-     * @param Classname
-     * Click on Web Element.
+     * @param Classname Click on Web Element.
      */
     public static void classNameClick(WebDriver Driver, String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
@@ -188,9 +202,9 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Click.
+     *
      * @param Driver
-     * @param CssSelector
-     * Click on Web Element.
+     * @param CssSelector Click on Web Element.
      */
     public static void cssSelectorClick(WebDriver Driver, String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
@@ -201,9 +215,9 @@ public class General {
 
     /**
      * Find Web Element By ID And Click.
+     *
      * @param Driver
-     * @param ID
-     * Click on Web Element.
+     * @param ID     Click on Web Element.
      */
     public static void idClick(WebDriver Driver, String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
@@ -214,9 +228,9 @@ public class General {
 
     /**
      * Find Web Element By linkText And Click.
+     *
      * @param Driver
-     * @param linkText
-     * Click on Web Element.
+     * @param linkText Click on Web Element.
      */
     public static void linkTextClick(WebDriver Driver, String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
@@ -227,9 +241,9 @@ public class General {
 
     /**
      * Find Web Element By Name And Click.
+     *
      * @param Driver
-     * @param Name
-     * Click on Web Element.
+     * @param Name   Click on Web Element.
      */
     public static void nameClick(WebDriver Driver, String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
@@ -239,9 +253,9 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Click.
+     *
      * @param Driver
-     * @param PartialLinkText
-     * Click on Web Element.
+     * @param PartialLinkText Click on Web Element.
      */
     public static void partialLinkTextClick(WebDriver Driver, String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
@@ -252,9 +266,9 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Click.
+     *
      * @param Driver
-     * @param TagName
-     * Click on Web Element.
+     * @param TagName Click on Web Element.
      */
     public static void tagNameClick(WebDriver Driver, String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
@@ -265,9 +279,9 @@ public class General {
 
     /**
      * Find Web Element By xpath And Click.
+     *
      * @param Driver
-     * @param XpathExpression
-     * Click on Web Element.
+     * @param XpathExpression Click on Web Element.
      */
     public static void xpathClick(WebDriver Driver, String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
@@ -278,8 +292,8 @@ public class General {
 
     /**
      * Clear Web Element Text.
-     * @param Element
-     * Clear Web Element Text.
+     *
+     * @param Element Clear Web Element Text.
      */
     public static void clear(WebElement Element) {
         Element.clear();
@@ -287,9 +301,9 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Clear.
+     *
      * @param Driver
-     * @param Classname
-     * Clear Web Element Text.
+     * @param Classname Clear Web Element Text.
      */
     public static void classNameClear(WebDriver Driver, String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
@@ -300,9 +314,9 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Clear.
+     *
      * @param Driver
-     * @param CssSelector
-     * Clear Web Element Text.
+     * @param CssSelector Clear Web Element Text.
      */
     public static void cssSelectorClear(WebDriver Driver, String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
@@ -313,9 +327,9 @@ public class General {
 
     /**
      * Find Web Element By ID And Clear.
+     *
      * @param Driver
-     * @param ID
-     * Clear Web Element Text.
+     * @param ID     Clear Web Element Text.
      */
     public static void idClear(WebDriver Driver, String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
@@ -326,9 +340,9 @@ public class General {
 
     /**
      * Find Web Element By linkText And Clear.
+     *
      * @param Driver
-     * @param linkText
-     * Clear Web Element Text.
+     * @param linkText Clear Web Element Text.
      */
     public static void linkTextClear(WebDriver Driver, String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
@@ -339,9 +353,9 @@ public class General {
 
     /**
      * Find Web Element By Name And Clear.
+     *
      * @param Driver
-     * @param Name
-     * Clear Web Element Text.
+     * @param Name   Clear Web Element Text.
      */
     public static void nameClear(WebDriver Driver, String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
@@ -351,9 +365,9 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Clear.
+     *
      * @param Driver
-     * @param PartialLinkText
-     * Clear Web Element Text.
+     * @param PartialLinkText Clear Web Element Text.
      */
     public static void partialLinkTextClear(WebDriver Driver, String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
@@ -364,9 +378,9 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Clear.
+     *
      * @param Driver
-     * @param TagName
-     * Clear Web Element Text.
+     * @param TagName Clear Web Element Text.
      */
     public static void tagNameClear(WebDriver Driver, String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
@@ -377,9 +391,9 @@ public class General {
 
     /**
      * Find Web Element By xpath And Clear.
+     *
      * @param Driver
-     * @param XpathExpression
-     * Clear Web Element Text.
+     * @param XpathExpression Clear Web Element Text.
      */
     //Find Web Element By xpath And Clear.
     public static void xpathClear(WebDriver Driver, String XpathExpression) {
@@ -391,9 +405,9 @@ public class General {
 
     /**
      * Send Text on Web Element
+     *
      * @param Element
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text    Enter Text On Web Element.
      */
     public static void SendKeys(WebElement Element, String Text) {
         Element.sendKeys(Text);
@@ -401,10 +415,10 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and SendKey.
+     *
      * @param Driver
      * @param Classname
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text      Enter Text On Web Element.
      */
     public static void classNameSendKey(WebDriver Driver, String Classname, String Text) {
         WebElement Element = Driver.findElement(By.className(Classname));
@@ -415,10 +429,10 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And SendKey.
+     *
      * @param Driver
      * @param CssSelector
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text        Enter Text On Web Element.
      */
     public static void cssSelectorSendKey(WebDriver Driver, String CssSelector, String Text) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
@@ -429,10 +443,10 @@ public class General {
 
     /**
      * Find Web Element By ID And SendKey.
+     *
      * @param Driver
      * @param ID
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text   Enter Text On Web Element.
      */
     public static void idSendKey(WebDriver Driver, String ID, String Text) {
         WebElement Element = Driver.findElement(By.id(ID));
@@ -443,10 +457,10 @@ public class General {
 
     /**
      * Find Web Element By linkText And SendKey.
+     *
      * @param Driver
      * @param linkText
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text     Enter Text On Web Element.
      */
     public static void linkTextSendKey(WebDriver Driver, String linkText, String Text) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
@@ -457,10 +471,10 @@ public class General {
 
     /**
      * Find Web Element By Name And SendKey.
+     *
      * @param Driver
      * @param Name
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text   Enter Text On Web Element.
      */
     public static void nameSendKey(WebDriver Driver, String Name, String Text) {
         WebElement Element = Driver.findElement(By.name(Name));
@@ -470,10 +484,10 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And SendKey.
+     *
      * @param Driver
      * @param PartialLinkText
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text            Enter Text On Web Element.
      */
     public static void partialLinkTextSendKey(WebDriver Driver, String PartialLinkText, String Text) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
@@ -484,10 +498,10 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And SendKey.
+     *
      * @param Driver
      * @param TagName
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text    Enter Text On Web Element.
      */
     public static void TagNameSendKey(WebDriver Driver, String TagName, String Text) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
@@ -498,10 +512,10 @@ public class General {
 
     /**
      * Find Web Element By xpath And SendKey.
+     *
      * @param Driver
      * @param XpathExpression
-     * @param Text
-     * Enter Text On Web Element.
+     * @param Text            Enter Text On Web Element.
      */
     public static void xpathSendKey(WebDriver Driver, String XpathExpression, String Text) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
@@ -512,6 +526,7 @@ public class General {
 
     /**
      * Get Element Text.
+     *
      * @param Element
      * @return Return Element Text In String.
      */
@@ -523,6 +538,7 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Get Element Text.
+     *
      * @param Driver
      * @param Classname
      * @return Return Element Text In String.
@@ -539,6 +555,7 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Get Element Text.
+     *
      * @param Driver
      * @param CssSelector
      * @return Return Element Text In String.
@@ -553,6 +570,7 @@ public class General {
 
     /**
      * Find Web Element By ID And Get Element Text.
+     *
      * @param Driver
      * @param ID
      * @return Return Element Text In String.
@@ -567,6 +585,7 @@ public class General {
 
     /**
      * Find Web Element By linkText And Get Element Text.
+     *
      * @param Driver
      * @param linkText
      * @return Return Element Text In String.
@@ -581,6 +600,7 @@ public class General {
 
     /**
      * Find Web Element By Name And Get Element Text.
+     *
      * @param Driver
      * @param Name
      * @return Return Element Text In String.
@@ -595,6 +615,7 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Text.
+     *
      * @param Driver
      * @param PartialLinkText
      * @return Return Element Text In String.
@@ -609,6 +630,7 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Get Element Text.
+     *
      * @param Driver
      * @param TagName
      * @return Return Element Text In String.
@@ -623,6 +645,7 @@ public class General {
 
     /**
      * Find Web Element By xpath And Get Element Text.
+     *
      * @param Driver
      * @param XpathExpression
      * @return Return Element Text In String.
@@ -637,6 +660,7 @@ public class General {
 
     /**
      * Get Element Tag Name.
+     *
      * @param Element
      * @return Return Tag Name in String.
      */
@@ -648,6 +672,7 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Get Element Tag Name.
+     *
      * @param Driver
      * @param Classname
      * @return Return Tag Name in String.
@@ -663,6 +688,7 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Get Element Tag Name.
+     *
      * @param Driver
      * @param CssSelector
      * @return Return Tag Name in String.
@@ -677,6 +703,7 @@ public class General {
 
     /**
      * Find Web Element By ID And Get Element Tag Name.
+     *
      * @param Driver
      * @param ID
      * @return Return Tag Name in String.
@@ -691,6 +718,7 @@ public class General {
 
     /**
      * Find Web Element By linkText And Get Element Tag Name.
+     *
      * @param Driver
      * @param linkText
      * @return Return Tag Name in String.
@@ -705,6 +733,7 @@ public class General {
 
     /**
      * Find Web Element By Name And Get Element Tag Name.
+     *
      * @param Driver
      * @param Name
      * @return Return Tag Name in String.
@@ -719,6 +748,7 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Tag Name.
+     *
      * @param Driver
      * @param PartialLinkText
      * @return Return Tag Name in String.
@@ -733,6 +763,7 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Get Element Tag Name.
+     *
      * @param Driver
      * @param TagName
      * @return Return Tag Name in String.
@@ -747,6 +778,7 @@ public class General {
 
     /**
      * Find Web Element By xpath And Get Element Tag Name.
+     *
      * @param Driver
      * @param XpathExpression
      * @return Return Tag Name in String.
@@ -761,6 +793,7 @@ public class General {
 
     /**
      * Get Element Displayed or not.
+     *
      * @param Element
      * @return Return Boolean Value (True Or False).
      */
@@ -772,6 +805,7 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Get Element Displayed or not.
+     *
      * @param Driver
      * @param Classname
      * @return Return Boolean Value (True Or False).
@@ -787,6 +821,7 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Get Element Displayed or not.
+     *
      * @param Driver
      * @param CssSelector
      * @return Return Boolean Value (True Or False).
@@ -801,6 +836,7 @@ public class General {
 
     /**
      * Find Web Element By ID And Get Element Displayed or not.
+     *
      * @param Driver
      * @param ID
      * @return Return Boolean Value (True Or False).
@@ -815,6 +851,7 @@ public class General {
 
     /**
      * Find Web Element By linkText And Get Element Displayed or not.
+     *
      * @param Driver
      * @param linkText
      * @return Return Boolean Value (True Or False).
@@ -829,6 +866,7 @@ public class General {
 
     /**
      * Find Web Element By Name And Get Element Displayed or not.
+     *
      * @param Driver
      * @param Name
      * @return Return Boolean Value (True Or False).
@@ -843,6 +881,7 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Displayed or not.
+     *
      * @param Driver
      * @param PartialLinkText
      * @return Return Boolean Value (True Or False).
@@ -857,6 +896,7 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Get Element Displayed or not.
+     *
      * @param Driver
      * @param TagName
      * @return Return Boolean Value (True Or False).
@@ -871,6 +911,7 @@ public class General {
 
     /**
      * Find Web Element By xpath And Get Element Displayed or not.
+     *
      * @param Driver
      * @param XpathExpression
      * @return Return Boolean Value (True Or False).
@@ -884,6 +925,7 @@ public class General {
 
     /**
      * Get Element Selected or Not.
+     *
      * @param Element
      * @return Return Boolean Value (True Or False).
      */
@@ -895,6 +937,7 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Get Element Selected or Not.
+     *
      * @param Driver
      * @param Classname
      * @return Return Boolean Value (True Or False).
@@ -910,6 +953,7 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Get Element Selected or Not.
+     *
      * @param Driver
      * @param CssSelector
      * @return Return Boolean Value (True Or False).
@@ -924,6 +968,7 @@ public class General {
 
     /**
      * Find Web Element By ID And Get Element Selected or Not.
+     *
      * @param Driver
      * @param ID
      * @return Return Boolean Value (True Or False).
@@ -938,6 +983,7 @@ public class General {
 
     /**
      * Find Web Element By linkText And Get Element Selected or Not.
+     *
      * @param Driver
      * @param linkText
      * @return Return Boolean Value (True Or False).
@@ -952,6 +998,7 @@ public class General {
 
     /**
      * Find Web Element By Name And Get Element Selected or Not.
+     *
      * @param Driver
      * @param Name
      * @return Return Boolean Value (True Or False).
@@ -966,6 +1013,7 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Selected or Not.
+     *
      * @param Driver
      * @param PartialLinkText
      * @return Return Boolean Value (True Or False).
@@ -980,6 +1028,7 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Get Element Selected or Not.
+     *
      * @param Driver
      * @param TagName
      * @return Return Boolean Value (True Or False).
@@ -994,6 +1043,7 @@ public class General {
 
     /**
      * Find Web Element By xpath And Get Element Selected or Not.
+     *
      * @param Driver
      * @param XpathExpression
      * @return Return Boolean Value (True Or False).
@@ -1008,6 +1058,7 @@ public class General {
 
     /**
      * Get Element currently Enabled or not.
+     *
      * @param Element
      * @return Return Boolean Value (True Or False).
      */
@@ -1019,6 +1070,7 @@ public class General {
 
     /**
      * Find Web Element By Class_Name and Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param Classname
      * @return Return Boolean Value (True Or False).
@@ -1034,6 +1086,7 @@ public class General {
 
     /**
      * Find Web Element By CssSelector And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param CssSelector
      * @return Return Boolean Value (True Or False).
@@ -1048,6 +1101,7 @@ public class General {
 
     /**
      * Find Web Element By ID And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param ID
      * @return Return Boolean Value (True Or False).
@@ -1062,6 +1116,7 @@ public class General {
 
     /**
      * Find Web Element By linkText And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param linkText
      * @return Return Boolean Value (True Or False).
@@ -1076,6 +1131,7 @@ public class General {
 
     /**
      * Find Web Element By Name And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param Name
      * @return Return Boolean Value (True Or False).
@@ -1090,6 +1146,7 @@ public class General {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param PartialLinkText
      * @return Return Boolean Value (True Or False).
@@ -1104,6 +1161,7 @@ public class General {
 
     /**
      * Find Web Element By Tag_Name And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param TagName
      * @return Return Boolean Value (True Or False).
@@ -1118,6 +1176,7 @@ public class General {
 
     /**
      * Find Web Element By xpath And Get Element currently Enabled or not.
+     *
      * @param Driver
      * @param XpathExpression
      * @return Return Boolean Value (True Or False).
@@ -1131,8 +1190,8 @@ public class General {
 
     /**
      * Wait Script.
-     * @param secs
-     * Pause Or Sleep Script For Entered Sec.
+     *
+     * @param secs Pause Or Sleep Script For Entered Sec.
      */
     public static void pause(int secs) {
         try {
@@ -1144,9 +1203,9 @@ public class General {
 
     /**
      * Highlight Element.
+     *
      * @param Driver
-     * @param Element
-     * Highlight Element With Solid Yellow Border.
+     * @param Element Highlight Element With Solid Yellow Border.
      */
     //Highlight Element.
     public static void highlightElement(WebDriver Driver, WebElement Element) {
@@ -1157,6 +1216,7 @@ public class General {
 
     /**
      * Read Entered Sheet All Data.
+     *
      * @param FilePath
      * @param SheetNo
      * @return Return Sheet All Data In String Array.
@@ -1197,6 +1257,7 @@ public class General {
 
     /**
      * Read Only Enter Row Data.
+     *
      * @param FilePath
      * @param SheetNo
      * @param RowNo
@@ -1243,6 +1304,7 @@ public class General {
 
     /**
      * Read Only Enter Column Data.
+     *
      * @param FilePath
      * @param SheetNo
      * @param ColumnNo
@@ -1286,6 +1348,7 @@ public class General {
 
     /**
      * Read Only Single Cell.
+     *
      * @param FilePath
      * @param SheetNo
      * @param RowNo
@@ -1332,35 +1395,33 @@ public class General {
 
     /**
      * Perform Alert Accept Operation.
-     * @param Driver
-     * Accept Or Ok Alert.
+     *
+     * @param Driver Accept Or Ok Alert.
      */
-    public static void alertAccept(WebDriver Driver)
-    {
+    public static void alertAccept(WebDriver Driver) {
         Alert alert = Driver.switchTo().alert();
         alert.accept();
     }
 
     /**
      * Perform Alert Dismiss Operation.
-     * @param Driver
-     * Close Or Cancel Alert.
+     *
+     * @param Driver Close Or Cancel Alert.
      */
     //
-    public static void alertDismiss(WebDriver Driver)
-    {
+    public static void alertDismiss(WebDriver Driver) {
         Alert alert = Driver.switchTo().alert();
         alert.dismiss();
     }
 
     /**
      * Get Alert Text.
+     *
      * @param Driver
      * @return Return Text On Alert.
      */
     //
-    public static String getAlertText(WebDriver Driver)
-    {
+    public static String getAlertText(WebDriver Driver) {
         Alert alert = Driver.switchTo().alert();
         String AlertText = alert.getText();
         return AlertText;
@@ -1368,35 +1429,34 @@ public class General {
 
     /**
      * Send Text On Alert.
+     *
      * @param Driver
-     * @param Text
-     * Type Text On Alert.
+     * @param Text   Type Text On Alert.
      */
-    public static void sendTextOnAlert(WebDriver Driver, String Text)
-    {
+    public static void sendTextOnAlert(WebDriver Driver, String Text) {
         Alert alert = Driver.switchTo().alert();
         alert.sendKeys(Text);
     }
 
     /**
      * Open Mailinator Inbox.
+     *
      * @param Driver
-     * @param EmailAddress
-     * Redirect On Entered Email Address Inbox Page.
+     * @param EmailAddress Redirect On Entered Email Address Inbox Page.
      */
     public static void openMailinatorInbox(WebDriver Driver, String EmailAddress) {
         pause(2);
         String emailParsed[] = EmailAddress.split("@");
-        String url = "https://www.mailinator.com/inbox2.jsp?public_to="+emailParsed+"#/#public_maildirdiv";
+        String url = "https://www.mailinator.com/inbox2.jsp?public_to=" + emailParsed + "#/#public_maildirdiv";
         Driver.get(url);
     }
 
     /**
      * Get Current Date And Time.
+     *
      * @return Return Current Date & Time.
      */
-    public static String getCurrentDateTime()
-    {
+    public static String getCurrentDateTime() {
         Date date = new Date();
 
         SimpleDateFormat sd = new SimpleDateFormat("MMddHHmmssSS");
@@ -1408,6 +1468,7 @@ public class General {
 
     /**
      * Generate Random Numeric Number.
+     *
      * @param Length
      * @return Return Random Numeric String.
      */
@@ -1420,11 +1481,11 @@ public class General {
 
     /**
      * Generate Random AlphaNumeric String.
+     *
      * @param Length
      * @return Return Random AlphaNumeric String.
      */
-    public static String generateRandomAlphanumeric(int Length)
-    {
+    public static String generateRandomAlphanumeric(int Length) {
         String RandomName = RandomStringUtils.randomAlphanumeric(Length);
         return RandomName;
     }
@@ -1432,24 +1493,489 @@ public class General {
 
     /**
      * Generate Random AlphaBetic String.
-     *@param Length
+     *
+     * @param Length
      * @return Return Random Alphabetic String.
      **/
-    public static String generateRandomAlphabetic(int Length)
-    {
+    public static String generateRandomAlphabetic(int Length) {
         String RandomName = RandomStringUtils.randomAlphabetic(Length);
         return RandomName;
     }
 
     /**
      * Generate Random AlphaAscii String.
+     *
      * @param Length
      * @return Return Random Ascii String.
      */
-    public static String generateRandomAscii(int Length)
-    {
+    public static String generateRandomAscii(int Length) {
         String RandomAscii = RandomStringUtils.randomAscii(Length);
         return RandomAscii;
     }
+
+
+
+    /**
+     * Write String Data On Selected Cell.
+     *
+     * @param FilePath
+     * @param SheetNumber
+     * @param Row
+     * @param Cell
+     * @param Text
+     */
+    public static void writeStringDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, String Text) {
+        try {
+            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+
+            // Get the workbook instance for XLS file
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            // Get first sheet from the workbook
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Cell cell = null;
+
+            cell = sheet.getRow(Row).createCell(Cell);
+
+            cell.setCellValue((String) Text);
+
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Integer Data On Selected Cell.
+     *
+     * @param FilePath
+     * @param SheetNumber
+     * @param Row
+     * @param Cell
+     * @param Number
+     */
+    public static void writeIntDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, int Number) {
+        try {
+            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+
+            // Get the workbook instance for XLS file
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            // Get first sheet from the workbook
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Cell cell = null;
+
+            cell = sheet.getRow(Row).createCell(Cell);
+
+            cell.setCellValue((int) Number);
+
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Float Data On Selected Cell.
+     *
+     * @param FilePath
+     * @param SheetNumber
+     * @param Row
+     * @param Cell
+     * @param FloatNumber
+     */
+    public static void writeIntDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, float FloatNumber) {
+        try {
+            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+
+            // Get the workbook instance for XLS file
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            // Get first sheet from the workbook
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Cell cell = null;
+
+            cell = sheet.getRow(Row).createCell(Cell);
+
+            cell.setCellValue((float) FloatNumber);
+
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Boolean Data On Selected Cell.
+     *
+     * @param FilePath
+     * @param SheetNumber
+     * @param Row
+     * @param Cell
+     * @param BooleanValue
+     */
+    public static void writeIntDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, Boolean BooleanValue) {
+        try {
+            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+
+            // Get the workbook instance for XLS file
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            // Get first sheet from the workbook
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Cell cell = null;
+
+            cell = sheet.getRow(Row).createCell(Cell);
+
+            cell.setCellValue((Boolean) BooleanValue);
+
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write String Data On Multiple Cell.
+     * Enter Stating Row Number For Start Writing On That Row.
+     * Enter Stating and Ending Cell Number.
+     *
+     * @param FileName
+     * @param SheetNumber
+     * @param StartRow
+     * @param StartCell
+     * @param EndCell
+     * @param Text
+     */
+    public static void writeStringDataOnMultipalCell(String FileName, int SheetNumber, int StartRow, int StartCell, int EndCell, String Text) {
+        try {
+
+            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+
+                Row row = rowIterator.next();
+                if (row.getRowNum() >= StartRow) {
+
+                    int row1 = row.getRowNum();
+
+                    Cell cell = null;
+
+                    for (int i = StartCell; i <= EndCell; i++) {
+                        cell = sheet.getRow(row1).createCell(i);
+
+                        cell.setCellValue((String) Text);
+
+                    }
+                }
+
+            }
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Integer Data On Multiple Cell.
+     * Enter Stating Row Number For Start Writing On That Row.
+     * Enter Stating and Ending Cell Number.
+     *
+     * @param FileName
+     * @param SheetNumber
+     * @param StartRow
+     * @param StartCell
+     * @param EndCell
+     * @param IntegerNumber
+     */
+    public static void writeIntDataOnMultipalCell(String FileName, int SheetNumber, int StartRow, int StartCell, int EndCell, int IntegerNumber) {
+        try {
+
+            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+
+                Row row = rowIterator.next();
+                if (row.getRowNum() >= StartRow) {
+
+                    int row1 = row.getRowNum();
+
+                    Cell cell = null;
+
+                    for (int i = StartCell; i <= EndCell; i++) {
+                        cell = sheet.getRow(row1).createCell(i);
+
+                        cell.setCellValue((int) IntegerNumber);
+
+                    }
+                }
+
+            }
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Float Data On Multiple Cell.
+     * Enter Stating Row Number For Start Writing On That Row.
+     * Enter Stating and Ending Cell Number.
+     *
+     * @param FileName
+     * @param SheetNumber
+     * @param StartRow
+     * @param StartCell
+     * @param EndCell
+     * @param FloatNumber
+     */
+    public static void writeFloatDataOnMultipalCell(String FileName, int SheetNumber, int StartRow, int StartCell, int EndCell, float FloatNumber) {
+        try {
+
+            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+
+                Row row = rowIterator.next();
+                if (row.getRowNum() >= StartRow) {
+
+                    int row1 = row.getRowNum();
+
+                    Cell cell = null;
+
+                    for (int i = StartCell; i <= EndCell; i++) {
+                        cell = sheet.getRow(row1).createCell(i);
+
+                        cell.setCellValue((float) FloatNumber);
+
+                    }
+                }
+
+            }
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write String Data On Multiple Cell.
+     * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
+     * Enter Stating and Ending Cell Number.
+     *
+     * @param FileName
+     * @param SheetNumber
+     * @param RowNumber
+     * @param StartCell
+     * @param EndCell
+     * @param Text
+     */
+    public static void writeStringDataOnSingleRowMultipalCell(String FileName, int SheetNumber, int RowNumber, int StartCell, int EndCell, String Text) {
+        try {
+
+            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+
+                Row row = rowIterator.next();
+                if (row.getRowNum() == RowNumber) {
+
+                    int row1 = row.getRowNum();
+
+                    Cell cell = null;
+
+                    for (int i = StartCell; i <= EndCell; i++) {
+                        cell = sheet.getRow(row1).createCell(i);
+
+                        cell.setCellValue((String) Text);
+
+                    }
+                }
+
+            }
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Integer Data On Multiple Cell.
+     * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
+     * Enter Stating and Ending Cell Number.
+     *
+     * @param FileName
+     * @param SheetNumber
+     * @param RowNumber
+     * @param StartCell
+     * @param EndCell
+     * @param IntegerNumber
+     */
+    public static void writeIntDataOnSingleRowMultipalCell(String FileName, int SheetNumber, int RowNumber, int StartCell, int EndCell, int IntegerNumber) {
+        try {
+
+            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+
+                Row row = rowIterator.next();
+                if (row.getRowNum() == RowNumber) {
+
+                    int row1 = row.getRowNum();
+
+                    Cell cell = null;
+
+                    for (int i = StartCell; i <= EndCell; i++) {
+                        cell = sheet.getRow(row1).createCell(i);
+
+                        cell.setCellValue((int) IntegerNumber);
+
+                    }
+                }
+
+            }
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Write Float Data On Multiple Cell.
+     * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
+     * Enter Stating and Ending Cell Number.
+     *
+     * @param FileName
+     * @param SheetNumber
+     * @param RowNumber
+     * @param StartCell
+     * @param EndCell
+     * @param FloatNumber
+     */
+    public static void writeFloatDataOnSingleRowMultipalCell(String FileName, int SheetNumber, int RowNumber, int StartCell, int EndCell, float FloatNumber) {
+        try {
+
+            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+
+            HSSFWorkbook workbook = new HSSFWorkbook(file);
+
+            HSSFSheet sheet = workbook.getSheetAt(SheetNumber);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+
+            while (rowIterator.hasNext()) {
+
+                Row row = rowIterator.next();
+                if (row.getRowNum() == RowNumber) {
+
+                    int row1 = row.getRowNum();
+
+                    Cell cell = null;
+
+                    for (int i = StartCell; i <= EndCell; i++) {
+                        cell = sheet.getRow(row1).createCell(i);
+
+                        cell.setCellValue((float) FloatNumber);
+
+                    }
+                }
+
+            }
+            file.close();
+
+            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            workbook.write(outFile);
+            outFile.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 }
