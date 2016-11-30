@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -1274,6 +1275,111 @@ public class Methods {
     {
         String RandomAscii = RandomStringUtils.randomAscii(Length);
         return RandomAscii;
+    }
+
+    /**
+     * Drop Down list find by Xpath.
+     *
+     * @param Driver
+     * @param Xpath  Enter Xpath Like ".//select[contains(@id,'year')]".
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseXpath(WebDriver Driver, String Xpath, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.xpath(Xpath)));
+
+        dropdown.selectByVisibleText(Value);
+    }
+
+    /**
+     * Drop Down list find by Id.
+     *
+     * @param Driver
+     * @param ID Enter Id For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseID(WebDriver Driver, String ID, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.id(ID)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Id.
+     * @param Driver
+     * @param Name Enter Name For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseName(WebDriver Driver, String Name, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.name(Name)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Class Name.
+     * @param Driver
+     * @param ClassName Enter ClassName For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseClassName(WebDriver Driver, String ClassName, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.className(ClassName)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By TagName
+     * @param Driver
+     * @param TagName Enter Tag Name For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseTagName(WebDriver Driver, String TagName, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.tagName(TagName)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By TagName.
+     * @param Driver
+     * @param LinkText Enter Link Name For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseLinkName(WebDriver Driver, String LinkText, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.linkText(LinkText)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Partial Link Text.
+     * @param Driver
+     * @param PartialLinkText Enter Partial Link Text For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUsePartialLinkText(WebDriver Driver, String PartialLinkText, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.partialLinkText(PartialLinkText)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Css Selector.
+     * @param Driver
+     * @param Selector Enter Css Selector For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseCssSelector(WebDriver Driver, String Selector, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.cssSelector(Selector)));
+
+        dropdown.selectByVisibleText(Value);
+
     }
 
 }

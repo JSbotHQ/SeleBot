@@ -7,12 +7,13 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 
-import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
@@ -1514,7 +1515,6 @@ public class General {
     }
 
 
-
     /**
      * Write String Data On Selected Cell.
      *
@@ -1921,13 +1921,11 @@ public class General {
 
     /**
      * Write Float Data On Multiple Cell.
-     * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
-     * Enter Stating and Ending Cell Number.
      *
      * @param FileName
      * @param SheetNumber
-     * @param RowNumber
-     * @param StartCell
+     * @param RowNumber   Enter Row Number For Selecting Row in Multiple Cell Enter Text.
+     * @param StartCell   Enter Stating and Ending Cell Number.
      * @param EndCell
      * @param FloatNumber
      */
@@ -1971,11 +1969,247 @@ public class General {
         }
     }
 
+
+    /**
+     * Read Key Value into the Json File.
+     *
+     * @param JSonFilePath
+     * @param KeyName
+     * @return Return Key Value in String.
+     */
+    public static String readKeyValueInFile(String JSonFilePath, String KeyName) {
+        JSONParser parser = new JSONParser();
+        String Value = null;
+        try {
+
+            Object obj = parser.parse(new FileReader(JSonFilePath));
+
+            JSONObject jsonObt = (JSONObject) obj;
+
+            Value = jsonObt.get(KeyName).toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Value;
+    }
+
+    /**
+     * Read JSON Object Into The Json File.
+     *
+     * @param JSonFilePath
+     * @param ObjectKey
+     * @return Return Json Object.
+     */
+    public static JSONObject readJsonObjectInFile(String JSonFilePath, String ObjectKey) {
+        JSONParser parser = new JSONParser();
+        JSONObject JsonObject = null;
+        try {
+
+            Object File = parser.parse(new FileReader(JSonFilePath));
+
+            JSONObject jsonObt = (JSONObject) File;
+
+            JsonObject = (JSONObject) jsonObt.get(ObjectKey);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return JsonObject;
+    }
+
+    /**
+     * Read Key Value Into the Json Object.
+     *
+     * @param JsonObject
+     * @param KeyName
+     * @return Return Key Value in String.
+     */
+    public static String readKeyValueInJsonObject(JSONObject JsonObject, String KeyName) {
+
+        JSONObject Object = JsonObject;
+
+        String Value = Object.get(KeyName).toString();
+
+        return Value;
+    }
+
+    /**
+     * Create and Write in Json File.
+     *
+     * @param FilePathDestination Enter File Destination Path Like "C:\Users\user\Desktop\ABC.json".
+     * @param ObjectName
+     */
+    public static void writeInJsonFile(String FilePathDestination, JSONObject ObjectName) {
+        try {
+
+            FileWriter jsonFileWriter = new FileWriter(FilePathDestination);
+
+
+            jsonFileWriter.write(ObjectName.toJSONString());
+
+
+            jsonFileWriter.flush();
+
+            jsonFileWriter.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+    }
+
+
+    /**
+     * Add String Data In Json.
+     *
+     * @param ObjectName
+     * @param Key        Enter Key in string.
+     * @param Value      Enter Value in String.
+     */
+    public static void addStringDataInJson(JSONObject ObjectName, String Key, String Value) {
+        ObjectName.put(Key, Value);
+    }
+
+    /**
+     * Add Integer Data In Json.
+     *
+     * @param ObjectName
+     * @param Key        Enter Key in string.
+     * @param Value      Enter Value in Integer.
+     */
+    public static void addIntDataInJson(JSONObject ObjectName, String Key, int Value) {
+        ObjectName.put(Key, Value);
+    }
+
+    /**
+     * Add Json Object In Json
+     *
+     * @param Final
+     * @param Key             Enter Key in string.
+     * @param JsonObjectValue Enter JsonObjectValue in JSONObject.
+     */
+    public static void addJsonObjectInJsonObject(JSONObject Final, String Key, JSONObject JsonObjectValue) {
+        Final.put(Key, JsonObjectValue);
+    }
+
+
+
+    /**
+     * Drop Down list find by Xpath.
+     *
+     * @param Driver
+     * @param Xpath  Enter Xpath Like ".//select[contains(@id,'year')]".
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseXpath(WebDriver Driver, String Xpath, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.xpath(Xpath)));
+
+        dropdown.selectByVisibleText(Value);
+    }
+
+    /**
+     * Drop Down list find by Id.
+     *
+     * @param Driver
+     * @param ID Enter Id For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseID(WebDriver Driver, String ID, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.id(ID)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Id.
+     * @param Driver
+     * @param Name Enter Name For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseName(WebDriver Driver, String Name, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.name(Name)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Class Name.
+     * @param Driver
+     * @param ClassName Enter ClassName For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseClassName(WebDriver Driver, String ClassName, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.className(ClassName)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By TagName
+     * @param Driver
+     * @param TagName Enter Tag Name For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseTagName(WebDriver Driver, String TagName, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.tagName(TagName)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By TagName.
+     * @param Driver
+     * @param LinkText Enter Link Name For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseLinkName(WebDriver Driver, String LinkText, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.linkText(LinkText)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Partial Link Text.
+     * @param Driver
+     * @param PartialLinkText Enter Partial Link Text For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUsePartialLinkText(WebDriver Driver, String PartialLinkText, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.partialLinkText(PartialLinkText)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Drop Down List Find By Css Selector.
+     * @param Driver
+     * @param Selector Enter Css Selector For Find Drop Down List.
+     * @param Value Select Value Text Enter.
+     */
+    public static void selectValueInDroupDownUseCssSelector(WebDriver Driver, String Selector, String Value) {
+        Select dropdown = new Select(Driver.findElement(By.cssSelector(Selector)));
+
+        dropdown.selectByVisibleText(Value);
+
+    }
+
     //-------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
+    /**
+     * Web Pace Scroll.
+     * @param Driver
+     * @param pxToScroll
+     */
+    public static void PageScroll(WebDriver Driver, int pxToScroll)
+    {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver;
+        jse.executeScript("window.scrollBy(0,pxToScroll)", "");
+    }
 }

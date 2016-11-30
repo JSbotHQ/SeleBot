@@ -25,7 +25,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.beanshell:bsh:2.0b4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.beust:jcommander:1.27" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.yaml:snakeyaml:1.6" level="project" />
-    <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-java:2.53.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:2.53.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:2.53.1" level="project" />
