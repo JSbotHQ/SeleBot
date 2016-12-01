@@ -5,6 +5,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -1379,6 +1380,124 @@ public class Methods {
         Select dropdown = new Select(Driver.findElement(By.cssSelector(Selector)));
 
         dropdown.selectByVisibleText(Value);
+
+    }
+
+    /**
+     * Web Pace Scroll By Given Pixel Offset
+     * @param Driver
+     * @param ScrollHeight
+     */
+    public static void scrollingByCoordinates(WebDriver Driver, int ScrollHeight)
+    {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver;
+        jse.executeScript("window.scrollBy(0,ScrollHeight)");
+    }
+
+    /**
+     * Web Page Scrolling To Web Element.
+     * @param Driver
+     * @param element
+     */
+    public static void scrollingToElement(WebDriver Driver, WebElement element)
+    {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver;
+        jse.executeScript( "arguments[0].scrollIntoView();", element);
+    }
+
+    /**
+     * Web Page Scrolling To Page Bottom.
+     * @param Driver
+     */
+    public static void scrollingToBottom(WebElement Driver)
+    {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver;
+        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    /**
+     * Web Page Scrolling To Web Element Using Keys.
+     * @param element
+     */
+    public static void scrollToElementUsingKeys(WebElement element)
+    {
+        element.sendKeys(Keys.PAGE_DOWN);
+    }
+
+    /**
+     * Print Message On Console And Reporter Screen.
+     *
+     * @param msg
+     */
+    public static void log(String msg) {
+
+        Reporter.log(msg);
+        System.out.println(msg);
+    }
+
+    /**
+     * Control Switch To New Window.
+     *
+     * @param driver
+     */
+    public static void switchToNewWindow(WebDriver driver) {
+
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
+
+    }
+
+    /**
+     * Select Random Option From Combo.
+     *
+     * @param element Enter Combo Web Element Like.
+     * @param No      How Many time you want to select Random value From Combo.
+     *                You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void selectRandomOptionFromCombo(WebElement element, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = element;
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Stop Page Loading.
+     * @param driver
+     */
+    public static void stopPageLoading(WebDriver driver) {
+        driver.findElement(By.tagName("body")).sendKeys(Keys.ESCAPE);
+    }
+
+    /**
+     * Focus Switch To Selected Frame.
+     * @param driver
+     * @param xpath Enter Frame Xpath.
+     */
+    public static void moveToFrameObjectelement(WebDriver driver, String xpath) {
+
+        driver.switchTo().frame(driver.findElement(By.xpath(xpath)));
 
     }
 

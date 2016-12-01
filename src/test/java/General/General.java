@@ -1,5 +1,8 @@
 package General;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.OperaDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -10,7 +13,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Reporter;
 
 import java.io.*;
 
@@ -2094,13 +2101,12 @@ public class General {
     }
 
 
-
     /**
      * Drop Down list find by Xpath.
      *
      * @param Driver
      * @param Xpath  Enter Xpath Like ".//select[contains(@id,'year')]".
-     * @param Value Select Value Text Enter.
+     * @param Value  Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseXpath(WebDriver Driver, String Xpath, String Value) {
         Select dropdown = new Select(Driver.findElement(By.xpath(Xpath)));
@@ -2112,8 +2118,8 @@ public class General {
      * Drop Down list find by Id.
      *
      * @param Driver
-     * @param ID Enter Id For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param ID     Enter Id For Find Drop Down List.
+     * @param Value  Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseID(WebDriver Driver, String ID, String Value) {
         Select dropdown = new Select(Driver.findElement(By.id(ID)));
@@ -2124,9 +2130,10 @@ public class General {
 
     /**
      * Drop Down List Find By Id.
+     *
      * @param Driver
-     * @param Name Enter Name For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Name   Enter Name For Find Drop Down List.
+     * @param Value  Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseName(WebDriver Driver, String Name, String Value) {
         Select dropdown = new Select(Driver.findElement(By.name(Name)));
@@ -2137,9 +2144,10 @@ public class General {
 
     /**
      * Drop Down List Find By Class Name.
+     *
      * @param Driver
      * @param ClassName Enter ClassName For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value     Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseClassName(WebDriver Driver, String ClassName, String Value) {
         Select dropdown = new Select(Driver.findElement(By.className(ClassName)));
@@ -2150,9 +2158,10 @@ public class General {
 
     /**
      * Drop Down List Find By TagName
+     *
      * @param Driver
      * @param TagName Enter Tag Name For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value   Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseTagName(WebDriver Driver, String TagName, String Value) {
         Select dropdown = new Select(Driver.findElement(By.tagName(TagName)));
@@ -2163,9 +2172,10 @@ public class General {
 
     /**
      * Drop Down List Find By TagName.
+     *
      * @param Driver
      * @param LinkText Enter Link Name For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value    Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseLinkName(WebDriver Driver, String LinkText, String Value) {
         Select dropdown = new Select(Driver.findElement(By.linkText(LinkText)));
@@ -2176,9 +2186,10 @@ public class General {
 
     /**
      * Drop Down List Find By Partial Link Text.
+     *
      * @param Driver
      * @param PartialLinkText Enter Partial Link Text For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value           Select Value Text Enter.
      */
     public static void selectValueInDroupDownUsePartialLinkText(WebDriver Driver, String PartialLinkText, String Value) {
         Select dropdown = new Select(Driver.findElement(By.partialLinkText(PartialLinkText)));
@@ -2189,9 +2200,10 @@ public class General {
 
     /**
      * Drop Down List Find By Css Selector.
+     *
      * @param Driver
      * @param Selector Enter Css Selector For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value    Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseCssSelector(WebDriver Driver, String Selector, String Value) {
         Select dropdown = new Select(Driver.findElement(By.cssSelector(Selector)));
@@ -2200,16 +2212,149 @@ public class General {
 
     }
 
-    //-------------------------------------------------------------------------------------------------------------
 
     /**
-     * Web Pace Scroll.
+     * Web Pace Scroll By Given Pixel Offset
+     *
      * @param Driver
-     * @param pxToScroll
+     * @param ScrollHeight
      */
-    public static void PageScroll(WebDriver Driver, int pxToScroll)
-    {
+    public static void scrollingByCoordinates(WebDriver Driver, int ScrollHeight) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver;
-        jse.executeScript("window.scrollBy(0,pxToScroll)", "");
+        jse.executeScript("window.scrollBy(0,ScrollHeight)");
     }
+
+    /**
+     * Web Page Scrolling To Web Element.
+     *
+     * @param Driver
+     * @param element
+     */
+    public static void scrollingToElement(WebDriver Driver, WebElement element) {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver;
+        jse.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    /**
+     * Web Page Scrolling To Page Bottom.
+     *
+     * @param Driver
+     */
+    public static void scrollingToBottom(WebElement Driver) {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver;
+        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    /**
+     * Web Page Scrolling To Web Element Using Keys.
+     *
+     * @param element
+     */
+    public static void scrollToElementUsingKeys(WebElement element) {
+        element.sendKeys(Keys.PAGE_DOWN);
+    }
+
+//-------------------------------------------------------------------------------------------------------------
+
+    public static void browserConfig(String BrowserName) {
+        if (BrowserName.equalsIgnoreCase("firefox")) {
+
+            WebDriver driver = new FirefoxDriver();
+            FirefoxDriverManager.getInstance().setup();
+        } else if (BrowserName.equalsIgnoreCase("ie8")) {
+
+        } else if (BrowserName.equalsIgnoreCase("ie9")) {
+
+        } else if (BrowserName.equalsIgnoreCase("ie11")) {
+
+        } else if (BrowserName.equalsIgnoreCase("opera")) {
+            WebDriver driver = new OperaDriver();
+            OperaDriverManager.getInstance().setup();
+        } else if (BrowserName.equalsIgnoreCase("chrome")) {
+
+            WebDriver driver = new ChromeDriver();
+            ChromeDriverManager.getInstance().setup();
+        } else if (BrowserName.equalsIgnoreCase("safari")) {
+
+        }
+
+    }
+
+    /**
+     * Print Message On Console And Reporter Screen.
+     *
+     * @param msg
+     */
+    public static void log(String msg) {
+
+        Reporter.log(msg);
+        System.out.println(msg);
+    }
+
+    /**
+     * Control Switch To New Window.
+     *
+     * @param driver
+     */
+    public static void switchToNewWindow(WebDriver driver) {
+
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
+
+    }
+
+    /**
+     * Select Random Option From Combo.
+     *
+     * @param element Enter Combo Web Element Like.
+     * @param No      How Many time you want to select Random value From Combo.
+     *                You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void selectRandomOptionFromCombo(WebElement element, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = element;
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Stop Page Loading.
+     * @param driver
+     */
+    public static void stopPageLoading(WebDriver driver) {
+        driver.findElement(By.tagName("body")).sendKeys(Keys.ESCAPE);
+    }
+
+    /**
+     * Focus Switch To Selected Frame.
+     * @param driver
+     * @param xpath Enter Frame Xpath.
+     */
+    public static void moveToFrameObjectelement(WebDriver driver, String xpath) {
+
+        driver.switchTo().frame(driver.findElement(By.xpath(xpath)));
+
+    }
+
 }
