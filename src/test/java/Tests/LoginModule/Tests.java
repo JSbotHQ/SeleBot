@@ -1,10 +1,18 @@
 package Tests.LoginModule;
 
-/**
- * Created by Viral on 11/24/2016.
- */
+
+import Config.Methods;
+import org.testng.annotations.Test;
+
+
+
 public class Tests {
 
-@Test
+    @Test
+    public void test() {
+Methods.browserConfig();
+Methods.openURL();
+Methods.browserQuit();
+    }
 
 }
