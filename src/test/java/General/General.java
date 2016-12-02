@@ -1,8 +1,9 @@
 package General;
 
+import Config.Methods;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
-import io.github.bonigarcia.wdm.OperaDriverManager;
+
 import org.apache.commons.lang3.RandomStringUtils;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -15,7 +16,6 @@ import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
 
@@ -28,14 +28,47 @@ import java.util.*;
 
 public class General {
 
+    public static WebDriver driver;
+
+    public static void main(String[] Args) {
+
+        browserConfig("firefox");
+
+        openURL();
+
+        browserQuit();
+
+    }
+
+    public static String URl()
+    {
+        String value = null;
+        try {
+            File file = new File(".\\src\\resources\\general.properties");
+            FileInputStream fileInput = new FileInputStream(file);
+            Properties properties = new Properties();
+
+            properties.load(fileInput);
+
+            value = properties.getProperty("URL");
+
+            System.out.println("Read Value From Property File --->>>> "+value);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return value;
+    }
+
     /**
      * Open URL.
      *
-     * @param Driver
-     * @param URL    Open Entered URL Web Page.
+     *
+     * Open Properties File URL Web Page.
      */
-    public static void openURL(WebDriver Driver, String URL) {
-        Driver.get(URL);
+    public static void openURL() {
+        String URL = URl();
+
+        driver.get(URL);
     }
 
     /**
@@ -2043,7 +2076,7 @@ public class General {
     /**
      * Create and Write in Json File.
      *
-     * @param FilePathDestination Enter File Destination Path Like "C:\Users\user\Desktop\ABC.json".
+     * @param FilePathDestination Enter File Destination Path Like "C:\\Users\\user\\Desktop\\ABC.json".
      * @param ObjectName
      */
     public static void writeInJsonFile(String FilePathDestination, JSONObject ObjectName) {
@@ -2254,13 +2287,15 @@ public class General {
         element.sendKeys(Keys.PAGE_DOWN);
     }
 
-//-------------------------------------------------------------------------------------------------------------
 
-    public static void browserConfig(String BrowserName) {
+
+    public static WebDriver browserConfig(String BrowserName) {
+       //WebDriver driver = null;
         if (BrowserName.equalsIgnoreCase("firefox")) {
 
-            WebDriver driver = new FirefoxDriver();
-            FirefoxDriverManager.getInstance().setup();
+            driver = new FirefoxDriver();
+            driver.manage().window().maximize();
+           // FirefoxDriverManager.getInstance().setup();
         } else if (BrowserName.equalsIgnoreCase("ie8")) {
 
         } else if (BrowserName.equalsIgnoreCase("ie9")) {
@@ -2268,15 +2303,16 @@ public class General {
         } else if (BrowserName.equalsIgnoreCase("ie11")) {
 
         } else if (BrowserName.equalsIgnoreCase("opera")) {
-            WebDriver driver = new OperaDriver();
-            OperaDriverManager.getInstance().setup();
+
         } else if (BrowserName.equalsIgnoreCase("chrome")) {
 
-            WebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
             ChromeDriverManager.getInstance().setup();
         } else if (BrowserName.equalsIgnoreCase("safari")) {
 
         }
+
+        return driver;
 
     }
 
@@ -2340,6 +2376,7 @@ public class General {
 
     /**
      * Stop Page Loading.
+     *
      * @param driver
      */
     public static void stopPageLoading(WebDriver driver) {
@@ -2348,13 +2385,26 @@ public class General {
 
     /**
      * Focus Switch To Selected Frame.
+     *
      * @param driver
-     * @param xpath Enter Frame Xpath.
+     * @param xpath  Enter Frame Xpath.
      */
     public static void moveToFrameObjectelement(WebDriver driver, String xpath) {
 
         driver.switchTo().frame(driver.findElement(By.xpath(xpath)));
 
     }
+
+    public static void browserQuit()
+    {
+        driver.quit();
+    }
+
+    public static void browserClose(WebDriver driver)
+    {
+        driver.close();
+    }
+
+    //-------------------------------------------------------------------------------------------------------------
 
 }

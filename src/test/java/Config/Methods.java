@@ -1,14 +1,15 @@
-package Methods;
+package Config;
 
+import Tests.LoginModule.Tests;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
+import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -17,24 +18,25 @@ import java.util.*;
  */
 public class Methods {
 
+    public static WebDriver Driver;
 
     /**
      * Open URL.
-     * @param Driver
-     * @param URL
+     * <p>
      * Open Entered URL Web Page.
      */
-    public static void openURL(WebDriver Driver, String URL) {
+    public static void openURL() {
+        String URL = PropertiesConfig.getValue("URL");
         Driver.get(URL);
     }
 
     /**
      * Get Current Page URL.
-     * @param Driver
+     *
      * @return Return Current Page URL in String.
      */
     //
-    public static String getCurrentURL(WebDriver Driver) {
+    public static String getCurrentURL() {
         String CurrentURL = Driver.getCurrentUrl();
 
         return CurrentURL;
@@ -42,10 +44,10 @@ public class Methods {
 
     /**
      * Get Current Page Source.
-     * @param Driver
+     *
      * @return Return Current Page Source In String.
      */
-    public static String getPageSource(WebDriver Driver) {
+    public static String getPageSource() {
         String PageSource = Driver.getPageSource();
 
         return PageSource;
@@ -53,28 +55,26 @@ public class Methods {
 
     /**
      * Web Page refresh.
-     * @param Driver
      */
-    public static void refresh(WebDriver Driver) {
+    public static void refresh() {
         Driver.navigate().refresh();
     }
 
     /**
      * Go To Previous Page.
-     * @param Driver
      */
-    public static void goToPreviuosPage(WebDriver Driver) {
+    public static void goToPreviuosPage() {
         Driver.navigate().back();
     }
 
 
     /**
      * Find Web Element By Class_Name.
-     * @param Driver
+     *
      * @param ClassName
      * @return Return Web Element.
      */
-    public static WebElement className(WebDriver Driver, String ClassName) {
+    public static WebElement className(String ClassName) {
         WebElement element = Driver.findElement(By.className(ClassName));
 
         return element;
@@ -82,23 +82,24 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector.
-     * @param Driver
+     *
      * @param CssSelector
      * @return Return Web Element.
      */
-    public static WebElement cssSelector(WebDriver Driver, String CssSelector) {
+    public static WebElement cssSelector(String CssSelector) {
         WebElement element = Driver.findElement(By.cssSelector(CssSelector));
 
         return element;
     }
 
-    /**ram ID
-     * @re
+    /**
+     * ram ID
+     * <p>
      * Find Web Element By ID.
-     * @param Driver
+     *
      * @paturn Return Web Element.
      */
-    public static WebElement id(WebDriver Driver, String ID) {
+    public static WebElement id(String ID) {
         WebElement element = Driver.findElement(By.id(ID));
 
         return element;
@@ -106,11 +107,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText.
-     * @param Driver
+     *
      * @param linkText
      * @return Return Web Element.
      */
-    public static WebElement linkText(WebDriver Driver, String linkText) {
+    public static WebElement linkText(String linkText) {
         WebElement element = Driver.findElement(By.linkText(linkText));
 
         return element;
@@ -118,11 +119,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name.
-     * @param Driver
+     *
      * @param Name
      * @return Return Web Element.
      */
-    public static WebElement name(WebDriver Driver, String Name) {
+    public static WebElement name(String Name) {
         WebElement element = Driver.findElement(By.name(Name));
 
         return element;
@@ -130,11 +131,11 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text.
-     * @param Driver
+     *
      * @param PartialLinkText
      * @return Return Web Element.
      */
-    public static WebElement partialLinkText(WebDriver Driver, String PartialLinkText) {
+    public static WebElement partialLinkText(String PartialLinkText) {
         WebElement element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         return element;
@@ -142,11 +143,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name.
-     * @param Driver
+     *
      * @param TagName
      * @return Return Web Element.
      */
-    public static WebElement tagName(WebDriver Driver, String TagName) {
+    public static WebElement tagName(String TagName) {
         WebElement element = Driver.findElement(By.tagName(TagName));
 
         return element;
@@ -154,11 +155,11 @@ public class Methods {
 
     /**
      * Find Web Element By xpath.
-     * @param Driver
+     *
      * @param XpathExpression
      * @return Return Web Element.
      */
-    public static WebElement xpath(WebDriver Driver, String XpathExpression) {
+    public static WebElement xpath(String XpathExpression) {
         WebElement element = Driver.findElement(By.xpath(XpathExpression));
 
         return element;
@@ -166,8 +167,8 @@ public class Methods {
 
     /**
      * Click On Web Element.
-     * @param Element
-     * Click on Web Element.
+     *
+     * @param Element Click on Web Element.
      */
     public static void click(WebElement Element) {
         Element.click();
@@ -175,11 +176,10 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Click.
-     * @param Driver
-     * @param Classname
-     * Click on Web Element.
+     *
+     * @param Classname Enter Class Name In String.
      */
-    public static void classNameClick(WebDriver Driver, String Classname) {
+    public static void findByClassNameClick(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         Element.click();
@@ -188,11 +188,10 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Click.
-     * @param Driver
-     * @param CssSelector
-     * Click on Web Element.
+     *
+     * @param CssSelector Enter Css Selector In String.
      */
-    public static void cssSelectorClick(WebDriver Driver, String CssSelector) {
+    public static void findByCssSelectorClick(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         Element.click();
@@ -201,11 +200,10 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Click.
-     * @param Driver
-     * @param ID
-     * Click on Web Element.
+     *
+     * @param ID Enter Id In String.
      */
-    public static void idClick(WebDriver Driver, String ID) {
+    public static void findByIdClick(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         Element.click();
@@ -214,11 +212,10 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Click.
-     * @param Driver
-     * @param linkText
-     * Click on Web Element.
+     *
+     * @param linkText Enter Link Text In String.
      */
-    public static void linkTextClick(WebDriver Driver, String linkText) {
+    public static void findByLinkTextClick(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         Element.click();
@@ -227,11 +224,10 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Click.
-     * @param Driver
-     * @param Name
-     * Click on Web Element.
+     *
+     * @param Name Enter Name In String.
      */
-    public static void nameClick(WebDriver Driver, String Name) {
+    public static void findByMameClick(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         Element.click();
@@ -239,11 +235,10 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Click.
-     * @param Driver
-     * @param PartialLinkText
-     * Click on Web Element.
+     *
+     * @param PartialLinkText Enter Partial Link Text In String.
      */
-    public static void partialLinkTextClick(WebDriver Driver, String PartialLinkText) {
+    public static void findByPartialLinkTextClick(String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         Element.click();
@@ -252,11 +247,10 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Click.
-     * @param Driver
-     * @param TagName
-     * Click on Web Element.
+     *
+     * @param TagName Enter Tag Name In String.
      */
-    public static void tagNameClick(WebDriver Driver, String TagName) {
+    public static void findByTagNameClick(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         Element.click();
@@ -265,11 +259,10 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Click.
-     * @param Driver
-     * @param XpathExpression
-     * Click on Web Element.
+     *
+     * @param XpathExpression Enter Xpath Expression In String.
      */
-    public static void xpathClick(WebDriver Driver, String XpathExpression) {
+    public static void findByXpathClick(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         Element.click();
@@ -278,8 +271,8 @@ public class Methods {
 
     /**
      * Clear Web Element Text.
-     * @param Element
-     * Clear Web Element Text.
+     *
+     * @param Element Enter Web Element.
      */
     public static void clear(WebElement Element) {
         Element.clear();
@@ -287,11 +280,10 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Clear.
-     * @param Driver
-     * @param Classname
-     * Clear Web Element Text.
+     *
+     * @param Classname Enter Class Name In String.
      */
-    public static void classNameClear(WebDriver Driver, String Classname) {
+    public static void findByClassNameClear(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         Element.clear();
@@ -300,11 +292,10 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Clear.
-     * @param Driver
-     * @param CssSelector
-     * Clear Web Element Text.
+     *
+     * @param CssSelector Enter Css Selector In String.
      */
-    public static void cssSelectorClear(WebDriver Driver, String CssSelector) {
+    public static void findByCssSelectorClear(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         Element.clear();
@@ -313,11 +304,10 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Clear.
-     * @param Driver
-     * @param ID
-     * Clear Web Element Text.
+     *
+     * @param ID Enter ID In String.
      */
-    public static void idClear(WebDriver Driver, String ID) {
+    public static void findByIdClear(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         Element.clear();
@@ -326,11 +316,10 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Clear.
-     * @param Driver
-     * @param linkText
-     * Clear Web Element Text.
+     *
+     * @param linkText Enter Lin Text In String.
      */
-    public static void linkTextClear(WebDriver Driver, String linkText) {
+    public static void findByLinkTextClear(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         Element.clear();
@@ -339,11 +328,10 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Clear.
-     * @param Driver
-     * @param Name
-     * Clear Web Element Text.
+     *
+     * @param Name Enter Name In String
      */
-    public static void nameClear(WebDriver Driver, String Name) {
+    public static void findByNameClear(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         Element.clear();
@@ -351,11 +339,10 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Clear.
-     * @param Driver
-     * @param PartialLinkText
-     * Clear Web Element Text.
+     *
+     * @param PartialLinkText Enter Partial Link Text In String.
      */
-    public static void partialLinkTextClear(WebDriver Driver, String PartialLinkText) {
+    public static void findByPartialLinkTextClear(String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         Element.clear();
@@ -364,11 +351,10 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Clear.
-     * @param Driver
-     * @param TagName
-     * Clear Web Element Text.
+     *
+     * @param TagName Enter Tag Name In String.
      */
-    public static void tagNameClear(WebDriver Driver, String TagName) {
+    public static void findByTagNameClear(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         Element.clear();
@@ -377,12 +363,11 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Clear.
-     * @param Driver
-     * @param XpathExpression
-     * Clear Web Element Text.
+     *
+     * @param XpathExpression Enter Xpath Expression In String..
      */
     //Find Web Element By xpath And Clear.
-    public static void xpathClear(WebDriver Driver, String XpathExpression) {
+    public static void findByXpathClear(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         Element.clear();
@@ -391,9 +376,9 @@ public class Methods {
 
     /**
      * Send Text on Web Element
-     * @param Element
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param Element  Enter Web Element.
+     * @param Text    Enter Text On Web Element.
      */
     public static void SendKeys(WebElement Element, String Text) {
         Element.sendKeys(Text);
@@ -401,12 +386,11 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and SendKey.
-     * @param Driver
-     * @param Classname
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param Classname  Enter Class Name In String.
+     * @param Text      Enter Text On Web Element.
      */
-    public static void classNameSendKey(WebDriver Driver, String Classname, String Text) {
+    public static void findByClassNameSendKey(String Classname, String Text) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         Element.sendKeys(Text);
@@ -415,12 +399,11 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And SendKey.
-     * @param Driver
-     * @param CssSelector
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param CssSelector  Enter Css Selector In String.
+     * @param Text        Enter Text On Web Element.
      */
-    public static void cssSelectorSendKey(WebDriver Driver, String CssSelector, String Text) {
+    public static void findByCssSelectorSendKey(String CssSelector, String Text) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         Element.sendKeys(Text);
@@ -429,12 +412,11 @@ public class Methods {
 
     /**
      * Find Web Element By ID And SendKey.
-     * @param Driver
-     * @param ID
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param ID  Enter ID In String.
+     * @param Text Enter Text On Web Element.
      */
-    public static void idSendKey(WebDriver Driver, String ID, String Text) {
+    public static void findByIdSendKey(String ID, String Text) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         Element.sendKeys(Text);
@@ -443,12 +425,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And SendKey.
-     * @param Driver
-     * @param linkText
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param linkText  Enter Link Text In String.
+     * @param Text     Enter Text On Web Element.
      */
-    public static void linkTextSendKey(WebDriver Driver, String linkText, String Text) {
+    public static void findByLinkTextSendKey(String linkText, String Text) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         Element.sendKeys(Text);
@@ -457,12 +438,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name And SendKey.
-     * @param Driver
-     * @param Name
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param Name Enter Name in String.
+     * @param Text Enter Text On Web Element.
      */
-    public static void nameSendKey(WebDriver Driver, String Name, String Text) {
+    public static void findByNameSendKey(String Name, String Text) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         Element.sendKeys(Text);
@@ -470,12 +450,11 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And SendKey.
-     * @param Driver
-     * @param PartialLinkText
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param PartialLinkText Enter Partial Link Text In String.
+     * @param Text            Enter Text On Web Element.
      */
-    public static void partialLinkTextSendKey(WebDriver Driver, String PartialLinkText, String Text) {
+    public static void findByPartialLinkTextSendKey(String PartialLinkText, String Text) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         Element.sendKeys(Text);
@@ -484,12 +463,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And SendKey.
-     * @param Driver
-     * @param TagName
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param TagName Enter Tag Name In String.
+     * @param Text    Enter Text On Web Element.
      */
-    public static void TagNameSendKey(WebDriver Driver, String TagName, String Text) {
+    public static void findByTagNameSendKey(String TagName, String Text) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         Element.sendKeys(Text);
@@ -498,12 +476,11 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And SendKey.
-     * @param Driver
-     * @param XpathExpression
-     * @param Text
-     * Enter Text On Web Element.
+     *
+     * @param XpathExpression Enter Xpath Expression In string.
+     * @param Text            Enter Text On Web Element.
      */
-    public static void xpathSendKey(WebDriver Driver, String XpathExpression, String Text) {
+    public static void findByXpathSendKey(String XpathExpression, String Text) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         Element.sendKeys(Text);
@@ -512,7 +489,8 @@ public class Methods {
 
     /**
      * Get Element Text.
-     * @param Element
+     *
+     * @param Element Enter Web Element.
      * @return Return Element Text In String.
      */
     public static String getText(WebElement Element) {
@@ -523,12 +501,12 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Get Element Text.
-     * @param Driver
-     * @param Classname
+     *
+     * @param Classname Enter Class Name In String.
      * @return Return Element Text In String.
      */
     //
-    public static String classNameGetText(WebDriver Driver, String Classname) {
+    public static String findByClassNameGetText(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         String ElementText = Element.getText();
@@ -539,11 +517,11 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Get Element Text.
-     * @param Driver
-     * @param CssSelector
+     *
+     * @param CssSelector Enter Css Selector in String.
      * @return Return Element Text In String.
      */
-    public static String cssSelectorGetText(WebDriver Driver, String CssSelector) {
+    public static String findByCssSelectorGetText(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         String ElementText = Element.getText();
@@ -553,11 +531,11 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Get Element Text.
-     * @param Driver
-     * @param ID
+     *
+     * @param ID Enter ID In String.
      * @return Return Element Text In String.
      */
-    public static String idGetText(WebDriver Driver, String ID) {
+    public static String findByIdGetText(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         String ElementText = Element.getText();
@@ -567,11 +545,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Get Element Text.
-     * @param Driver
-     * @param linkText
+     *
+     * @param linkText Enter Link Text In String.
      * @return Return Element Text In String.
      */
-    public static String linkTextGetText(WebDriver Driver, String linkText) {
+    public static String findByLinkTextGetText(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         String ElementText = Element.getText();
@@ -581,11 +559,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Get Element Text.
-     * @param Driver
-     * @param Name
+     *
+     * @param Name Enter Name In String.
      * @return Return Element Text In String.
      */
-    public static String nameGetText(WebDriver Driver, String Name) {
+    public static String findByNameGetText(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         String ElementText = Element.getText();
@@ -595,11 +573,11 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Text.
-     * @param Driver
-     * @param PartialLinkText
+     *
+     * @param PartialLinkText Enter Partial Link Text In String.
      * @return Return Element Text In String.
      */
-    public static String partialLinkTextGetText(WebDriver Driver, String PartialLinkText) {
+    public static String findBynPartialLinkTextGetText(String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         String ElementText = Element.getText();
@@ -609,11 +587,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Get Element Text.
-     * @param Driver
-     * @param TagName
+     *
+     * @param TagName Enter Tag Name in String.
      * @return Return Element Text In String.
      */
-    public static String tagNameGetText(WebDriver Driver, String TagName) {
+    public static String findByTagNameGetText(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         String ElementText = Element.getText();
@@ -623,11 +601,11 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Get Element Text.
-     * @param Driver
-     * @param XpathExpression
+     *
+     * @param XpathExpression Enter Xpath Expression In String.
      * @return Return Element Text In String.
      */
-    public static String xpathGetText(WebDriver Driver, String XpathExpression) {
+    public static String findByXpathGetText(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         String ElementText = Element.getText();
@@ -637,7 +615,8 @@ public class Methods {
 
     /**
      * Get Element Tag Name.
-     * @param Element
+     *
+     * @param Element Enter Web Element.
      * @return Return Tag Name in String.
      */
     public static String getTagName(WebElement Element) {
@@ -648,11 +627,11 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Get Element Tag Name.
-     * @param Driver
-     * @param Classname
+     *
+     * @param Classname Enter Class Name in String.
      * @return Return Tag Name in String.
      */
-    public static String classNameGetTagName(WebDriver Driver, String Classname) {
+    public static String findByClassNameGetTagName(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         String ElementTagName = Element.getTagName();
@@ -663,11 +642,11 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Get Element Tag Name.
-     * @param Driver
-     * @param CssSelector
+     *
+     * @param CssSelector Enter Css Selector In String.
      * @return Return Tag Name in String.
      */
-    public static String cssSelectorGetTagName(WebDriver Driver, String CssSelector) {
+    public static String findByCssSelectorGetTagName(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         String ElementTagName = Element.getTagName();
@@ -677,11 +656,11 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Get Element Tag Name.
-     * @param Driver
-     * @param ID
+     *
+     * @param ID Enter Id In string.
      * @return Return Tag Name in String.
      */
-    public static String idGetTagName(WebDriver Driver, String ID) {
+    public static String findByIdGetTagName(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         String ElementTagName = Element.getTagName();
@@ -691,11 +670,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Get Element Tag Name.
-     * @param Driver
-     * @param linkText
+     *
+     * @param linkText Enter Link Text In String.
      * @return Return Tag Name in String.
      */
-    public static String linkTextGetTagName(WebDriver Driver, String linkText) {
+    public static String findByLinkTextGetTagName(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         String ElementTagName = Element.getTagName();
@@ -705,11 +684,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Get Element Tag Name.
-     * @param Driver
-     * @param Name
+     *
+     * @param Name Enter Name In String.
      * @return Return Tag Name in String.
      */
-    public static String nameGetTagName(WebDriver Driver, String Name) {
+    public static String findByNameGetTagName(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         String ElementTagName = Element.getTagName();
@@ -719,11 +698,11 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Tag Name.
-     * @param Driver
-     * @param PartialLinkText
+     *
+     * @param PartialLinkText Enter Partial Link In String.
      * @return Return Tag Name in String.
      */
-    public static String partialLinkTextGetTagName(WebDriver Driver, String PartialLinkText) {
+    public static String findByPartialLinkTextGetTagName(String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         String ElementTagName = Element.getTagName();
@@ -733,11 +712,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Get Element Tag Name.
-     * @param Driver
-     * @param TagName
+     *
+     * @param TagName Enter Tag Name In String.
      * @return Return Tag Name in String.
      */
-    public static String tagNameGetTagName(WebDriver Driver, String TagName) {
+    public static String findByTagNameGetTagName(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         String ElementTagName = Element.getTagName();
@@ -747,11 +726,11 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Get Element Tag Name.
-     * @param Driver
-     * @param XpathExpression
+     *
+     * @param XpathExpression Enter Xpath Expression In String.
      * @return Return Tag Name in String.
      */
-    public static String xpathGetTagName(WebDriver Driver, String XpathExpression) {
+    public static String findByXpathGetTagName(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         String ElementTagName = Element.getTagName();
@@ -761,10 +740,11 @@ public class Methods {
 
     /**
      * Get Element Displayed or not.
-     * @param Element
+     *
+     * @param Element Enter Web Element.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean displayed(WebElement Element) {
+    public static boolean elementIsDisplayed(WebElement Element) {
         boolean Value = Element.isDisplayed();
 
         return Value;
@@ -772,11 +752,11 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Get Element Displayed or not.
-     * @param Driver
-     * @param Classname
+     *
+     * @param Classname Enter Class Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean classNameDisplay(WebDriver Driver, String Classname) {
+    public static boolean findByClassNameElementIsDisplayed(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         boolean Value = Element.isDisplayed();
@@ -787,11 +767,11 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Get Element Displayed or not.
-     * @param Driver
-     * @param CssSelector
+     *
+     * @param CssSelector Enter CssSelector In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean cssSelectorDisplay(WebDriver Driver, String CssSelector) {
+    public static boolean findByCssSelectorElementIsDisplayed(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         boolean Value = Element.isDisplayed();
@@ -801,11 +781,11 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Get Element Displayed or not.
-     * @param Driver
-     * @param ID
+     *
+     * @param ID Enter ID In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean idDisplay(WebDriver Driver, String ID) {
+    public static boolean findByIdElementIsDisplayed(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         boolean Value = Element.isDisplayed();
@@ -815,11 +795,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Get Element Displayed or not.
-     * @param Driver
-     * @param linkText
+     *
+     * @param linkText Enter Link Text.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean linkTextDisplay(WebDriver Driver, String linkText) {
+    public static boolean findByLinkTextElementIsDisplayed(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         boolean Value = Element.isDisplayed();
@@ -829,11 +809,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Get Element Displayed or not.
-     * @param Driver
-     * @param Name
+     *
+     * @param Name Enter Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean nameDisplay(WebDriver Driver, String Name) {
+    public static boolean findByNameElementIsDisplayed(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         boolean Value = Element.isDisplayed();
@@ -843,11 +823,11 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Displayed or not.
-     * @param Driver
-     * @param PartialLinkText
+     *
+     * @param PartialLinkText Enter Partial Link In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean partialLinkTextDisplay(WebDriver Driver, String PartialLinkText) {
+    public static boolean findByPartialLinkTextElementIsDisplayed(String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         boolean Value = Element.isDisplayed();
@@ -857,11 +837,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Get Element Displayed or not.
-     * @param Driver
-     * @param TagName
+     *
+     * @param TagName Enter Tag Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean tagNameDisplay(WebDriver Driver, String TagName) {
+    public static boolean findByTagNameElementIsDisplayed(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         boolean Value = Element.isDisplayed();
@@ -871,11 +851,11 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Get Element Displayed or not.
-     * @param Driver
-     * @param XpathExpression
+     *
+     * @param XpathExpression Enter Xpath Expression In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean xpathDisplay(WebDriver Driver, String XpathExpression) {
+    public static boolean findByXpathElementIsDisplayed(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         boolean Value = Element.isDisplayed();
@@ -884,10 +864,11 @@ public class Methods {
 
     /**
      * Get Element Selected or Not.
-     * @param Element
+     *
+     * @param Element Enter Web Element.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean selected(WebElement Element) {
+    public static boolean elementIsSelected(WebElement Element) {
         boolean Value = Element.isSelected();
 
         return Value;
@@ -895,11 +876,11 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Get Element Selected or Not.
-     * @param Driver
-     * @param Classname
+     *
+     * @param Classname Enter Class Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean classNameSelect(WebDriver Driver, String Classname) {
+    public static boolean findByClassNameelementIsSelected(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         boolean Value = Element.isSelected();
@@ -910,11 +891,11 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Get Element Selected or Not.
-     * @param Driver
-     * @param CssSelector
+     *
+     * @param CssSelector Enter CssSelector In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean cssSelectorSelect(WebDriver Driver, String CssSelector) {
+    public static boolean findByCssSelectorElementIsSelected(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         boolean Value = Element.isSelected();
@@ -924,11 +905,11 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Get Element Selected or Not.
-     * @param Driver
-     * @param ID
+     *
+     * @param ID Enter ID In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean idSelect(WebDriver Driver, String ID) {
+    public static boolean findByIdelementIsSelected(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         boolean Value = Element.isSelected();
@@ -938,11 +919,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Get Element Selected or Not.
-     * @param Driver
-     * @param linkText
+     *
+     * @param linkText Enter Link Text In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean linkTextSelect(WebDriver Driver, String linkText) {
+    public static boolean findByLinkTextElementIsSelected(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         boolean Value = Element.isSelected();
@@ -952,11 +933,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Get Element Selected or Not.
-     * @param Driver
-     * @param Name
+     *
+     * @param Name Enter Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean nameSelect(WebDriver Driver, String Name) {
+    public static boolean findByNameElementIsSelected(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         boolean Value = Element.isSelected();
@@ -966,11 +947,12 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element Selected or Not.
-     * @param Driver
-     * @param PartialLinkText
+     *
+     * @param PartialLinkText Enter Partial Link Test in String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean partialLinkTextSelect(WebDriver Driver, String PartialLinkText) {
+    public static boolean findByPartialLinkTextelementIsSelected(WebDriver Driver, String PartialLinkText) {
+
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         boolean Value = Element.isSelected();
@@ -980,11 +962,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Get Element Selected or Not.
-     * @param Driver
-     * @param TagName
+     *
+     * @param TagName Enter Tag Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean tagNameSelect(WebDriver Driver, String TagName) {
+    public static boolean findByTagNameElementIsSelected(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         boolean Value = Element.isSelected();
@@ -994,12 +976,12 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Get Element Selected or Not.
-     * @param Driver
-     * @param XpathExpression
+     *
+     * @param XpathExpression Enter Xpath Expression in String.
      * @return Return Boolean Value (True Or False).
      */
     //
-    public static boolean xpathSelect(WebDriver Driver, String XpathExpression) {
+    public static boolean findByXpathElementIsSelected(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
         boolean Value = Element.isSelected();
@@ -1008,10 +990,11 @@ public class Methods {
 
     /**
      * Get Element currently Enabled or not.
-     * @param Element
+     *
+     * @param Element Enter Web Element.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean enable(WebElement Element) {
+    public static boolean elementIsEnabled(WebElement Element) {
         boolean Value = Element.isEnabled();
 
         return Value;
@@ -1019,11 +1002,11 @@ public class Methods {
 
     /**
      * Find Web Element By Class_Name and Get Element currently Enabled or not.
-     * @param Driver
-     * @param Classname
+     *
+     * @param Classname Enter Class Name in String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean classNameEnable(WebDriver Driver, String Classname) {
+    public static boolean findByClassNameElementIsEnabled(String Classname) {
         WebElement Element = Driver.findElement(By.className(Classname));
 
         boolean Value = Element.isEnabled();
@@ -1034,11 +1017,11 @@ public class Methods {
 
     /**
      * Find Web Element By CssSelector And Get Element currently Enabled or not.
-     * @param Driver
-     * @param CssSelector
+     *
+     * @param CssSelector Enter CssSelector in String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean cssSelectorEnable(WebDriver Driver, String CssSelector) {
+    public static boolean findByCssSelectorElementIsEnabled(String CssSelector) {
         WebElement Element = Driver.findElement(By.cssSelector(CssSelector));
 
         boolean Value = Element.isEnabled();
@@ -1048,11 +1031,11 @@ public class Methods {
 
     /**
      * Find Web Element By ID And Get Element currently Enabled or not.
-     * @param Driver
-     * @param ID
+     *
+     * @param ID Enter ID In String
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean idEnable(WebDriver Driver, String ID) {
+    public static boolean findByIdIselementIsEnabled(String ID) {
         WebElement Element = Driver.findElement(By.id(ID));
 
         boolean Value = Element.isEnabled();
@@ -1062,11 +1045,11 @@ public class Methods {
 
     /**
      * Find Web Element By linkText And Get Element currently Enabled or not.
-     * @param Driver
-     * @param linkText
+     *
+     * @param linkText Enter Link Text In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean linkTextEnable(WebDriver Driver, String linkText) {
+    public static boolean findByLinkTextElementIsEnabled(String linkText) {
         WebElement Element = Driver.findElement(By.linkText(linkText));
 
         boolean Value = Element.isEnabled();
@@ -1076,11 +1059,11 @@ public class Methods {
 
     /**
      * Find Web Element By Name And Get Element currently Enabled or not.
-     * @param Driver
-     * @param Name
+     *
+     * @param Name Enter Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean nameEnable(WebDriver Driver, String Name) {
+    public static boolean findBynameElementIsEnabled(String Name) {
         WebElement Element = Driver.findElement(By.name(Name));
 
         boolean Value = Element.isEnabled();
@@ -1090,11 +1073,11 @@ public class Methods {
 
     /**
      * Find Web Element By Partial_Link_Text And Get Element currently Enabled or not.
-     * @param Driver
-     * @param PartialLinkText
+     *
+     * @param PartialLinkText Enter Partial Link Text In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean partialLinkTextEnable(WebDriver Driver, String PartialLinkText) {
+    public static boolean findByPartialLinkTextElementIsEnabled(String PartialLinkText) {
         WebElement Element = Driver.findElement(By.partialLinkText(PartialLinkText));
 
         boolean Value = Element.isEnabled();
@@ -1104,11 +1087,11 @@ public class Methods {
 
     /**
      * Find Web Element By Tag_Name And Get Element currently Enabled or not.
-     * @param Driver
-     * @param TagName
+     *
+     * @param TagName Enter Tag Name In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean tagNameEnable(WebDriver Driver, String TagName) {
+    public static boolean findByTagNameElementIsEnabled(String TagName) {
         WebElement Element = Driver.findElement(By.tagName(TagName));
 
         boolean Value = Element.isEnabled();
@@ -1118,21 +1101,21 @@ public class Methods {
 
     /**
      * Find Web Element By xpath And Get Element currently Enabled or not.
-     * @param Driver
-     * @param XpathExpression
+     *
+     * @param XpathExpression Enter Xpath In String.
      * @return Return Boolean Value (True Or False).
      */
-    public static boolean xpathEnable(WebDriver Driver, String XpathExpression) {
+    public static boolean findByxpathElementIsEnabled(String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
-
         boolean Value = Element.isEnabled();
         return Value;
     }
 
     /**
      * Wait Script.
-     * @param secs
-     * Pause Or Sleep Script For Entered Sec.
+     *
+     * @param secs Enter Sec Value.
+     *             Pause Or Sleep Script For Entered Sec.
      */
     public static void pause(int secs) {
         try {
@@ -1144,12 +1127,11 @@ public class Methods {
 
     /**
      * Highlight Element.
-     * @param Driver
-     * @param Element
-     * Highlight Element With Solid Yellow Border.
+     *
+     * @param Element Highlight Element With Solid Yellow Border.
      */
     //Highlight Element.
-    public static void highlightElement(WebDriver Driver, WebElement Element) {
+    public static void highlightElement(WebElement Element) {
 
         ((JavascriptExecutor) Driver).executeScript("arguments[0].style.border = '3px solid yellow'", Element);
         pause(2);
@@ -1158,35 +1140,32 @@ public class Methods {
 
     /**
      * Perform Alert Accept Operation.
-     * @param Driver
+     * <p>
      * Accept Or Ok Alert.
      */
-    public static void alertAccept(WebDriver Driver)
-    {
+    public static void alertAccept() {
         Alert alert = Driver.switchTo().alert();
         alert.accept();
     }
 
     /**
      * Perform Alert Dismiss Operation.
-     * @param Driver
+     * <p>
      * Close Or Cancel Alert.
      */
     //
-    public static void alertDismiss(WebDriver Driver)
-    {
+    public static void alertDismiss() {
         Alert alert = Driver.switchTo().alert();
         alert.dismiss();
     }
 
     /**
      * Get Alert Text.
-     * @param Driver
-     * @return Return Text On Alert.
+     *
+     * @return Return Alert Text.
      */
     //
-    public static String getAlertText(WebDriver Driver)
-    {
+    public static String getAlertText() {
         Alert alert = Driver.switchTo().alert();
         String AlertText = alert.getText();
         return AlertText;
@@ -1194,35 +1173,33 @@ public class Methods {
 
     /**
      * Send Text On Alert.
-     * @param Driver
-     * @param Text
-     * Type Text On Alert.
+     *
+     * @param Text Type Text On Alert.
      */
-    public static void sendTextOnAlert(WebDriver Driver, String Text)
-    {
+    public static void sendTextOnAlert(String Text) {
         Alert alert = Driver.switchTo().alert();
         alert.sendKeys(Text);
     }
 
     /**
      * Open Mailinator Inbox.
-     * @param Driver
-     * @param EmailAddress
-     * Redirect On Entered Email Address Inbox Page.
+     *
+     * @param EmailAddress Enter Mailinator Email Address.
+     *                     Redirect On Entered Email Address Inbox Page.
      */
-    public static void openMailinatorInbox(WebDriver Driver, String EmailAddress) {
+    public static void openMailinatorInbox(String EmailAddress) {
         pause(2);
         String emailParsed[] = EmailAddress.split("@");
-        String url = "https://www.mailinator.com/inbox2.jsp?public_to="+emailParsed+"#/#public_maildirdiv";
+        String url = "https://www.mailinator.com/inbox2.jsp?public_to=" + emailParsed + "#/#public_maildirdiv";
         Driver.get(url);
     }
 
     /**
      * Get Current Date And Time.
+     *
      * @return Return Current Date & Time.
      */
-    public static String getCurrentDateTime()
-    {
+    public static String getCurrentDateTime() {
         Date date = new Date();
 
         SimpleDateFormat sd = new SimpleDateFormat("MMddHHmmssSS");
@@ -1234,7 +1211,8 @@ public class Methods {
 
     /**
      * Generate Random Numeric Number.
-     * @param Length
+     *
+     * @param Length Enter String Length In Integer.
      * @return Return Random Numeric String.
      */
     public static String generateRandomNumber(int Length) {
@@ -1246,11 +1224,11 @@ public class Methods {
 
     /**
      * Generate Random AlphaNumeric String.
-     * @param Length
+     *
+     * @param Length Enter String Length In Integer.
      * @return Return Random AlphaNumeric String.
      */
-    public static String generateRandomAlphanumeric(int Length)
-    {
+    public static String generateRandomAlphanumeric(int Length) {
         String RandomName = RandomStringUtils.randomAlphanumeric(Length);
         return RandomName;
     }
@@ -1258,22 +1236,22 @@ public class Methods {
 
     /**
      * Generate Random AlphaBetic String.
-     *@param Length
+     *
+     * @param Length Enter String Length In Integer.
      * @return Return Random Alphabetic String.
      **/
-    public static String generateRandomAlphabetic(int Length)
-    {
+    public static String generateRandomAlphabetic(int Length) {
         String RandomName = RandomStringUtils.randomAlphabetic(Length);
         return RandomName;
     }
 
     /**
      * Generate Random AlphaAscii String.
-     * @param Length
+     *
+     * @param Length Enter String Length In Integer.
      * @return Return Random Ascii String.
      */
-    public static String generateRandomAscii(int Length)
-    {
+    public static String generateRandomAscii(int Length) {
         String RandomAscii = RandomStringUtils.randomAscii(Length);
         return RandomAscii;
     }
@@ -1281,11 +1259,10 @@ public class Methods {
     /**
      * Drop Down list find by Xpath.
      *
-     * @param Driver
-     * @param Xpath  Enter Xpath Like ".//select[contains(@id,'year')]".
+     * @param Xpath Enter Xpath Like ".//select[contains(@id,'year')]".
      * @param Value Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseXpath(WebDriver Driver, String Xpath, String Value) {
+    public static void selectValueInDroupDownUseXpath(String Xpath, String Value) {
         Select dropdown = new Select(Driver.findElement(By.xpath(Xpath)));
 
         dropdown.selectByVisibleText(Value);
@@ -1294,11 +1271,10 @@ public class Methods {
     /**
      * Drop Down list find by Id.
      *
-     * @param Driver
-     * @param ID Enter Id For Find Drop Down List.
+     * @param ID    Enter Id For Find Drop Down List.
      * @param Value Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseID(WebDriver Driver, String ID, String Value) {
+    public static void selectValueInDroupDownUseID(String ID, String Value) {
         Select dropdown = new Select(Driver.findElement(By.id(ID)));
 
         dropdown.selectByVisibleText(Value);
@@ -1307,11 +1283,11 @@ public class Methods {
 
     /**
      * Drop Down List Find By Id.
-     * @param Driver
-     * @param Name Enter Name For Find Drop Down List.
+     *
+     * @param Name  Enter Name For Find Drop Down List.
      * @param Value Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseName(WebDriver Driver, String Name, String Value) {
+    public static void selectValueInDroupDownUseName(String Name, String Value) {
         Select dropdown = new Select(Driver.findElement(By.name(Name)));
 
         dropdown.selectByVisibleText(Value);
@@ -1320,11 +1296,11 @@ public class Methods {
 
     /**
      * Drop Down List Find By Class Name.
-     * @param Driver
+     *
      * @param ClassName Enter ClassName For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value     Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseClassName(WebDriver Driver, String ClassName, String Value) {
+    public static void selectValueInDroupDownUseClassName(String ClassName, String Value) {
         Select dropdown = new Select(Driver.findElement(By.className(ClassName)));
 
         dropdown.selectByVisibleText(Value);
@@ -1333,11 +1309,11 @@ public class Methods {
 
     /**
      * Drop Down List Find By TagName
-     * @param Driver
+     *
      * @param TagName Enter Tag Name For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value   Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseTagName(WebDriver Driver, String TagName, String Value) {
+    public static void selectValueInDroupDownUseTagName(String TagName, String Value) {
         Select dropdown = new Select(Driver.findElement(By.tagName(TagName)));
 
         dropdown.selectByVisibleText(Value);
@@ -1346,11 +1322,11 @@ public class Methods {
 
     /**
      * Drop Down List Find By TagName.
-     * @param Driver
+     *
      * @param LinkText Enter Link Name For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value    Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseLinkName(WebDriver Driver, String LinkText, String Value) {
+    public static void selectValueInDroupDownUseLinkName(String LinkText, String Value) {
         Select dropdown = new Select(Driver.findElement(By.linkText(LinkText)));
 
         dropdown.selectByVisibleText(Value);
@@ -1359,11 +1335,11 @@ public class Methods {
 
     /**
      * Drop Down List Find By Partial Link Text.
-     * @param Driver
+     *
      * @param PartialLinkText Enter Partial Link Text For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value           Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUsePartialLinkText(WebDriver Driver, String PartialLinkText, String Value) {
+    public static void selectValueInDroupDownUsePartialLinkText(String PartialLinkText, String Value) {
         Select dropdown = new Select(Driver.findElement(By.partialLinkText(PartialLinkText)));
 
         dropdown.selectByVisibleText(Value);
@@ -1372,11 +1348,11 @@ public class Methods {
 
     /**
      * Drop Down List Find By Css Selector.
-     * @param Driver
+     *
      * @param Selector Enter Css Selector For Find Drop Down List.
-     * @param Value Select Value Text Enter.
+     * @param Value    Select Value Text Enter.
      */
-    public static void selectValueInDroupDownUseCssSelector(WebDriver Driver, String Selector, String Value) {
+    public static void selectValueInDroupDownUseCssSelector(String Selector, String Value) {
         Select dropdown = new Select(Driver.findElement(By.cssSelector(Selector)));
 
         dropdown.selectByVisibleText(Value);
@@ -1385,49 +1361,45 @@ public class Methods {
 
     /**
      * Web Pace Scroll By Given Pixel Offset
-     * @param Driver
-     * @param ScrollHeight
+     *
+     * @param ScrollHeight Enter Scroll Height IN px.
      */
-    public static void scrollingByCoordinates(WebDriver Driver, int ScrollHeight)
-    {
+    public static void scrollingByCoordinates(int ScrollHeight) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver;
         jse.executeScript("window.scrollBy(0,ScrollHeight)");
     }
 
     /**
      * Web Page Scrolling To Web Element.
-     * @param Driver
-     * @param element
+     *
+     * @param element Enter Web Element.
      */
-    public static void scrollingToElement(WebDriver Driver, WebElement element)
-    {
+    public static void scrollingToElement(WebElement element) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver;
-        jse.executeScript( "arguments[0].scrollIntoView();", element);
+        jse.executeScript("arguments[0].scrollIntoView();", element);
     }
 
     /**
      * Web Page Scrolling To Page Bottom.
-     * @param Driver
      */
-    public static void scrollingToBottom(WebElement Driver)
-    {
+    public static void scrollingToBottom() {
         JavascriptExecutor jse = (JavascriptExecutor) Driver;
         jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
     /**
      * Web Page Scrolling To Web Element Using Keys.
-     * @param element
+     *
+     * @param element Enter Web Element.
      */
-    public static void scrollToElementUsingKeys(WebElement element)
-    {
+    public static void scrollToElementUsingKeys(WebElement element) {
         element.sendKeys(Keys.PAGE_DOWN);
     }
 
     /**
      * Print Message On Console And Reporter Screen.
      *
-     * @param msg
+     * @param msg Enter Message You Want To Print On Reporter Screen And Terminal.
      */
     public static void log(String msg) {
 
@@ -1437,13 +1409,11 @@ public class Methods {
 
     /**
      * Control Switch To New Window.
-     *
-     * @param driver
      */
-    public static void switchToNewWindow(WebDriver driver) {
+    public static void switchToNewWindow() {
 
-        for (String winHandle : driver.getWindowHandles()) {
-            driver.switchTo().window(winHandle);
+        for (String winHandle : Driver.getWindowHandles()) {
+            Driver.switchTo().window(winHandle);
         }
 
     }
@@ -1462,7 +1432,6 @@ public class Methods {
             try {
                 Thread.sleep(2);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
@@ -1476,7 +1445,6 @@ public class Methods {
             try {
                 Thread.sleep(2);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -1484,21 +1452,66 @@ public class Methods {
 
     /**
      * Stop Page Loading.
-     * @param driver
      */
-    public static void stopPageLoading(WebDriver driver) {
-        driver.findElement(By.tagName("body")).sendKeys(Keys.ESCAPE);
+    public static void stopPageLoading() {
+        Driver.findElement(By.tagName("body")).sendKeys(Keys.ESCAPE);
     }
 
     /**
      * Focus Switch To Selected Frame.
-     * @param driver
+     *
      * @param xpath Enter Frame Xpath.
      */
-    public static void moveToFrameObjectelement(WebDriver driver, String xpath) {
+    public static void moveToFrameObjectelement(String xpath) {
 
-        driver.switchTo().frame(driver.findElement(By.xpath(xpath)));
+        Driver.switchTo().frame(Driver.findElement(By.xpath(xpath)));
 
+    }
+
+    public static WebDriver browserConfig() {
+        //WebDriver driver = null;
+
+        String Browser = PropertiesConfig.getValue("BrowserName");
+
+        if (Browser.equalsIgnoreCase("firefox")) {
+
+            Driver = new FirefoxDriver();
+            Driver.manage().window().maximize();
+            // FirefoxDriverManager.getInstance().setup();
+        } else if (Browser.equalsIgnoreCase("ie8")) {
+
+        } else if (Browser.equalsIgnoreCase("ie9")) {
+
+        } else if (Browser.equalsIgnoreCase("ie11")) {
+
+        } else if (Browser.equalsIgnoreCase("opera")) {
+
+        } else if (Browser.equalsIgnoreCase("chrome")) {
+
+            Driver = new ChromeDriver();
+            Driver.manage().window().maximize();
+        } else if (Browser.equalsIgnoreCase("safari")) {
+
+        }
+
+        return Driver;
+
+    }
+
+
+    /**
+     * Quit Web Browser.
+     * Also Close All Sub Tab's.
+     */
+    public static void browserQuit() {
+        Driver.quit();
+    }
+
+    /**
+     * Close Current Tab.
+     */
+    public static void browserClose() {
+        Driver.close();
     }
 
 }

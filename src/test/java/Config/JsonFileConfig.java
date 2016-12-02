@@ -1,4 +1,4 @@
-package Methods;
+package Config;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,17 +13,18 @@ public class JsonFileConfig {
 
     /**
      * Read Key Value into the Json File.
-     *
-     * @param JSonFilePath
-     * @param KeyName
+     * @param KeyName Enter Get Value Key Name.
      * @return Return Key Value in String.
      */
-    public static String readKeyValueInFile(String JSonFilePath, String KeyName) {
+    public static String readKeyValueInFile(String KeyName) {
+
+        String ReadJsonFilePath = PropertiesConfig.getValue("ReadJsonFilePath");
+
         JSONParser parser = new JSONParser();
         String Value = null;
         try {
 
-            Object obj = parser.parse(new FileReader(JSonFilePath));
+            Object obj = parser.parse(new FileReader(ReadJsonFilePath));
 
             JSONObject jsonObt = (JSONObject) obj;
 
@@ -37,17 +38,18 @@ public class JsonFileConfig {
 
     /**
      * Read JSON Object Into The Json File.
-     *
-     * @param JSonFilePath
-     * @param ObjectKey
+     * @param ObjectKey Enter Get Value Object Name.
      * @return Return Json Object.
      */
-    public static JSONObject readJsonObjectInFile(String JSonFilePath, String ObjectKey) {
+    public static JSONObject readJsonObjectInFile(String ObjectKey) {
+
+        String ReadJsonFilePath = PropertiesConfig.getValue("ReadJsonFilePath");
+
         JSONParser parser = new JSONParser();
         JSONObject JsonObject = null;
         try {
 
-            Object File = parser.parse(new FileReader(JSonFilePath));
+            Object File = parser.parse(new FileReader(ReadJsonFilePath));
 
             JSONObject jsonObt = (JSONObject) File;
 
@@ -60,30 +62,29 @@ public class JsonFileConfig {
 
     /**
      * Read Key Value Into the Json Object.
-     *
-     * @param JsonObject
-     * @param KeyName
+     * @param JsonObject Enter Get Value Object Name.
+     * @param KeyName    Enter Get Value Key Name.
      * @return Return Key Value in String.
      */
     public static String readKeyValueInJsonObject(JSONObject JsonObject, String KeyName) {
 
-        JSONObject Object = JsonObject;
+        JSONObject object = JsonObject;
 
-        String Value = Object.get(KeyName).toString();
+        String value = object.get(KeyName).toString();
 
-        return Value;
+        return value;
     }
 
     /**
      * Create and Write in Json File.
-     *
-     * @param FilePathDestination Enter File Destination Path Like "C:\Users\user\Desktop\ABC.json".
-     * @param ObjectName
+     * @param ObjectName Enter Get Value Object Name.
      */
-    public static void writeInJsonFile(String FilePathDestination, JSONObject ObjectName) {
+    public static void writeInJsonFile(JSONObject ObjectName) {
         try {
 
-            FileWriter jsonFileWriter = new FileWriter(FilePathDestination);
+            String WriteJsonFilePath = PropertiesConfig.getValue("WriteJsonFilePath");
+
+            FileWriter jsonFileWriter = new FileWriter(WriteJsonFilePath);
 
 
             jsonFileWriter.write(ObjectName.toJSONString());
@@ -103,8 +104,7 @@ public class JsonFileConfig {
 
     /**
      * Add String Data In Json.
-     *
-     * @param ObjectName
+     * @param ObjectName Enter Get Value Object Name.
      * @param Key        Enter Key in string.
      * @param Value      Enter Value in String.
      */
@@ -114,8 +114,7 @@ public class JsonFileConfig {
 
     /**
      * Add Integer Data In Json.
-     *
-     * @param ObjectName
+     * @param ObjectName Enter Get Value Key Name.
      * @param Key        Enter Key in string.
      * @param Value      Enter Value in Integer.
      */
@@ -125,8 +124,7 @@ public class JsonFileConfig {
 
     /**
      * Add Json Object In Json
-     *
-     * @param Final
+     * @param Final           Enter Final JsonObject Name.
      * @param Key             Enter Key in string.
      * @param JsonObjectValue Enter JsonObjectValue in JSONObject.
      */

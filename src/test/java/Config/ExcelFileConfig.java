@@ -1,4 +1,4 @@
-package Methods;
+package Config;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -18,15 +18,17 @@ public class ExcelFileConfig {
 
     /**
      * Read Entered Sheet All Data.
-     * @param FilePath
-     * @param SheetNo
+     *
+     * @param SheetNo Enter Your Selected Sheet number For Read Your Data.
      * @return Return Sheet All Data In String Array.
      */
-    public static ArrayList<String> readExcelSheetAllData(String FilePath, int SheetNo) {
+    public static ArrayList<String> readExcelSheetAllData(int SheetNo) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
 
         ArrayList<String> SheetData = new ArrayList<String>();
         try {
-            FileInputStream inputStream = new FileInputStream(new File(FilePath));
+            FileInputStream inputStream = new FileInputStream(new File(ReadExalFilePath));
 
             Workbook workbook = new XSSFWorkbook(inputStream);
             Sheet firstSheet = workbook.getSheetAt(SheetNo);
@@ -58,16 +60,18 @@ public class ExcelFileConfig {
 
     /**
      * Read Only Enter Row Data.
-     * @param FilePath
-     * @param SheetNo
-     * @param RowNo
+     *
+     * @param SheetNo Enter Your Selected Sheet number For Read Your Data.
+     * @param RowNo   Enter Your Selected Row Number.
      * @return Return Selected Row Data In String Array.
      */
-    public static ArrayList<String> readSelectedRow(String FilePath, int SheetNo, int RowNo) {
+    public static ArrayList<String> readSelectedRow(int SheetNo, int RowNo) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
 
         ArrayList<String> SheetData = new ArrayList<String>();
         try {
-            FileInputStream inputStream = new FileInputStream(new File(FilePath));
+            FileInputStream inputStream = new FileInputStream(new File(ReadExalFilePath));
 
             Workbook workbook = new XSSFWorkbook(inputStream);
             Sheet firstSheet = workbook.getSheetAt(SheetNo);
@@ -104,16 +108,18 @@ public class ExcelFileConfig {
 
     /**
      * Read Only Enter Column Data.
-     * @param FilePath
-     * @param SheetNo
-     * @param ColumnNo
+     *
+     * @param SheetNo  Enter Your Selected Sheet number For Read Your Data.
+     * @param ColumnNo Enter Your Selected Column Number.
      * @return Return Selected Column Data In String Array.
      */
-    public static ArrayList<String> readselectColumn(String FilePath, int SheetNo, int ColumnNo) {
+    public static ArrayList<String> readselectColumn(int SheetNo, int ColumnNo) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
 
         ArrayList<String> SheetData = new ArrayList<String>();
         try {
-            FileInputStream inputStream = new FileInputStream(new File(FilePath));
+            FileInputStream inputStream = new FileInputStream(new File(ReadExalFilePath));
 
             Workbook workbook = new XSSFWorkbook(inputStream);
             Sheet firstSheet = workbook.getSheetAt(SheetNo);
@@ -147,17 +153,19 @@ public class ExcelFileConfig {
 
     /**
      * Read Only Single Cell.
-     * @param FilePath
-     * @param SheetNo
-     * @param RowNo
-     * @param ColumnNo
+     *
+     * @param SheetNo  Enter Your Selected Sheet number For Read Your Data.
+     * @param RowNo    Enter Your Selected Row Number.
+     * @param ColumnNo Enter Your Selected Column Number.
      * @return Selected Cell Value In String.
      */
-    public static String readSelectedCell(String FilePath, int SheetNo, int RowNo, int ColumnNo) {
+    public static String readSelectedCell(int SheetNo, int RowNo, int ColumnNo) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
 
         String CellValue = null;
         try {
-            FileInputStream inputStream = new FileInputStream(new File(FilePath));
+            FileInputStream inputStream = new FileInputStream(new File(ReadExalFilePath));
 
             Workbook workbook = new XSSFWorkbook(inputStream);
             Sheet firstSheet = workbook.getSheetAt(SheetNo);
@@ -194,15 +202,17 @@ public class ExcelFileConfig {
     /**
      * Write String Data On Selected Cell.
      *
-     * @param FilePath
-     * @param SheetNumber
-     * @param Row
-     * @param Cell
-     * @param Text
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param Row         Enter Your Selected Row Number.
+     * @param Column      Enter Your Selected Column Number.
+     * @param Text        Enter String Text.
      */
-    public static void writeStringDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, String Text) {
+    public static void writeStringDataOnCell(int SheetNumber, int Row, int Column, String Text) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
-            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             // Get the workbook instance for XLS file
             HSSFWorkbook workbook = new HSSFWorkbook(file);
@@ -212,13 +222,13 @@ public class ExcelFileConfig {
 
             Cell cell = null;
 
-            cell = sheet.getRow(Row).createCell(Cell);
+            cell = sheet.getRow(Row).createCell(Column);
 
             cell.setCellValue((String) Text);
 
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -230,15 +240,17 @@ public class ExcelFileConfig {
     /**
      * Write Integer Data On Selected Cell.
      *
-     * @param FilePath
-     * @param SheetNumber
-     * @param Row
-     * @param Cell
-     * @param Number
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param Row         Enter Your Selected Row Number.
+     * @param Column      Enter Your Selected Column Number.
+     * @param Number      Enter Numeric Number.
      */
-    public static void writeIntDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, int Number) {
+    public static void writeIntDataOnCell(int SheetNumber, int Row, int Column, int Number) {
         try {
-            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+
+            String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             // Get the workbook instance for XLS file
             HSSFWorkbook workbook = new HSSFWorkbook(file);
@@ -248,13 +260,13 @@ public class ExcelFileConfig {
 
             Cell cell = null;
 
-            cell = sheet.getRow(Row).createCell(Cell);
+            cell = sheet.getRow(Row).createCell(Column);
 
             cell.setCellValue((int) Number);
 
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -266,15 +278,17 @@ public class ExcelFileConfig {
     /**
      * Write Float Data On Selected Cell.
      *
-     * @param FilePath
-     * @param SheetNumber
-     * @param Row
-     * @param Cell
-     * @param FloatNumber
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param Row         Enter Your Selected Row Number.
+     * @param Column      Enter Your Selected Column Number.
+     * @param FloatNumber Enter Float Value.
      */
-    public static void writeIntDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, float FloatNumber) {
+    public static void writeIntDataOnCell(int SheetNumber, int Row, int Column, float FloatNumber) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
-            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             // Get the workbook instance for XLS file
             HSSFWorkbook workbook = new HSSFWorkbook(file);
@@ -284,13 +298,13 @@ public class ExcelFileConfig {
 
             Cell cell = null;
 
-            cell = sheet.getRow(Row).createCell(Cell);
+            cell = sheet.getRow(Row).createCell(Column);
 
             cell.setCellValue((float) FloatNumber);
 
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -302,15 +316,17 @@ public class ExcelFileConfig {
     /**
      * Write Boolean Data On Selected Cell.
      *
-     * @param FilePath
-     * @param SheetNumber
-     * @param Row
-     * @param Cell
-     * @param BooleanValue
+     * @param SheetNumber  Enter Your Selected Sheet number For Read Your Data.
+     * @param Row          Enter Your Selected Row Number.
+     * @param Column       Enter Your Selected Column Number.
+     * @param BooleanValue Enter Boolean Value.
      */
-    public static void writeIntDataOnCell(String FilePath, int SheetNumber, int Row, int Cell, Boolean BooleanValue) {
+    public static void writeIntDataOnCell(int SheetNumber, int Row, int Column, Boolean BooleanValue) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
-            FileInputStream file = new FileInputStream(new File(FilePath).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             // Get the workbook instance for XLS file
             HSSFWorkbook workbook = new HSSFWorkbook(file);
@@ -320,13 +336,13 @@ public class ExcelFileConfig {
 
             Cell cell = null;
 
-            cell = sheet.getRow(Row).createCell(Cell);
+            cell = sheet.getRow(Row).createCell(Column);
 
             cell.setCellValue((Boolean) BooleanValue);
 
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FilePath));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -340,17 +356,19 @@ public class ExcelFileConfig {
      * Enter Stating Row Number For Start Writing On That Row.
      * Enter Stating and Ending Cell Number.
      *
-     * @param FileName
-     * @param SheetNumber
-     * @param StartRow
-     * @param StartCell
-     * @param EndCell
-     * @param Text
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param StartRow    Enter Your Selected Start Row Number.
+     * @param StartColumn Enter Your Selected Start Column Number.
+     * @param EndCell     Enter Your Selected End Column Number.
+     * @param Text        Enter String Text.
      */
-    public static void writeStringDataOnMultipalCell(String FileName, int SheetNumber, int StartRow, int StartCell, int EndCell, String Text) {
+    public static void writeStringDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, String Text) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
 
-            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             HSSFWorkbook workbook = new HSSFWorkbook(file);
 
@@ -367,7 +385,7 @@ public class ExcelFileConfig {
 
                     Cell cell = null;
 
-                    for (int i = StartCell; i <= EndCell; i++) {
+                    for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
                         cell.setCellValue((String) Text);
@@ -378,7 +396,7 @@ public class ExcelFileConfig {
             }
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -392,17 +410,19 @@ public class ExcelFileConfig {
      * Enter Stating Row Number For Start Writing On That Row.
      * Enter Stating and Ending Cell Number.
      *
-     * @param FileName
-     * @param SheetNumber
-     * @param StartRow
-     * @param StartCell
-     * @param EndCell
-     * @param IntegerNumber
+     * @param SheetNumber   Enter Your Selected Sheet number For Read Your Data.
+     * @param StartRow      Enter Your Selected Start Row Number.
+     * @param StartColumn   Enter Your Selected Start Column Number.
+     * @param EndCell       Enter Your Selected End Column Number.
+     * @param IntegerNumber Enter Numeric Number.
      */
-    public static void writeIntDataOnMultipalCell(String FileName, int SheetNumber, int StartRow, int StartCell, int EndCell, int IntegerNumber) {
+    public static void writeIntDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, int IntegerNumber) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
 
-            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             HSSFWorkbook workbook = new HSSFWorkbook(file);
 
@@ -419,7 +439,7 @@ public class ExcelFileConfig {
 
                     Cell cell = null;
 
-                    for (int i = StartCell; i <= EndCell; i++) {
+                    for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
                         cell.setCellValue((int) IntegerNumber);
@@ -430,7 +450,7 @@ public class ExcelFileConfig {
             }
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -444,17 +464,19 @@ public class ExcelFileConfig {
      * Enter Stating Row Number For Start Writing On That Row.
      * Enter Stating and Ending Cell Number.
      *
-     * @param FileName
-     * @param SheetNumber
-     * @param StartRow
-     * @param StartCell
-     * @param EndCell
-     * @param FloatNumber
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param StartRow    Enter Your Selected Start Row Number.
+     * @param StartColumn Enter Your Selected Start Column Number.
+     * @param EndCell     Enter Your Selected End Column Number.
+     * @param FloatNumber Enter Float Number.
      */
-    public static void writeFloatDataOnMultipalCell(String FileName, int SheetNumber, int StartRow, int StartCell, int EndCell, float FloatNumber) {
+    public static void writeFloatDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, float FloatNumber) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
 
-            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             HSSFWorkbook workbook = new HSSFWorkbook(file);
 
@@ -471,7 +493,7 @@ public class ExcelFileConfig {
 
                     Cell cell = null;
 
-                    for (int i = StartCell; i <= EndCell; i++) {
+                    for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
                         cell.setCellValue((float) FloatNumber);
@@ -482,7 +504,7 @@ public class ExcelFileConfig {
             }
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -496,17 +518,19 @@ public class ExcelFileConfig {
      * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
      * Enter Stating and Ending Cell Number.
      *
-     * @param FileName
-     * @param SheetNumber
-     * @param RowNumber
-     * @param StartCell
-     * @param EndCell
-     * @param Text
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param RowNumber   Enter Your Selected Row Number.
+     * @param StartColumn Enter Your Selected Start Column Number.
+     * @param EndCell     Enter Your Selected End Column Number.
+     * @param Text        Enter String Text.
      */
-    public static void writeStringDataOnSingleRowMultipalCell(String FileName, int SheetNumber, int RowNumber, int StartCell, int EndCell, String Text) {
+    public static void writeStringDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, String Text) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
 
-            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             HSSFWorkbook workbook = new HSSFWorkbook(file);
 
@@ -523,7 +547,7 @@ public class ExcelFileConfig {
 
                     Cell cell = null;
 
-                    for (int i = StartCell; i <= EndCell; i++) {
+                    for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
                         cell.setCellValue((String) Text);
@@ -534,7 +558,7 @@ public class ExcelFileConfig {
             }
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -548,17 +572,19 @@ public class ExcelFileConfig {
      * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
      * Enter Stating and Ending Cell Number.
      *
-     * @param FileName
-     * @param SheetNumber
-     * @param RowNumber
-     * @param StartCell
-     * @param EndCell
-     * @param IntegerNumber
+     * @param SheetNumber   Enter Your Selected Sheet number For Read Your Data.
+     * @param RowNumber     Enter Your Selected Row Number.
+     * @param StartColumn   Enter Your Selected Start Column Number.
+     * @param EndCell       Enter Your Selected End Column Number.
+     * @param IntegerNumber Enter Numeric Number.
      */
-    public static void writeIntDataOnSingleRowMultipalCell(String FileName, int SheetNumber, int RowNumber, int StartCell, int EndCell, int IntegerNumber) {
+    public static void writeIntDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, int IntegerNumber) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
 
-            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             HSSFWorkbook workbook = new HSSFWorkbook(file);
 
@@ -575,7 +601,7 @@ public class ExcelFileConfig {
 
                     Cell cell = null;
 
-                    for (int i = StartCell; i <= EndCell; i++) {
+                    for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
                         cell.setCellValue((int) IntegerNumber);
@@ -586,7 +612,7 @@ public class ExcelFileConfig {
             }
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -600,17 +626,19 @@ public class ExcelFileConfig {
      * Enter Row Number For Selecting Row in Multiple Cell Enter Text.
      * Enter Stating and Ending Cell Number.
      *
-     * @param FileName
-     * @param SheetNumber
-     * @param RowNumber
-     * @param StartCell
-     * @param EndCell
-     * @param FloatNumber
+     * @param SheetNumber Enter Your Selected Sheet number For Read Your Data.
+     * @param RowNumber   Enter Your Selected Row Number.
+     * @param StartColumn Enter Your Selected Start Column Number.
+     * @param EndCell     Enter Your Selected End Column Number.
+     * @param FloatNumber Enter Float Number.
      */
-    public static void writeFloatDataOnSingleRowMultipalCell(String FileName, int SheetNumber, int RowNumber, int StartCell, int EndCell, float FloatNumber) {
+    public static void writeFloatDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, float FloatNumber) {
+
+        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+
         try {
 
-            FileInputStream file = new FileInputStream(new File(FileName).getAbsolutePath());
+            FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
             HSSFWorkbook workbook = new HSSFWorkbook(file);
 
@@ -627,7 +655,7 @@ public class ExcelFileConfig {
 
                     Cell cell = null;
 
-                    for (int i = StartCell; i <= EndCell; i++) {
+                    for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
                         cell.setCellValue((float) FloatNumber);
@@ -638,7 +666,7 @@ public class ExcelFileConfig {
             }
             file.close();
 
-            FileOutputStream outFile = new FileOutputStream(new File(FileName));
+            FileOutputStream outFile = new FileOutputStream(new File(ReadExalFilePath));
             workbook.write(outFile);
             outFile.close();
 
@@ -646,8 +674,6 @@ public class ExcelFileConfig {
             e.printStackTrace();
         }
     }
-
-
 
 
 }
