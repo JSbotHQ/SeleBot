@@ -2766,7 +2766,8 @@ public class General {
         pause(2);
     }
 
-    //-------------------------------------------------------------------------------------------------------------
+
+
     public static boolean actualIsEqualToExpected(String actual, String expected)
     {
         boolean result;
@@ -2863,7 +2864,7 @@ public class General {
 
 
 
-
+    //-------------------------------------------------------------------------------------------------------------
 
 
 }

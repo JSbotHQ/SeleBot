@@ -6,12 +6,23 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 /**
  * Created by Viral on 11/26/2016.
@@ -19,6 +30,8 @@ import java.util.*;
 public class Methods {
 
     public static WebDriver Driver;
+
+    protected static Wait<WebDriver> wait;
 
     /**
      * Open URL.
@@ -377,7 +390,7 @@ public class Methods {
     /**
      * Send Text on Web Element
      *
-     * @param Element  Enter Web Element.
+     * @param Element Enter Web Element.
      * @param Text    Enter Text On Web Element.
      */
     public static void SendKeys(WebElement Element, String Text) {
@@ -387,7 +400,7 @@ public class Methods {
     /**
      * Find Web Element By Class_Name and SendKey.
      *
-     * @param Classname  Enter Class Name In String.
+     * @param Classname Enter Class Name In String.
      * @param Text      Enter Text On Web Element.
      */
     public static void findByClassNameSendKey(String Classname, String Text) {
@@ -400,7 +413,7 @@ public class Methods {
     /**
      * Find Web Element By CssSelector And SendKey.
      *
-     * @param CssSelector  Enter Css Selector In String.
+     * @param CssSelector Enter Css Selector In String.
      * @param Text        Enter Text On Web Element.
      */
     public static void findByCssSelectorSendKey(String CssSelector, String Text) {
@@ -413,7 +426,7 @@ public class Methods {
     /**
      * Find Web Element By ID And SendKey.
      *
-     * @param ID  Enter ID In String.
+     * @param ID   Enter ID In String.
      * @param Text Enter Text On Web Element.
      */
     public static void findByIdSendKey(String ID, String Text) {
@@ -426,7 +439,7 @@ public class Methods {
     /**
      * Find Web Element By linkText And SendKey.
      *
-     * @param linkText  Enter Link Text In String.
+     * @param linkText Enter Link Text In String.
      * @param Text     Enter Text On Web Element.
      */
     public static void findByLinkTextSendKey(String linkText, String Text) {
@@ -1471,6 +1484,9 @@ public class Methods {
     public static WebDriver browserConfig() {
         //WebDriver driver = null;
 
+
+        DesiredCapabilities capability = null;
+
         String Browser = PropertiesConfig.getValue("BrowserName");
 
         if (Browser.equalsIgnoreCase("firefox")) {
@@ -1484,13 +1500,51 @@ public class Methods {
 
         } else if (Browser.equalsIgnoreCase("ie11")) {
 
+            capability = DesiredCapabilities.internetExplorer();
+            System.setProperty("webdriver.ie.driver",
+                    "D:\\IEDriverServer.exe");
+
+            capability.setBrowserName("internet explorer");
+            capability.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+            capability.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+            capability.setJavascriptEnabled(true);
+
+
+            Driver = new InternetExplorerDriver(capability);
+
         } else if (Browser.equalsIgnoreCase("opera")) {
+            capability = DesiredCapabilities.opera();
+            System.setProperty("webdriver.opera.driver",
+                    "D:\\operadriver_win64\\operadriver.exe");
+
+            //capability.setJavascriptEnabled(true);
+            //browserName = capability.getVersion();
+            // osName = capability.getPlatform().getCurrent().name();
+            //browserVersion = capability.getVersion();
+
+            Driver = new OperaDriver(capability);
 
         } else if (Browser.equalsIgnoreCase("chrome")) {
 
-            Driver = new ChromeDriver();
+            capability = DesiredCapabilities.chrome();
+            System.setProperty("webdriver.chrome.driver", "D:\\operadriver_win32\\operadriver.exe");
+
+            capability.setJavascriptEnabled(true);
+
+
+            Driver = new ChromeDriver(capability);
             Driver.manage().window().maximize();
         } else if (Browser.equalsIgnoreCase("safari")) {
+
+            System.setProperty("webdriver.safari.driver", "D:\\SafariDriver.safariextz");
+            //driver = new SafariDriver();
+            SafariDriver profile = new SafariDriver();
+
+            capability = DesiredCapabilities.safari();
+            capability.setJavascriptEnabled(true);
+            capability.setBrowserName("safari");
+
+            Driver = new SafariDriver(capability);
 
         }
 
@@ -1795,5 +1849,416 @@ public class Methods {
         ((JavascriptExecutor) Driver).executeScript("arguments[0].style.border = '3px solid yellow'", tagName(TagName));
         pause(2);
     }
+
+    /**
+     * Web Element Find By Xpath And Wait For Element Load On Page.
+     *
+     * @param xpath Enter Web Element Xpath In String.
+     */
+    public static void waitForElementFindByXpath(String xpath) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.xpath(xpath)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Class Name And Wait For Element Load On Page.
+     *
+     * @param ClassName Enter Web Element Class Name In String.
+     */
+    public static void waitForElementFindByClassName(String ClassName) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.className(ClassName)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Css Selector And Wait For Element Load On Page.
+     *
+     * @param CssSlector Enter Web Element Css Selector In String.
+     */
+    public static void waitForElementFindByCssSelector(String CssSlector) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.cssSelector(CssSlector)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Id And Wait For Element Load On Page.
+     *
+     * @param ID Enter Web Element Id In String.
+     */
+    public static void waitForElementFindById(String ID) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.id(ID)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Name And Wait For Element Load On Page.
+     *
+     * @param Name Enter Web Element Name In String.
+     */
+    public static void waitForElementFindByName(String Name) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.name(Name)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Link Text And Wait For Element Load On Page.
+     *
+     * @param LinkText Enter Web Element Link Text In String.
+     */
+    public static void waitForElementFindByLinkText(String LinkText) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.linkText(LinkText)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Partial Link Text And Wait For Element Load On Page.
+     *
+     * @param PartialLinkText Enter Web Element Partial Link Text In String.
+     */
+    public static void waitForElementFindByPartialLinkText(String PartialLinkText) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.partialLinkText(PartialLinkText)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Tag Name And Wait For Element Load On Page.
+     *
+     * @param TagName Enter Web Element Tag Name In String.
+     */
+    public static void waitForElementFindByTagName(String TagName) {
+        wait = new WebDriverWait(Driver, 600);
+        try {
+            wait.until(visibilityOfElementLocated(By.tagName(TagName)));
+        } catch (Exception e) {
+        }
+    }
+
+    /**
+     * Web Element Find By Xpath And Mouse Hover Action Perform.
+     * @param Xpath Enter Web Element Xpath In String.
+     */
+    public static void mouseHoverFindByXpath(String Xpath) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(xpath(Xpath)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Class Name And Mouse Hover Action Perform.
+     * @param ClassName Enter Web Element Class Name In String.
+     */
+    public static void mouseHoverFindByClassName(String ClassName) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(className(ClassName)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Name And Mouse Hover Action Perform.
+     * @param Name Enter Web Element Name In String.
+     */
+    public static void mouseHoverFindByName(String Name) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(name(Name)).build().perform();
+    }
+
+    /**
+     * Web Element Find By ID And Mouse Hover Action Perform.
+     * @param ID Enter Web Element ID In String.
+     */
+    public static void mouseHoverFindById(String ID) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(id(ID)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Css Selector And Mouse Hover Action Perform.
+     * @param CssSelector Enter Web Element Css Selector In String.
+     */
+    public static void mouseHoverFindByCssSelector(String CssSelector) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(cssSelector(CssSelector)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Link Text And Mouse Hover Action Perform.
+     * @param LinkText Enter Web Element Link Text In String.
+     */
+    public static void mouseHoverFindByLinkText(String LinkText) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(linkText(LinkText)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Partial Link Text And Mouse Hover Action Perform.
+     * @param PartialLinkText Enter Web Element Partial Link Text In String.
+     */
+    public static void mouseHoverFindByPartialLinkText(String PartialLinkText) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(partialLinkText(PartialLinkText)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Tag Name And Mouse Hover Action Perform.
+     * @param TagName Enter Web Element Tag Name In String.
+     */
+    public static void mouseHoverFindByTagName(String TagName) {
+        Actions action = new Actions(Driver);
+        action.moveToElement(tagName(TagName)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Xpath And Right Click Action Perform.
+     * @param Xpath  Enter Web Element Xpath In String.
+     */
+    public static void mouseRightClickElementFindByXpath(String Xpath) {
+
+        Actions action = new Actions(Driver).contextClick(xpath(Xpath));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Name And Right Click Action Perform.
+     * @param Name  Enter Web Element Name In String.
+     *
+     */
+    public static void mouseRightClickElementFindByName(String Name) {
+
+        Actions action = new Actions(Driver).contextClick(name(Name));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By ID And Right Click Action Perform.
+     * @param ID  Enter Web Element ID In String.
+     */
+    public static void mouseRightClickElementFindById(String ID) {
+
+        Actions action = new Actions(Driver).contextClick(id(ID));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Class Name And Right Click Action Perform.
+     * @param ClassName  Enter Web Element Class Name In String.
+     */
+    public static void mouseRightClickElementFindByClassName(String ClassName) {
+
+        Actions action = new Actions(Driver).contextClick(className(ClassName));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Css Selector And Right Click Action Perform.
+     * @param CssSelector  Enter Web Element Css Selector In String.
+     */
+    public static void mouseRightClickElementFindByCssSelector(String CssSelector) {
+
+        Actions action = new Actions(Driver).contextClick(cssSelector(CssSelector));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Link Text And Right Click Action Perform.
+     * @param LinkText  Enter Web Element Link Text In String.
+     */
+    public static void mouseRightClickElementFindByLinkText(String LinkText) {
+
+        Actions action = new Actions(Driver).contextClick(linkText(LinkText));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Partial Link Text And Right Click Action Perform.
+     * @param PartialLinkText  Enter Web Element Partial Link Text In String.
+     */
+    public static void mouseRightClickElementFindByPartialLinkText(String PartialLinkText) {
+
+        Actions action = new Actions(Driver).contextClick(partialLinkText(PartialLinkText));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Tag Name And Right Click Action Perform.
+     * @param TagName  Enter Web Element Tag Name In String.
+     */
+    public static void mouseRightClickElementFindByTagName(String TagName) {
+
+        Actions action = new Actions(Driver).contextClick(tagName(TagName));
+        action.build().perform();
+
+    }
+
+    /**
+     * Web Element Find By Xpath And Double Click Action Perform.
+     * @param Xpath Enter Web Element Xpath In String.
+     */
+    public static void doubleClickFindByXpath(String Xpath) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(xpath(Xpath)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Class Name And  Double Click Action Perform.
+     * @param ClassName Enter Web Element Class Name In String.
+     */
+    public static void doubleClickFindByClassName(String ClassName) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(className(ClassName)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Name And Double Click Action Perform.
+     * @param Name Enter Web Element Name In String.
+     */
+    public static void doubleClickFindByName(String Name) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(name(Name)).build().perform();
+    }
+
+    /**
+     * Web Element Find By ID And Double Click Action Perform.
+     * @param ID Enter Web Element ID In String.
+     */
+    public static void doubleClickFindById(String ID) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(id(ID)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Css Selector And Double Click Action Perform.
+     * @param CssSelector Enter Web Element Css Selector In String.
+     */
+    public static void doubleClickFindByCssSelector(String CssSelector) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(cssSelector(CssSelector)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Link Text And Double Click Action Perform.
+     * @param LinkText Enter Web Element Link Text In String.
+     */
+    public static void doubleClickFindByLinkText(String LinkText) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(linkText(LinkText)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Partial Link Text And Double Click Action Perform.
+     * @param PartialLinkText Enter Web Element Partial Link Text In String.
+     */
+    public static void doubleClickFindByPartialLinkText(String PartialLinkText) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(partialLinkText(PartialLinkText)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Tag Name And Double Click Action Perform.
+     * @param TagName Enter Web Element Tag Name In String.
+     */
+    public static void doubleClickFindByTagName(String TagName) {
+        Actions action = new Actions(Driver);
+        action.doubleClick(tagName(TagName)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Xpath And Click And Hold Action Perform.
+     * @param Xpath Enter Web Element Xpath In String.
+     */
+    public static void clickAndHoldFindByXpath(String Xpath) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(xpath(Xpath)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Class Name And  Click And Hold Action Perform.
+     * @param ClassName Enter Web Element Class Name In String.
+     */
+    public static void clickAndHoldFindByClassName(String ClassName) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(className(ClassName)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Name And Click And Hold Action Perform.
+     * @param Name Enter Web Element Name In String.
+     */
+    public static void clickAndHoldFindByName(String Name) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(name(Name)).build().perform();
+    }
+
+    /**
+     * Web Element Find By ID And Click And Hold Action Perform.
+     * @param ID Enter Web Element ID In String.
+     */
+    public static void clickAndHoldFindById(String ID) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(id(ID)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Css Selector And Click And Hold Action Perform.
+     * @param CssSelector Enter Web Element Css Selector In String.
+     */
+    public static void clickAndHoldFindByCssSelector(String CssSelector) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(cssSelector(CssSelector)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Link Text And Click And Hold Action Perform.
+     * @param LinkText Enter Web Element Link Text In String.
+     */
+    public static void clickAndHoldFindByLinkText(String LinkText) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(linkText(LinkText)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Partial Link Text And Click And Hold Action Perform.
+     * @param PartialLinkText Enter Web Element Partial Link Text In String.
+     */
+    public static void clickAndHoldFindByPartialLinkText(String PartialLinkText) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(partialLinkText(PartialLinkText)).build().perform();
+    }
+
+    /**
+     * Web Element Find By Tag Name And Click And Hold Action Perform.
+     * @param TagName Enter Web Element Tag Name In String.
+     */
+    public static void clickAndHoldFindByTagName(String TagName) {
+        Actions action = new Actions(Driver);
+        action.clickAndHold(tagName(TagName)).build().perform();
+    }
+
+
 
 }

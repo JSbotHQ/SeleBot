@@ -23,13 +23,11 @@ public class JsonFileConfig {
         JSONParser parser = new JSONParser();
         String Value = null;
         try {
-
             Object obj = parser.parse(new FileReader(ReadJsonFilePath));
 
             JSONObject jsonObt = (JSONObject) obj;
 
             Value = jsonObt.get(KeyName).toString();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,9 +84,7 @@ public class JsonFileConfig {
 
             FileWriter jsonFileWriter = new FileWriter(WriteJsonFilePath);
 
-
             jsonFileWriter.write(ObjectName.toJSONString());
-
 
             jsonFileWriter.flush();
 

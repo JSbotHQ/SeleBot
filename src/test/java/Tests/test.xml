@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite" verbose="10" parallel="tests" thread-count="1">
-    <test name="test">
-        <classes>
-            <class name="Tests.LoginModule.Tests">
-                <methods>
-                    <include name="test"/>
-                </methods>
-            </class> <!-- Tests.LoginModule.Tests -->
-        </classes>
-    </test> <!-- Selenium-TestNG-Framework -->
+
     <test name="Login">
         <classes>
             <class name="Tests.LoginModule.Tests">
                 <methods>
-                    <include name="loginAndSelectdroupdoen"/>
+                    <include name="Login"/>
                 </methods>
             </class> <!-- Tests.LoginModule.Tests -->
         </classes>
