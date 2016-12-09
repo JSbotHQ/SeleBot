@@ -157,7 +157,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText.
+     * Find Web Element By findByLinkText.
      *
      * @param Driver
      * @param linkText
@@ -209,7 +209,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath.
+     * Find Web Element By findByXpath.
      *
      * @param Driver
      * @param XpathExpression
@@ -270,7 +270,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Click.
+     * Find Web Element By findByLinkText And Click.
      *
      * @param Driver
      * @param linkText Click on Web Element.
@@ -321,7 +321,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Click.
+     * Find Web Element By findByXpath And Click.
      *
      * @param Driver
      * @param XpathExpression Click on Web Element.
@@ -382,7 +382,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Clear.
+     * Find Web Element By findByLinkText And Clear.
      *
      * @param Driver
      * @param linkText Clear Web Element Text.
@@ -433,12 +433,12 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Clear.
+     * Find Web Element By findByXpath And Clear.
      *
      * @param Driver
      * @param XpathExpression Clear Web Element Text.
      */
-    //Find Web Element By xpath And Clear.
+    //Find Web Element By findByXpath And Clear.
     public static void xpathClear(WebDriver Driver, String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
@@ -499,7 +499,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And SendKey.
+     * Find Web Element By findByLinkText And SendKey.
      *
      * @param Driver
      * @param linkText
@@ -554,7 +554,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And SendKey.
+     * Find Web Element By findByXpath And SendKey.
      *
      * @param Driver
      * @param XpathExpression
@@ -627,7 +627,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Text.
+     * Find Web Element By findByLinkText And Get Element Text.
      *
      * @param Driver
      * @param linkText
@@ -687,7 +687,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Text.
+     * Find Web Element By findByXpath And Get Element Text.
      *
      * @param Driver
      * @param XpathExpression
@@ -760,7 +760,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Tag Name.
+     * Find Web Element By findByLinkText And Get Element Tag Name.
      *
      * @param Driver
      * @param linkText
@@ -820,7 +820,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Tag Name.
+     * Find Web Element By findByXpath And Get Element Tag Name.
      *
      * @param Driver
      * @param XpathExpression
@@ -893,7 +893,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Displayed or not.
+     * Find Web Element By findByLinkText And Get Element Displayed or not.
      *
      * @param Driver
      * @param linkText
@@ -953,7 +953,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Displayed or not.
+     * Find Web Element By findByXpath And Get Element Displayed or not.
      *
      * @param Driver
      * @param XpathExpression
@@ -1025,7 +1025,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Selected or Not.
+     * Find Web Element By findByLinkText And Get Element Selected or Not.
      *
      * @param Driver
      * @param linkText
@@ -1085,7 +1085,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Selected or Not.
+     * Find Web Element By findByXpath And Get Element Selected or Not.
      *
      * @param Driver
      * @param XpathExpression
@@ -1158,7 +1158,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element currently Enabled or not.
+     * Find Web Element By findByLinkText And Get Element currently Enabled or not.
      *
      * @param Driver
      * @param linkText
@@ -1218,7 +1218,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element currently Enabled or not.
+     * Find Web Element By findByXpath And Get Element currently Enabled or not.
      *
      * @param Driver
      * @param XpathExpression
@@ -2140,7 +2140,7 @@ public class General {
      * Drop Down list find by Xpath.
      *
      * @param Driver
-     * @param Xpath  Enter Xpath Like ".//select[contains(@id,'year')]".
+     * @param Xpath  Enter Xpath Like ".//select[contains(@findById,'year')]".
      * @param Value  Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseXpath(WebDriver Driver, String Xpath, String Value) {
