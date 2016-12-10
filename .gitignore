@@ -1,3 +1,5 @@
+.idea/workspace.xml
+=======
 #################
 ## Eclipse
 #################
@@ -214,3 +216,12 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml
+.idea/libraries/Maven__com_typesafe_config_1_2_1.xml
+.idea/libraries/Maven__io_github_bonigarcia_webdrivermanager_1_5_0.xml
+.idea/libraries/Maven__org_apache_commons_commons_compress_1_9.xml
+.idea/libraries/Maven__org_jsoup_jsoup_1_9_2.xml
+.idea/libraries/Maven__org_rauschig_jarchivelib_0_7_1.xml
+.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml
+src/test/java/ObjectRepo/
