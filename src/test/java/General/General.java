@@ -2,7 +2,7 @@ package General;
 
 import Config.Methods;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -21,9 +21,12 @@ import org.testng.Reporter;
 
 import java.io.*;
 
+import java.sql.Driver;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 public class General {
@@ -40,8 +43,7 @@ public class General {
 
     }
 
-    public static String URl()
-    {
+    public static String URl() {
         String value = null;
         try {
             File file = new File(".\\src\\resources\\general.properties");
@@ -52,7 +54,7 @@ public class General {
 
             value = properties.getProperty("URL");
 
-            System.out.println("Read Value From Property File --->>>> "+value);
+            System.out.println("Read Value From Property File --->>>> " + value);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,8 +63,8 @@ public class General {
 
     /**
      * Open URL.
-     *
-     *
+     * <p>
+     * <p>
      * Open Properties File URL Web Page.
      */
     public static void openURL() {
@@ -155,7 +157,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText.
+     * Find Web Element By findByLinkText.
      *
      * @param Driver
      * @param linkText
@@ -207,7 +209,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath.
+     * Find Web Element By findByXpath.
      *
      * @param Driver
      * @param XpathExpression
@@ -268,7 +270,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Click.
+     * Find Web Element By findByLinkText And Click.
      *
      * @param Driver
      * @param linkText Click on Web Element.
@@ -319,7 +321,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Click.
+     * Find Web Element By findByXpath And Click.
      *
      * @param Driver
      * @param XpathExpression Click on Web Element.
@@ -380,7 +382,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Clear.
+     * Find Web Element By findByLinkText And Clear.
      *
      * @param Driver
      * @param linkText Clear Web Element Text.
@@ -431,12 +433,12 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Clear.
+     * Find Web Element By findByXpath And Clear.
      *
      * @param Driver
      * @param XpathExpression Clear Web Element Text.
      */
-    //Find Web Element By xpath And Clear.
+    //Find Web Element By findByXpath And Clear.
     public static void xpathClear(WebDriver Driver, String XpathExpression) {
         WebElement Element = Driver.findElement(By.xpath(XpathExpression));
 
@@ -497,7 +499,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And SendKey.
+     * Find Web Element By findByLinkText And SendKey.
      *
      * @param Driver
      * @param linkText
@@ -552,7 +554,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And SendKey.
+     * Find Web Element By findByXpath And SendKey.
      *
      * @param Driver
      * @param XpathExpression
@@ -625,7 +627,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Text.
+     * Find Web Element By findByLinkText And Get Element Text.
      *
      * @param Driver
      * @param linkText
@@ -685,7 +687,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Text.
+     * Find Web Element By findByXpath And Get Element Text.
      *
      * @param Driver
      * @param XpathExpression
@@ -758,7 +760,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Tag Name.
+     * Find Web Element By findByLinkText And Get Element Tag Name.
      *
      * @param Driver
      * @param linkText
@@ -818,7 +820,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Tag Name.
+     * Find Web Element By findByXpath And Get Element Tag Name.
      *
      * @param Driver
      * @param XpathExpression
@@ -891,7 +893,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Displayed or not.
+     * Find Web Element By findByLinkText And Get Element Displayed or not.
      *
      * @param Driver
      * @param linkText
@@ -951,7 +953,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Displayed or not.
+     * Find Web Element By findByXpath And Get Element Displayed or not.
      *
      * @param Driver
      * @param XpathExpression
@@ -1023,7 +1025,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element Selected or Not.
+     * Find Web Element By findByLinkText And Get Element Selected or Not.
      *
      * @param Driver
      * @param linkText
@@ -1083,7 +1085,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element Selected or Not.
+     * Find Web Element By findByXpath And Get Element Selected or Not.
      *
      * @param Driver
      * @param XpathExpression
@@ -1156,7 +1158,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By linkText And Get Element currently Enabled or not.
+     * Find Web Element By findByLinkText And Get Element currently Enabled or not.
      *
      * @param Driver
      * @param linkText
@@ -1216,7 +1218,7 @@ public class General {
     }
 
     /**
-     * Find Web Element By xpath And Get Element currently Enabled or not.
+     * Find Web Element By findByXpath And Get Element currently Enabled or not.
      *
      * @param Driver
      * @param XpathExpression
@@ -1248,7 +1250,7 @@ public class General {
      * @param Driver
      * @param Element Highlight Element With Solid Yellow Border.
      */
-    //Highlight Element.
+
     public static void highlightElement(WebDriver Driver, WebElement Element) {
 
         ((JavascriptExecutor) Driver).executeScript("arguments[0].style.border = '3px solid yellow'", Element);
@@ -2138,7 +2140,7 @@ public class General {
      * Drop Down list find by Xpath.
      *
      * @param Driver
-     * @param Xpath  Enter Xpath Like ".//select[contains(@id,'year')]".
+     * @param Xpath  Enter Xpath Like ".//select[contains(@findById,'year')]".
      * @param Value  Select Value Text Enter.
      */
     public static void selectValueInDroupDownUseXpath(WebDriver Driver, String Xpath, String Value) {
@@ -2288,14 +2290,13 @@ public class General {
     }
 
 
-
     public static WebDriver browserConfig(String BrowserName) {
-       //WebDriver driver = null;
+        //WebDriver driver = null;
         if (BrowserName.equalsIgnoreCase("firefox")) {
 
             driver = new FirefoxDriver();
             driver.manage().window().maximize();
-           // FirefoxDriverManager.getInstance().setup();
+            // FirefoxDriverManager.getInstance().setup();
         } else if (BrowserName.equalsIgnoreCase("ie8")) {
 
         } else if (BrowserName.equalsIgnoreCase("ie9")) {
@@ -2395,16 +2396,475 @@ public class General {
 
     }
 
-    public static void browserQuit()
-    {
+    public static void browserQuit() {
         driver.quit();
     }
 
-    public static void browserClose(WebDriver driver)
-    {
+    public static void browserClose(WebDriver driver) {
         driver.close();
     }
 
+
+
+    /**
+     * Find Web Element By Xpath And Select Random Option From Combo.
+     *
+     * @param Xpath Enter Xpath.
+     * @param No    How Many time you want to select Random value From Combo.
+     *              You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByXpathSelectRandomOptionFromCombo(String Xpath, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = xpath(driver, Xpath);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By Name And Select Random Option From Combo.
+     *
+     * @param Name Enter Name.
+     * @param No   How Many time you want to select Random value From Combo.
+     *             You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByNameSelectRandomOptionFromCombo(String Name, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = name(driver, Name);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By ID And Select Random Option From Combo.
+     *
+     * @param ID Enter ID.
+     * @param No How Many time you want to select Random value From Combo.
+     *           You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByIdSelectRandomOptionFromCombo(String ID, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = id(driver, ID);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By Class Name And Select Random Option From Combo.
+     *
+     * @param ClassName Enter Class Name.
+     * @param No        How Many time you want to select Random value From Combo.
+     *                  You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByClassNameSelectRandomOptionFromCombo(String ClassName, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = className(driver, ClassName);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By Css Selector And Select Random Option From Combo.
+     *
+     * @param CssSelector Enter Css Selector.
+     * @param No          How Many time you want to select Random value From Combo.
+     *                    You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByCssSelectorSelectRandomOptionFromCombo(String CssSelector, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = cssSelector(driver, CssSelector);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By Link Text And Select Random Option From Combo.
+     *
+     * @param LinkText Enter Link Text.
+     * @param No       How Many time you want to select Random value From Combo.
+     *                 You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByLinkTextSelectRandomOptionFromCombo(String LinkText, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = linkText(driver, LinkText);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By Partial Link Text And Select Random Option From Combo.
+     *
+     * @param PartialLinkText Enter Partial Link Text.
+     * @param No              How Many time you want to select Random value From Combo.
+     *                        You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByPartialLinkTextSelectRandomOptionFromCombo(String PartialLinkText, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = partialLinkText(driver, PartialLinkText);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Find Web Element By Tag Name And Select Random Option From Combo.
+     *
+     * @param Name Enter Tag Name.
+     * @param No   How Many time you want to select Random value From Combo.
+     *             You can Enter Like "2" They Can Select Two Time Random Value.
+     */
+    public static void findByTagNameSelectRandomOptionFromCombo(String Name, int No) {
+        for (int i = 0; i < No; i++) {
+            String selectedOption = "";
+            WebElement selectCombo = tagName(driver, Name);
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            List<WebElement> getAllOption = selectCombo.findElements(By.xpath("option"));
+
+            int index = new Random().nextInt(getAllOption.size());
+
+            WebElement abc = getAllOption.get(index);
+            selectedOption = abc.getText();
+            System.out.println("Selected Option Is----====>" + selectedOption);
+            abc.click();
+            try {
+                Thread.sleep(2);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Web Element Find By Xpath And Highlight Element.
+     *
+     * @param Xpath Enter Xpath.
+     */
+    public static void findByXpathHighlightElement(String Xpath) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", xpath(driver, Xpath));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By Name And Highlight Element.
+     *
+     * @param Name Enter Name.
+     */
+    public static void findByNameHighlightElement(String Name) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", name(driver, Name));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By ID And Highlight Element.
+     *
+     * @param ID Enter ID.
+     */
+    public static void findByIDHighlightElement(String ID) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", id(driver, ID));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By Class Name And Highlight Element.
+     *
+     * @param ClassName Enter Class Name.
+     */
+    public static void findByClassNameHighlightElement(String ClassName) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", className(driver, ClassName));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By Css Selector And Highlight Element.
+     *
+     * @param CssSelector Enter Css Selector.
+     */
+    public static void findByCssSelectorHighlightElement(String CssSelector) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", cssSelector(driver, CssSelector));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By Link Text And Highlight Element.
+     *
+     * @param LinkText Enter Link Text.
+     */
+    public static void findByLinkTextHighlightElement(String LinkText) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", linkText(driver, LinkText));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By Partial Link Text And Highlight Element.
+     *
+     * @param PartialLinkText Enter Partial Link Text.
+     */
+    public static void findByPartialLinkTextHighlightElement(String PartialLinkText) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", partialLinkText(driver, PartialLinkText));
+        pause(2);
+    }
+
+    /**
+     * Web Element Find By Tag Name And Highlight Element.
+     *
+     * @param TagName Enter Tag Name.
+     */
+    public static void findByTagNameHighlightElement(String TagName) {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.border = '3px solid yellow'", tagName(driver, TagName));
+        pause(2);
+    }
+
+
+
+    public static boolean actualIsEqualToExpected(String actual, String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).isEqualTo(expected) != null;
+        return result;
+    }
+
+    public static boolean actualIsEqualToIgnoringCaseExpected(String actual, String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).isEqualToIgnoringCase(expected) != null;
+        return result;
+    }
+
+    public static boolean actualIsEqualToIgnoringWhiteSpaceExpected(String actual, String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).isEqualToIgnoringWhitespace(expected) != null;
+        return result;
+    }
+
+    public static boolean actualContainsExpected(String actual, String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).contains(expected) != null;
+
+        return result;
+    }
+
+    public static boolean actualContainsIgnoringCaseExpected(String actual, String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).containsIgnoringCase(expected) != null;
+
+        return result;
+    }
+
+    public static boolean expectedContainsOnlyDigits(String expected)
+    {
+        boolean result;
+        result =  assertThat(expected).containsOnlyDigits() != null;
+
+        return result;
+    }
+
+    public static boolean actualContainsOnlyOnceExpected(String actual,String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).containsOnlyOnce(expected) != null;
+
+        return result;
+    }
+
+    public static boolean actualDoesNotContainExpected(String actual,String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).doesNotContain(expected) != null;
+
+        return result;
+    }
+
+    public static boolean actualDoesNotStartWithExpected(String actual,String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).doesNotStartWith(expected) != null;
+
+        return result;
+    }
+
+    public static boolean actualDoesNotEndWithExpected(String actual,String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).doesNotEndWith(expected) != null;
+
+        return result;
+    }
+
+    public static boolean actualDoesNotMatchExpected(String actual,String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).doesNotMatch(expected) != null;
+
+        return result;
+    }
+
+    public static boolean actualMatchesExpected(String actual,String expected)
+    {
+        boolean result;
+        result =  assertThat(actual).matches(expected) != null;
+
+        return result;
+    }
+
+
+
+
     //-------------------------------------------------------------------------------------------------------------
+
 
 }

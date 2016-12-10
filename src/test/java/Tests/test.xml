@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite" verbose="10" parallel="tests" thread-count="2">
+
+    <test name="Login">
+        <classes>
+            <class name="Tests.LoginModule.Tests">
+                <methods>
+                    <include name="Login"/>
+                </methods>
+            </class> <!-- Tests.LoginModule.Tests -->
+        </classes>
+    </test> <!-- Selenium-TestNG-Framework -->
+
+    <test name="reg">
+        <classes>
+            <class name="Tests.LoginModule.Tests">
+                <methods>
+                    <include name="reg"/>
+                </methods>
+            </class> <!-- Tests.LoginModule.Tests -->
+        </classes>
+    </test> <!-- Selenium-TestNG-Framework -->
+</suite> <!-- Default Suite -->
