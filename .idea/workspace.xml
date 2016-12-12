@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30f5f58f-9f1c-459f-9666-2e3d152c5750" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/ObjectRepo/login.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Config/General/PerformAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Config/General/Testing.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/AbstractPage.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_11_beta2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_11_beta2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/Driver/safari/SafariDriver.safariextz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/General/General.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/SeleniumConfig/BrowserConfig.java" afterPath="" />
+    <list default="true" id="30f5f58f-9f1c-459f-9666-2e3d152c5750" name="Default" comment="Modify methods for selenium&#10;added action performed methods&#10;delete unnecessary methods&#10;added general and object repo property files">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Selenium-TestNG.iml" afterPath="$PROJECT_DIR$/Selenium-TestNG.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/general.properties" afterPath="$PROJECT_DIR$/src/resources/general.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/Config/ExcelFileConfig.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/ExcelFileConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/Config/JsonFileConfig.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/Config/Methods.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/Config/PropertiesConfig.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/PropertiesConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/Config/VerificationMethods.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/VerificationMethods.java" />
     </list>
     <ignored path="Framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,10 +53,10 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="56">
-              <caret line="561" column="0" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+              <caret line="554" column="0" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12116#12132#0" expanded="true" />
+                <element signature="e#12109#12125#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,8 +85,8 @@
       <file leaf-file-name="login.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+            <state relative-caret-position="85">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -125,8 +107,8 @@
       <file leaf-file-name="general.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/general.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+            <state relative-caret-position="0">
+              <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -180,12 +162,12 @@
         <option value="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/AbstractPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/ActionPerform.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/Testing.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/PerformAction.java" />
         <option value="$PROJECT_DIR$/src/resources/general.properties" />
         <option value="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java" />
         <option value="$PROJECT_DIR$/src/resources/ObjectRepo/login.properties" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
       </list>
     </option>
   </component>
@@ -1042,7 +1024,7 @@
       <workItem from="1481369667908" duration="5226000" />
       <workItem from="1481437712525" duration="5131000" />
       <workItem from="1481455324058" duration="13000" />
-      <workItem from="1481533937526" duration="16921000" />
+      <workItem from="1481533937526" duration="17207000" />
     </task>
     <task id="LOCAL-00001" summary="1.  Initial Commit">
       <created>1480066225235</created>
@@ -1079,7 +1061,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480159302073</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Modify methods for selenium&#10;added action performed methods&#10;delete unnecessary methods&#10;added general and object repo property files">
+      <created>1481565627071</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1481565627071</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1109,7 +1098,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49753000" />
+    <option name="totallyTimeSpent" value="50039000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1190,11 +1179,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="1.  Initial Commit" />
     <MESSAGE value="Added Property Files configuration" />
     <MESSAGE value="Merge Code From Branch Roshan" />
     <MESSAGE value="Setup File structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup File structure" />
+    <MESSAGE value="Modify methods for selenium&#10;added action performed methods&#10;delete unnecessary methods&#10;added general and object repo property files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify methods for selenium&#10;added action performed methods&#10;delete unnecessary methods&#10;added general and object repo property files" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1442,8 +1436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/general.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1476,8 +1470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state relative-caret-position="85">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1485,7 +1479,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1495,10 +1489,10 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
-          <caret line="561" column="0" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+          <caret line="554" column="0" selection-start-line="554" selection-start-column="0" selection-end-line="554" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12116#12132#0" expanded="true" />
+            <element signature="e#12109#12125#0" expanded="true" />
           </folding>
         </state>
       </provider>
