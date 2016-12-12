@@ -217,6 +217,7 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+.idea/
 .idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml
 .idea/libraries/Maven__com_typesafe_config_1_2_1.xml
 .idea/libraries/Maven__io_github_bonigarcia_webdrivermanager_1_5_0.xml
