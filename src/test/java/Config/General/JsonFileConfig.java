@@ -1,4 +1,4 @@
-package Config;
+package Config.General;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

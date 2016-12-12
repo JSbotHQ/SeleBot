@@ -1,4 +1,4 @@
-package Config;
+package Config.General;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
