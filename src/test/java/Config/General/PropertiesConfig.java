@@ -1,4 +1,4 @@
-package Config;
+package Config.General;
 
 import java.io.File;
 import java.io.FileInputStream;

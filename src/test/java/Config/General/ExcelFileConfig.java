@@ -1,4 +1,4 @@
-package Config;
+package Config.General;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -26,7 +26,7 @@ public class ExcelFileConfig {
 
         String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
 
-        ArrayList<String> SheetData = new ArrayList<String>();
+        ArrayList<String> sheetData = new ArrayList<String>();
         try {
             FileInputStream inputStream = new FileInputStream(new File(ReadExalFilePath));
 
@@ -43,9 +43,9 @@ public class ExcelFileConfig {
 
                     DataFormatter formatter = new DataFormatter();
 
-                    String CellData = formatter.formatCellValue(cell);
+                    String cellData = formatter.formatCellValue(cell);
 
-                    SheetData.add(CellData);
+                    sheetData.add(cellData);
                 }
             }
             inputStream.close();
@@ -55,7 +55,7 @@ public class ExcelFileConfig {
             e.printStackTrace();
         }
 
-        return SheetData;
+        return sheetData;
     }
 
     /**
@@ -69,7 +69,7 @@ public class ExcelFileConfig {
 
         String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
 
-        ArrayList<String> SheetData = new ArrayList<String>();
+        ArrayList<String> sheetData = new ArrayList<String>();
         try {
             FileInputStream inputStream = new FileInputStream(new File(ReadExalFilePath));
 
@@ -91,7 +91,7 @@ public class ExcelFileConfig {
 
                         String CellData = formatter.formatCellValue(cell);
 
-                        SheetData.add(CellData);
+                        sheetData.add(CellData);
                     }
                 }
 
@@ -103,7 +103,7 @@ public class ExcelFileConfig {
             e.printStackTrace();
         }
 
-        return SheetData;
+        return sheetData;
     }
 
     /**
@@ -224,7 +224,7 @@ public class ExcelFileConfig {
 
             cell = sheet.getRow(Row).createCell(Column);
 
-            cell.setCellValue((String) Text);
+            cell.setCellValue(Text);
 
             file.close();
 
@@ -262,7 +262,7 @@ public class ExcelFileConfig {
 
             cell = sheet.getRow(Row).createCell(Column);
 
-            cell.setCellValue((int) Number);
+            cell.setCellValue(Number);
 
             file.close();
 
@@ -300,7 +300,7 @@ public class ExcelFileConfig {
 
             cell = sheet.getRow(Row).createCell(Column);
 
-            cell.setCellValue((float) FloatNumber);
+            cell.setCellValue(FloatNumber);
 
             file.close();
 
@@ -321,7 +321,7 @@ public class ExcelFileConfig {
      * @param Column       Enter Your Selected Column Number.
      * @param BooleanValue Enter Boolean Value.
      */
-    public static void writeIntDataOnCell(int SheetNumber, int Row, int Column, Boolean BooleanValue) {
+    public static void writeBooleanDataOnCell(int SheetNumber, int Row, int Column, Boolean BooleanValue) {
 
         String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
 
@@ -338,7 +338,7 @@ public class ExcelFileConfig {
 
             cell = sheet.getRow(Row).createCell(Column);
 
-            cell.setCellValue((Boolean) BooleanValue);
+            cell.setCellValue(BooleanValue);
 
             file.close();
 
@@ -388,7 +388,7 @@ public class ExcelFileConfig {
                     for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
-                        cell.setCellValue((String) Text);
+                        cell.setCellValue(Text);
 
                     }
                 }
@@ -442,7 +442,7 @@ public class ExcelFileConfig {
                     for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
-                        cell.setCellValue((int) IntegerNumber);
+                        cell.setCellValue(IntegerNumber);
 
                     }
                 }
@@ -496,7 +496,7 @@ public class ExcelFileConfig {
                     for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
-                        cell.setCellValue((float) FloatNumber);
+                        cell.setCellValue(FloatNumber);
 
                     }
                 }
@@ -550,7 +550,7 @@ public class ExcelFileConfig {
                     for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
-                        cell.setCellValue((String) Text);
+                        cell.setCellValue(Text);
 
                     }
                 }
@@ -604,7 +604,7 @@ public class ExcelFileConfig {
                     for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
-                        cell.setCellValue((int) IntegerNumber);
+                        cell.setCellValue(IntegerNumber);
 
                     }
                 }
@@ -658,7 +658,7 @@ public class ExcelFileConfig {
                     for (int i = StartColumn; i <= EndCell; i++) {
                         cell = sheet.getRow(row1).createCell(i);
 
-                        cell.setCellValue((float) FloatNumber);
+                        cell.setCellValue(FloatNumber);
 
                     }
                 }

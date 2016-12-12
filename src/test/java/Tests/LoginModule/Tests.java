@@ -1,18 +1,28 @@
 package Tests.LoginModule;
 
 
-import Config.Methods;
+import Config.SeleniumConfig.BrowserConfig;
 import org.testng.annotations.Test;
 
 
+public class Tests extends BrowserConfig {
 
-public class Tests {
+
 
     @Test
-    public void test() {
-Methods.browserConfig();
-Methods.openURL();
-Methods.browserQuit();
+    public void Login() {
+
+
+        performAction.click("login", "loginbutton");
+
+
+        performAction.sendKeys("login", "email", "Test@Test.com");
+
+        performAction.pause(3);
+
+
     }
+
+
 
 }
