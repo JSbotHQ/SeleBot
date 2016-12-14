@@ -7,16 +7,15 @@ import org.testng.annotations.Test;
 
 public class Tests extends BrowserConfig {
 
-
+    String currentFileName = "login";
 
     @Test
     public void Login() {
 
 
-        performAction.click("login", "loginbutton");
+        performAction.click(currentFileName, "loginbutton");
 
-
-        performAction.sendKeys("login", "email", "Test@Test.com");
+        performAction.sendKeys(currentFileName, "email", "Test@Test.com");
 
         performAction.pause(3);
 

@@ -16,15 +16,18 @@ import java.util.Iterator;
  */
 public class ExcelFileConfig {
 
+
+    PropertiesConfig prop = new PropertiesConfig();
+    
     /**
      * Read Entered Sheet All Data.
      *
      * @param SheetNo Enter Your Selected Sheet number For Read Your Data.
      * @return Return Sheet All Data In String Array.
      */
-    public static ArrayList<String> readExcelSheetAllData(int SheetNo) {
+    public ArrayList<String> readExcelSheetAllData(int SheetNo) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "ReadExalFilePath");
 
         ArrayList<String> sheetData = new ArrayList<String>();
         try {
@@ -65,9 +68,9 @@ public class ExcelFileConfig {
      * @param RowNo   Enter Your Selected Row Number.
      * @return Return Selected Row Data In String Array.
      */
-    public static ArrayList<String> readSelectedRow(int SheetNo, int RowNo) {
+    public ArrayList<String> readSelectedRow(int SheetNo, int RowNo) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "ReadExalFilePath");
 
         ArrayList<String> sheetData = new ArrayList<String>();
         try {
@@ -113,9 +116,9 @@ public class ExcelFileConfig {
      * @param ColumnNo Enter Your Selected Column Number.
      * @return Return Selected Column Data In String Array.
      */
-    public static ArrayList<String> readselectColumn(int SheetNo, int ColumnNo) {
+    public ArrayList<String> readselectColumn(int SheetNo, int ColumnNo) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "ReadExalFilePath");
 
         ArrayList<String> SheetData = new ArrayList<String>();
         try {
@@ -159,9 +162,9 @@ public class ExcelFileConfig {
      * @param ColumnNo Enter Your Selected Column Number.
      * @return Selected Cell Value In String.
      */
-    public static String readSelectedCell(int SheetNo, int RowNo, int ColumnNo) {
+    public String readSelectedCell(int SheetNo, int RowNo, int ColumnNo) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("ReadExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "ReadExalFilePath");
 
         String CellValue = null;
         try {
@@ -207,9 +210,9 @@ public class ExcelFileConfig {
      * @param Column      Enter Your Selected Column Number.
      * @param Text        Enter String Text.
      */
-    public static void writeStringDataOnCell(int SheetNumber, int Row, int Column, String Text) {
+    public void writeStringDataOnCell(int SheetNumber, int Row, int Column, String Text) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
             FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
@@ -245,10 +248,10 @@ public class ExcelFileConfig {
      * @param Column      Enter Your Selected Column Number.
      * @param Number      Enter Numeric Number.
      */
-    public static void writeIntDataOnCell(int SheetNumber, int Row, int Column, int Number) {
+    public void writeIntDataOnCell(int SheetNumber, int Row, int Column, int Number) {
         try {
 
-            String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+            String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
             FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
 
@@ -283,9 +286,9 @@ public class ExcelFileConfig {
      * @param Column      Enter Your Selected Column Number.
      * @param FloatNumber Enter Float Value.
      */
-    public static void writeIntDataOnCell(int SheetNumber, int Row, int Column, float FloatNumber) {
+    public void writeIntDataOnCell(int SheetNumber, int Row, int Column, float FloatNumber) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
             FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
@@ -321,9 +324,9 @@ public class ExcelFileConfig {
      * @param Column       Enter Your Selected Column Number.
      * @param BooleanValue Enter Boolean Value.
      */
-    public static void writeBooleanDataOnCell(int SheetNumber, int Row, int Column, Boolean BooleanValue) {
+    public void writeBooleanDataOnCell(int SheetNumber, int Row, int Column, Boolean BooleanValue) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
             FileInputStream file = new FileInputStream(new File(ReadExalFilePath).getAbsolutePath());
@@ -362,9 +365,9 @@ public class ExcelFileConfig {
      * @param EndCell     Enter Your Selected End Column Number.
      * @param Text        Enter String Text.
      */
-    public static void writeStringDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, String Text) {
+    public void writeStringDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, String Text) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
 
@@ -416,9 +419,9 @@ public class ExcelFileConfig {
      * @param EndCell       Enter Your Selected End Column Number.
      * @param IntegerNumber Enter Numeric Number.
      */
-    public static void writeIntDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, int IntegerNumber) {
+    public void writeIntDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, int IntegerNumber) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
 
@@ -470,9 +473,9 @@ public class ExcelFileConfig {
      * @param EndCell     Enter Your Selected End Column Number.
      * @param FloatNumber Enter Float Number.
      */
-    public static void writeFloatDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, float FloatNumber) {
+    public void writeFloatDataOnMultipalCell(int SheetNumber, int StartRow, int StartColumn, int EndCell, float FloatNumber) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
 
@@ -524,9 +527,9 @@ public class ExcelFileConfig {
      * @param EndCell     Enter Your Selected End Column Number.
      * @param Text        Enter String Text.
      */
-    public static void writeStringDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, String Text) {
+    public void writeStringDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, String Text) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
 
@@ -578,9 +581,9 @@ public class ExcelFileConfig {
      * @param EndCell       Enter Your Selected End Column Number.
      * @param IntegerNumber Enter Numeric Number.
      */
-    public static void writeIntDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, int IntegerNumber) {
+    public void writeIntDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, int IntegerNumber) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
 
@@ -632,9 +635,9 @@ public class ExcelFileConfig {
      * @param EndCell     Enter Your Selected End Column Number.
      * @param FloatNumber Enter Float Number.
      */
-    public static void writeFloatDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, float FloatNumber) {
+    public void writeFloatDataOnSingleRowMultipalCell(int SheetNumber, int RowNumber, int StartColumn, int EndCell, float FloatNumber) {
 
-        String ReadExalFilePath = PropertiesConfig.getValue("WriteExalFilePath");
+        String ReadExalFilePath = (String) prop.getValue("general", "WriteExalFilePath");
 
         try {
 

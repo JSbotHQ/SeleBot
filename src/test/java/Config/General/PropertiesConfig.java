@@ -3,6 +3,7 @@ package Config.General;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -11,28 +12,48 @@ import java.util.Properties;
 public class PropertiesConfig {
 
 
-    /**
-     * Get Value From general.properties File.
-     *
-     * @param key Enter Get Value Key Name.
-     * @return Return Value In String.
-     */
-    public static String getValue(String key) {
-        String value = null;
+    public Properties loadPropertyFile(String propertyFile) {
+
+        Properties prop = new Properties();
+        InputStream input = null;
+
+
         try {
-            File file = new File(".\\src\\resources\\general.properties");
-            FileInputStream fileInput = new FileInputStream(file);
-            Properties properties = new Properties();
+            File file = null;
+            if (!propertyFile.equals("general")) {
 
-            properties.load(fileInput);
+                file = new File("src\\resources\\ObjectRepo\\" + propertyFile + ".properties");
 
-            value = properties.getProperty(key);
+            } else {
+                file = new File("src\\resources\\" + propertyFile + ".properties");
 
-            System.out.println("Read Value From Property File --->>>> " + value);
-        } catch (IOException e) {
-            e.printStackTrace();
+            }
+
+            input = new FileInputStream(file.getAbsoluteFile());
+
+            // load a properties file
+            prop.load(input);
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return value;
+
+        return prop;
+    }
+
+
+    public Object getValue(String fileName, String key) {
+        Properties prop = loadPropertyFile(fileName);
+        return prop.get(key);
     }
 
 

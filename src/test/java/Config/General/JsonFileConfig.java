@@ -11,14 +11,15 @@ import java.io.FileWriter;
  */
 public class JsonFileConfig {
 
+    PropertiesConfig prop = new PropertiesConfig();
     /**
      * Read Key Value into the Json File.
      * @param KeyName Enter Get Value Key Name.
      * @return Return Key Value in String.
      */
-    public static String readKeyValueInFile(String KeyName) {
+    public String readKeyValueInFile(String KeyName) {
 
-        String ReadJsonFilePath = PropertiesConfig.getValue("ReadJsonFilePath");
+        String ReadJsonFilePath = (String) prop.getValue("general", "ReadJsonFilePath");
 
         JSONParser parser = new JSONParser();
         String Value = null;
@@ -39,9 +40,9 @@ public class JsonFileConfig {
      * @param ObjectKey Enter Get Value Object Name.
      * @return Return Json Object.
      */
-    public static JSONObject readJsonObjectInFile(String ObjectKey) {
+    public JSONObject readJsonObjectInFile(String ObjectKey) {
 
-        String ReadJsonFilePath = PropertiesConfig.getValue("ReadJsonFilePath");
+        String ReadJsonFilePath = (String) prop.getValue("general", "ReadJsonFilePath");
 
         JSONParser parser = new JSONParser();
         JSONObject JsonObject = null;
@@ -64,7 +65,7 @@ public class JsonFileConfig {
      * @param KeyName    Enter Get Value Key Name.
      * @return Return Key Value in String.
      */
-    public static String readKeyValueInJsonObject(JSONObject JsonObject, String KeyName) {
+    public String readKeyValueInJsonObject(JSONObject JsonObject, String KeyName) {
 
         JSONObject object = JsonObject;
 
@@ -77,10 +78,10 @@ public class JsonFileConfig {
      * Create and Write in Json File.
      * @param ObjectName Enter Get Value Object Name.
      */
-    public static void writeInJsonFile(JSONObject ObjectName) {
+    public void writeInJsonFile(JSONObject ObjectName) {
         try {
 
-            String WriteJsonFilePath = PropertiesConfig.getValue("WriteJsonFilePath");
+            String WriteJsonFilePath = (String) prop.getValue("general", "WriteJsonFilePath");
 
             FileWriter jsonFileWriter = new FileWriter(WriteJsonFilePath);
 
@@ -98,33 +99,5 @@ public class JsonFileConfig {
     }
 
 
-    /**
-     * Add String Data In Json.
-     * @param ObjectName Enter Get Value Object Name.
-     * @param Key        Enter Key in string.
-     * @param Value      Enter Value in String.
-     */
-    public static void addStringDataInJson(JSONObject ObjectName, String Key, String Value) {
-        ObjectName.put(Key, Value);
-    }
 
-    /**
-     * Add Integer Data In Json.
-     * @param ObjectName Enter Get Value Key Name.
-     * @param Key        Enter Key in string.
-     * @param Value      Enter Value in Integer.
-     */
-    public static void addIntDataInJson(JSONObject ObjectName, String Key, int Value) {
-        ObjectName.put(Key, Value);
-    }
-
-    /**
-     * Add Json Object In Json
-     * @param Final           Enter Final JsonObject Name.
-     * @param Key             Enter Key in string.
-     * @param JsonObjectValue Enter JsonObjectValue in JSONObject.
-     */
-    public static void addJsonObjectInJsonObject(JSONObject Final, String Key, JSONObject JsonObjectValue) {
-        Final.put(Key, JsonObjectValue);
-    }
 }

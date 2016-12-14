@@ -22,21 +22,26 @@ import org.testng.annotations.BeforeTest;
  */
 public class BrowserConfig {
 
-    public static Methods me;
+    public static Methods methods;
+    public static String autoLog = "";
     protected WebDriver driver;
     protected PerformAction performAction;
-
+    PropertiesConfig prop = new PropertiesConfig();
 
     @BeforeTest
     public void browserConfig() {
-        //WebDriver driver = null;
 
+        autoLog = (String) prop.getValue("general", "AutoLog");
 
         DesiredCapabilities capability = null;
 
-        String Browser = PropertiesConfig.getValue("BrowserName");
+        String Browser = (String) prop.getValue("general", "BrowserName");
+
+
+
 
         if (Browser.equalsIgnoreCase("firefox")) {
+
 
             FirefoxDriverManager.getInstance().setup();
             driver = new FirefoxDriver();
@@ -93,9 +98,16 @@ public class BrowserConfig {
         }
 
         driver.manage().window().maximize();
-        me = new Methods(driver);
+        methods = new Methods(driver);
         performAction = new PerformAction(driver);
-        me.openURL();
+        performAction.openURL();
+
+        if (autoLog.equals("on")) {
+            methods.log("Open Browser : " + Browser);
+        }
+
+
+
 
 
     }

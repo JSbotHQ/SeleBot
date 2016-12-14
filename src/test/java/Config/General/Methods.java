@@ -7,10 +7,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -20,9 +16,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
  * Created by Viral on 11/26/2016.
  */
 public class Methods extends AbstractPage {
-
-
     protected static Wait<WebDriver> wait;
+    PropertiesConfig prop = new PropertiesConfig();
 
     /**
      * Initialize UserAbstractPage.
@@ -38,60 +33,28 @@ public class Methods extends AbstractPage {
      * <p>
      * Open Entered URL Web Page.
      */
-    public void openURL() {
-        String URL = PropertiesConfig.getValue("URL");
-        driver.get(URL);
-    }
-
-    /**
-     * Get Current Page URL.
-     *
-     * @return Return Current Page URL in String.
-     */
-    //
-    public String getCurrentURL() {
-        String CurrentURL = driver.getCurrentUrl();
-
-        return CurrentURL;
-    }
-
-    /**
-     * Get Current Page Source.
-     *
-     * @return Return Current Page Source In String.
-     */
-    public String getPageSource() {
-        String PageSource = driver.getPageSource();
-
-        return PageSource;
-    }
-
-    /**
-     * Web Page refresh.
-     */
-    public void refresh() {
-        driver.navigate().refresh();
-    }
-
-    /**
-     * Go To Previous Page.
-     */
-    public void goToPreviuosPage() {
-        driver.navigate().back();
-    }
 
 
-    /**
-     * Find Web Element By Class_Name.
-     *
-     * @param ClassName
-     * @return Return Web Element.
-     */
     public WebElement findByClassName(String ClassName) {
         WebElement element = driver.findElement(By.className(ClassName));
 
         return element;
     }
+
+    public void addAutoLog(String elementName, String action) {
+
+        if (autoLog.equals("on")) {
+
+            if (action.equals("click")) {
+                log("Click on " + elementName);
+            }
+
+
+        }
+
+    }
+
+
 
     /**
      * Find WebElement By CssSelector.
@@ -445,45 +408,17 @@ public class Methods extends AbstractPage {
 //----------------------------------------------------------------------------------------------------
 
 
-    public Properties loadPropertyFile(String propertyFile) {
 
-        Properties prop = new Properties();
-        InputStream input = null;
-
-
-        try {
-
-            File file = new File("src\\resources\\ObjectRepo\\" + propertyFile + ".properties");
-
-            input = new FileInputStream(file.getAbsoluteFile());
-
-            // load a properties file
-            prop.load(input);
-
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return prop;
-    }
 
 
     public Map<String, String> loadProperty(String fileName, String propertyName) {
 
+        PropertiesConfig propertiesConfig = new PropertiesConfig();
         Map<String, String> elementProperty = new HashMap<String, String>();
 
         String elementType = "";
         String elementLocator = "";
-        Properties elementProp = loadPropertyFile(fileName);
+        Properties elementProp = propertiesConfig.loadPropertyFile(fileName);
 
         if (elementProp.getProperty(propertyName + ".xpath") != null) {
 
@@ -540,9 +475,6 @@ public class Methods extends AbstractPage {
             elementLocator = elementProp.getProperty(propertyName + ".cssSelector");
         }
 
-
-        System.out.println(elementType);
-        System.out.println(elementLocator);
 
         elementProperty.put("elementType", elementType);
         elementProperty.put("elementLocator", elementLocator);
