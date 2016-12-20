@@ -1,34 +1,34 @@
-**SeleBot**
+# SeleBot
 
 Selebot is the selenium TestNG framework with the various build in functionality and methods.It's designed with the vision of rapidly selenium script generation.
 
-Prerequest :
+#### Prerequest :
     1. Java
     2. Maven
 
-How to start :
+#### How to start :
 
-1. Download the repo
+1. Download the [repo](https://github.com/jsBot-io/SeleBot/archive/master.zip)
 2. Maven will automatically download all the dependency
 
-File Structure:
+#### File Structure:
 
         .
        
         └── src                                   
         ├── resources                              # Resource files and general configuration files
-        │   ├── general.properties                 # general configuration 
-        │   └── ObjectRepo                         # properties files with the locator details
+        │   ├── general.properties                 # General configuration 
+        │   └── ObjectRepo                         # Properties files with the locator details
         │       └── login.properties                
         └── test
         └── java
         ├── Config                                 # configuration and methods
         │   ├── General
         │   │   ├── ExcelFileConfig.java           # Excel file realated methods
-        │   │   ├── JsonFileConfig.java            # Json file realated methods
+        │   │   ├── JsonFileConfig.java            # JSON file realated methods
         │   │   ├── Methods.java                   # Selenium and General operation method
         │   │   ├── PerformAction.java             # Selenium actions
-        │   │   ├── PropertiesConfig.java          # property file realted methods
+        │   │   ├── PropertiesConfig.java          # Property file realted methods
         │   │   └── VerificationMethods.java
         │   └── SeleniumConfig                     # Selenium Configuration
         │       ├── AbstractPage.java
