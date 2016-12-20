@@ -46,9 +46,7 @@ public class BrowserConfig {
             FirefoxDriverManager.getInstance().setup();
             driver = new FirefoxDriver();
 
-        } else if (Browser.equalsIgnoreCase("ie8")) {
 
-        } else if (Browser.equalsIgnoreCase("ie9")) {
 
         } else if (Browser.equalsIgnoreCase("ie11")) {
 
