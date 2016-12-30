@@ -22,10 +22,8 @@ import org.testng.annotations.BeforeTest;
  */
 public class BrowserConfig {
 
-    public static Methods methods;
-    public static String autoLog = "";
+    public String autoLog = "";
     protected WebDriver driver;
-    protected PerformAction performAction;
     PropertiesConfig prop = new PropertiesConfig();
 
     @BeforeTest
@@ -80,7 +78,6 @@ public class BrowserConfig {
             ChromeDriverManager.getInstance().setup();
             capability.setJavascriptEnabled(true);
 
-
             driver = new ChromeDriver(capability);
         } else if (Browser.equalsIgnoreCase("safari")) {
 
@@ -96,8 +93,8 @@ public class BrowserConfig {
         }
 
         driver.manage().window().maximize();
-        methods = new Methods(driver);
-        performAction = new PerformAction(driver);
+        Methods methods = new Methods(driver);
+        PerformAction performAction = new PerformAction(driver);
         performAction.openURL();
 
         if (autoLog.equals("on")) {
