@@ -2,7 +2,6 @@ package Config.SeleniumConfig;
 
 import Config.General.Methods;
 import Config.General.PerformAction;
-import Config.General.PropertiesConfig;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;

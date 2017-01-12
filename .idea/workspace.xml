@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30f5f58f-9f1c-459f-9666-2e3d152c5750" name="Default" comment="Add json file loading functionaliry">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/Config/General/PropertiesConfig.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Selenium-TestNG.iml" afterPath="$PROJECT_DIR$/Selenium-TestNG.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java" afterPath="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" />
     </list>
     <list id="2bb06d88-2353-42b4-8001-59e20b922527" name="Rejected commit: Default" comment="Add json file loading functionaliry">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/ObjectRepo/login.json" />
@@ -47,56 +49,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="37" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="178" column="24" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="JsonFileConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-753">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="417" column="0" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,14 +122,14 @@
         <option value="$PROJECT_DIR$/src/resources/ObjectRepo/login.properties" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" />
         <option value="$PROJECT_DIR$/Build/testng.xml" />
         <option value="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/PerformAction.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" />
         <option value="$PROJECT_DIR$/src/resources/ObjectRepo/login.json" />
+        <option value="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
       </list>
     </option>
   </component>
@@ -279,7 +249,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -504,6 +473,7 @@
         <subPane />
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -533,7 +503,7 @@
       <recent name="F:\JSBOT\ProjectsWorkSpace\Framework\src\resources\ObjectRepo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JsonFileConfig">
+  <component name="RunManager" selected="TestNG.Tests">
     <configuration default="false" name="Testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1070,8 +1040,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.JsonFileConfig" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.Tests" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.Tests" />
+        <item index="1" class="java.lang.String" itemvalue="Application.JsonFileConfig" />
         <item index="2" class="java.lang.String" itemvalue="TestNG.Tests.Login" />
         <item index="3" class="java.lang.String" itemvalue="Application.Testing" />
       </list>
@@ -1120,7 +1090,8 @@
       <workItem from="1483343021598" duration="36000" />
       <workItem from="1483344818925" duration="616000" />
       <workItem from="1483425185005" duration="1363000" />
-      <workItem from="1484052808233" duration="2923000" />
+      <workItem from="1484052808233" duration="2958000" />
+      <workItem from="1484215755456" duration="8246000" />
     </task>
     <task id="LOCAL-00001" summary="1.  Initial Commit">
       <created>1480066225235</created>
@@ -1199,23 +1170,30 @@
       <option name="project" value="LOCAL" />
       <updated>1483101715101</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add json file loading functionaliry">
+      <created>1484055741796</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1484055741796</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests - 2016.12.14 at 16h 58m 53s.xml">
+    <history-entry file="Tests - 2017.01.12 at 18h 22m 14s.xml">
       <configuration name="Tests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Tests - 2016.12.14 at 16h 59m 16s.xml">
+    <history-entry file="Tests - 2017.01.12 at 18h 25m 47s.xml">
       <configuration name="Tests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Tests - 2016.12.14 at 17h 00m 38s.xml">
+    <history-entry file="Tests - 2017.01.12 at 18h 28m 20s.xml">
       <configuration name="Tests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Tests - 2016.12.14 at 17h 05m 33s.xml">
+    <history-entry file="Tests - 2017.01.12 at 18h 28m 58s.xml">
       <configuration name="Tests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="Tests - 2016.12.15 at 16h 49m 54s.xml">
+    <history-entry file="Tests - 2017.01.12 at 18h 40m 56s.xml">
       <configuration name="Tests" configurationId="TestNG" />
     </history-entry>
     <history-entry file="Tests_Login - 2016.12.12 at 23h 21m 12s.xml">
@@ -1235,7 +1213,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77673000" />
+    <option name="totallyTimeSpent" value="85954000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1247,7 +1225,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1032" y="-8" width="1040" height="744" extended-state="0" />
+    <frame x="-1032" y="-8" width="1040" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1258,11 +1236,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.31221375" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913518" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2791798" sideWeight="0.6877863" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2782324" sideWeight="0.6877863" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18411553" sideWeight="0.4610687" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3232422" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32040817" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1344,13 +1322,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/General/General.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1493,13 +1464,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Testing.java" />
-    <entry file="file://$PROJECT_DIR$/src/resources/general.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Tests/RegisterModule/Steps.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1559,62 +1523,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/PerformAction.java">
+    <entry file="file://$USER_HOME$/Downloads/1.cap">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3570">
-          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/PropertiesConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="178" column="24" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="24" />
+        <state relative-caret-position="495">
+          <caret line="2" column="4422" selection-start-line="2" selection-start-column="4422" selection-end-line="2" selection-end-column="4422" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/PropertiesConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-753">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="25" column="0" selection-start-line="24" selection-start-column="12" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/PerformAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/general.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="417" column="0" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
           <folding />
         </state>
       </provider>
