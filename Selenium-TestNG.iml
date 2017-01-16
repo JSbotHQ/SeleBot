@@ -72,5 +72,9 @@
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" name="Maven: org.assertj:assertj-core:3.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.javafaker:javafaker:0.12" level="project" />
+    <orderEntry type="library" name="Maven: com.github.mifmif:generex:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: dk.brics.automaton:automaton:1.11-8" level="project" />
+    <orderEntry type="library" name="Maven: org.fluttercode.datafactory:datafactory:0.8" level="project" />
   </component>
 </module>

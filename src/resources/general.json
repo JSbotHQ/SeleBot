@@ -1,0 +1,10 @@
+{
+  "general": {
+    "HighightElement": true,
+    "AutoLog": true
+  },
+  "project": {
+    "URL": "https://vigoreport.io/",
+    "BrowserName": "chrome"
+  }
+}
