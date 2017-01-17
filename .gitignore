@@ -225,4 +225,10 @@ pip-log.txt
 .idea/libraries/Maven__org_jsoup_jsoup_1_9_2.xml
 .idea/libraries/Maven__org_rauschig_jarchivelib_0_7_1.xml
 .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml
-src/test/java/ObjectRepo/
+
+
+/Framework.iml
+/Selenium-TestNG.iml
+/Test Results - Tests.html
+/_config.yml
+/.idea/

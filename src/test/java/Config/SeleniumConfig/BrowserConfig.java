@@ -2,7 +2,6 @@ package Config.SeleniumConfig;
 
 import Config.General.Methods;
 import Config.General.PerformAction;
-import Config.General.PropertiesConfig;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
@@ -22,10 +21,8 @@ import org.testng.annotations.BeforeTest;
  */
 public class BrowserConfig {
 
-    public static Methods methods;
-    public static String autoLog = "";
+    public String autoLog = "";
     protected WebDriver driver;
-    protected PerformAction performAction;
     PropertiesConfig prop = new PropertiesConfig();
 
     @BeforeTest
@@ -46,9 +43,7 @@ public class BrowserConfig {
             FirefoxDriverManager.getInstance().setup();
             driver = new FirefoxDriver();
 
-        } else if (Browser.equalsIgnoreCase("ie8")) {
 
-        } else if (Browser.equalsIgnoreCase("ie9")) {
 
         } else if (Browser.equalsIgnoreCase("ie11")) {
 
@@ -82,7 +77,6 @@ public class BrowserConfig {
             ChromeDriverManager.getInstance().setup();
             capability.setJavascriptEnabled(true);
 
-
             driver = new ChromeDriver(capability);
         } else if (Browser.equalsIgnoreCase("safari")) {
 
@@ -98,8 +92,8 @@ public class BrowserConfig {
         }
 
         driver.manage().window().maximize();
-        methods = new Methods(driver);
-        performAction = new PerformAction(driver);
+        Methods methods = new Methods(driver);
+        PerformAction performAction = new PerformAction(driver);
         performAction.openURL();
 
         if (autoLog.equals("on")) {

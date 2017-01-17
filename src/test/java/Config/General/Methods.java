@@ -3,6 +3,7 @@ package Config.General;
 import Config.SeleniumConfig.AbstractPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
@@ -410,82 +411,9 @@ public class Methods extends AbstractPage {
 
 
 
+    public void waitForElementToBeDisapper(String fileName, String propertyName) {
+        wait = new WebDriverWait(driver, 100);
 
-    public Map<String, String> loadProperty(String fileName, String propertyName) {
-
-        PropertiesConfig propertiesConfig = new PropertiesConfig();
-        Map<String, String> elementProperty = new HashMap<String, String>();
-
-        String elementType = "";
-        String elementLocator = "";
-        Properties elementProp = propertiesConfig.loadPropertyFile(fileName);
-
-        if (elementProp.getProperty(propertyName + ".xpath") != null) {
-
-            elementType = "xpath";
-            elementLocator = elementProp.getProperty(propertyName + ".xpath");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".id") != null) {
-
-            elementType = "id";
-            elementLocator = elementProp.getProperty(propertyName + ".id");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".className") != null) {
-
-            elementType = "className";
-            elementLocator = elementProp.getProperty(propertyName + ".className");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".tagName") != null) {
-
-            elementType = "tagName";
-            elementLocator = elementProp.getProperty(propertyName + ".tagName");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".name") != null) {
-
-            elementType = "name";
-            elementLocator = elementProp.getProperty(propertyName + ".name");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".linkText") != null) {
-
-            elementType = "linkText";
-            elementLocator = elementProp.getProperty(propertyName + ".linkText");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".partialLinkText") != null) {
-
-            elementType = "partialLinkText";
-            elementLocator = elementProp.getProperty(propertyName + ".partialLinkText");
-        }
-
-
-        if (elementProp.getProperty(propertyName + ".cssSelector") != null) {
-
-            elementType = "cssSelector";
-            elementLocator = elementProp.getProperty(propertyName + ".cssSelector");
-        }
-
-
-        elementProperty.put("elementType", elementType);
-        elementProperty.put("elementLocator", elementLocator);
-
-
-        return elementProperty;
-    }
-
-
-    public void waitForElement(String fileName, String propertyName) {
-        wait = new WebDriverWait(driver, 600);
         try {
 
 
@@ -494,13 +422,59 @@ public class Methods extends AbstractPage {
             WebElement element = null;
 
             if (elementProperty.get("elementType").equals("xpath")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(elementProperty.get("elementLocator"))));
+            }
+
+            if (elementProperty.get("elementType").equals("id")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(elementProperty.get("elementLocator"))));
+
+
+            }
+
+            if (elementProperty.get("elementType").equals("className")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(elementProperty.get("elementLocator"))));
+            }
+
+            if (elementProperty.get("elementType").equals("tagName")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.tagName(elementProperty.get("elementLocator"))));
+            }
+
+
+            if (elementProperty.get("elementType").equals("linkText")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText(elementProperty.get("elementLocator"))));
+            }
+
+
+            if (elementProperty.get("elementType").equals("partialLinkText")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.partialLinkText(elementProperty.get("elementLocator"))));
+            }
+
+
+            if (elementProperty.get("elementType").equals("name")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name(elementProperty.get("elementLocator"))));
+            }
+
+            if (elementProperty.get("elementType").equals("cssSelector")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(elementProperty.get("elementLocator"))));
+            }
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void waitForElement(String fileName, String propertyName) {
+        wait = new WebDriverWait(driver, 600);
+        try {
+
+            Map<String, String> elementProperty = loadProperty(fileName, propertyName);
+            WebElement element = null;
+
+            if (elementProperty.get("elementType").equals("xpath")) {
                 wait.until(visibilityOfElementLocated(By.xpath(elementProperty.get("elementLocator"))));
             }
 
             if (elementProperty.get("elementType").equals("id")) {
                 wait.until(visibilityOfElementLocated(By.id(elementProperty.get("elementLocator"))));
-
-
             }
 
             if (elementProperty.get("elementType").equals("className")) {
@@ -511,16 +485,13 @@ public class Methods extends AbstractPage {
                 wait.until(visibilityOfElementLocated(By.tagName(elementProperty.get("elementLocator"))));
             }
 
-
             if (elementProperty.get("elementType").equals("linkText")) {
                 wait.until(visibilityOfElementLocated(By.linkText(elementProperty.get("elementLocator"))));
             }
 
-
             if (elementProperty.get("elementType").equals("partialLinkText")) {
                 wait.until(visibilityOfElementLocated(By.partialLinkText(elementProperty.get("elementLocator"))));
             }
-
 
             if (elementProperty.get("elementType").equals("name")) {
                 wait.until(visibilityOfElementLocated(By.name(elementProperty.get("elementLocator"))));
@@ -535,48 +506,50 @@ public class Methods extends AbstractPage {
     }
 
 
-    public WebElement findElement(String fileName, String propertyName) {
+    public WebElement findElement(String fileName, String value) {
 
-        Map<String, String> elementProperty = loadProperty(fileName, propertyName);
+        JsonFileConfig jsonfile = new JsonFileConfig();
+        Map<String, String> elementProperty = jsonfile.getElementValue(fileName, value);
+
 
         WebElement element = null;
 
         if (elementProperty.get("elementType").equals("xpath")) {
-            element = findByXpath(elementProperty.get("elementLocator"));
+            element = findByXpath(elementProperty.get("elementValue"));
         }
 
         if (elementProperty.get("elementType").equals("id")) {
-            element = findById(elementProperty.get("elementLocator"));
+            element = findById(elementProperty.get("elementValue"));
         }
 
         if (elementProperty.get("elementType").equals("className")) {
-            element = findByClassName(elementProperty.get("elementLocator"));
+            element = findByClassName(elementProperty.get("elementValue"));
         }
 
         if (elementProperty.get("elementType").equals("tagName")) {
-            element = findByTagName(elementProperty.get("elementLocator"));
+            element = findByTagName(elementProperty.get("elementValue"));
         }
 
-
         if (elementProperty.get("elementType").equals("linkText")) {
-            element = findByLinkText(elementProperty.get("elementLocator"));
+            element = findByLinkText(elementProperty.get("elementValue"));
         }
 
 
         if (elementProperty.get("elementType").equals("partialLinkText")) {
-            element = findByPartialLinkText(elementProperty.get("elementLocator"));
+            element = findByPartialLinkText(elementProperty.get("elementValue"));
         }
 
 
         if (elementProperty.get("elementType").equals("name")) {
-            element = findByPartialLinkText(elementProperty.get("elementLocator"));
+            element = findByName(elementProperty.get("elementValue"));
         }
 
         if (elementProperty.get("elementType").equals("cssSelector")) {
-            element = findByPartialLinkText(elementProperty.get("elementLocator"));
+            element = findByCssSelector(elementProperty.get("elementValue"));
         }
 
         return element;
+
     }
 
 
