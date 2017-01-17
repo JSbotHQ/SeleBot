@@ -1,7 +1,8 @@
 {
   "general": {
     "HighightElement": true,
-    "AutoLog": true
+    "AutoLog": true,
+
   },
   "project": {
     "URL": "https://vigoreport.io/",

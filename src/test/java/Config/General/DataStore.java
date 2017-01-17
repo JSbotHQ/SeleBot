@@ -9,11 +9,43 @@ public class DataStore {
 
     Faker faker = new Faker();
 
-    public String getLastName() {
+    public static void main(String[] args) {
 
-        return faker.name().firstName();
+        DataStore ds = new DataStore();
+        System.out.println(ds.getTitle());
 
     }
+
+    public String getFirstName() {
+        return faker.name().firstName();
+    }
+
+    public String getLastName() {
+        return faker.name().lastName();
+    }
+
+    public String getName() {
+        return faker.name().name();
+    }
+
+    public String getNameWithMiddle() {
+        return faker.name().nameWithMiddle();
+    }
+
+    public String getUserName() {
+        return faker.name().username();
+    }
+
+    public String getTitle() {
+        return faker.name().title();
+    }
+
+
+
+
+
+
+
 
 
 }

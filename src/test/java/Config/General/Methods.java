@@ -625,8 +625,10 @@ public class Methods extends AbstractPage {
     }
 
 
+    public void getTheText() {
 
 
+    }
 
 
 
