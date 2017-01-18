@@ -18,7 +18,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
  */
 public class Methods extends AbstractPage {
     protected static Wait<WebDriver> wait;
-    PropertiesConfig prop = new PropertiesConfig();
 
     /**
      * Initialize UserAbstractPage.
@@ -411,6 +410,7 @@ public class Methods extends AbstractPage {
 
 
 
+/*
     public void waitForElementToBeDisapper(String fileName, String propertyName) {
         wait = new WebDriverWait(driver, 100);
 
@@ -461,7 +461,9 @@ public class Methods extends AbstractPage {
         } catch (Exception e) {
         }
     }
+*/
 
+/*
     public void waitForElement(String fileName, String propertyName) {
         wait = new WebDriverWait(driver, 600);
         try {
@@ -504,6 +506,7 @@ public class Methods extends AbstractPage {
         } catch (Exception e) {
         }
     }
+*/
 
 
     public WebElement findElement(String fileName, String value) {
@@ -553,6 +556,7 @@ public class Methods extends AbstractPage {
     }
 
 
+/*
     public List<WebElement> findElementList(String fileName, String propertyName) {
 
         Map<String, String> elementProperty = loadProperty(fileName, propertyName);
@@ -597,6 +601,7 @@ public class Methods extends AbstractPage {
         return elementList;
     }
 
+*/
 
 
 
