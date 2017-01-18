@@ -22,7 +22,7 @@ Selebot is the selenium TestNG framework with the various build in functionality
         │       └── login.properties                
         └── test
         └── java
-        ├── Config                                 # configuration and methods
+        ├── config                                 # configuration and methods
         │   ├── General
         │   │   ├── ExcelFileConfig.java           # Excel file realated methods
         │   │   ├── JsonFileConfig.java            # JSON file realated methods
@@ -33,9 +33,9 @@ Selebot is the selenium TestNG framework with the various build in functionality
         │   └── SeleniumConfig                     # Selenium Configuration
         │       ├── AbstractPage.java
         │       └── BrowserConfig.java             # Browser configuration
-        └── Tests                                  # Test
+        └── tests                                  # Test
         ├── LoginModule                            # Module   
-        │   └── Tests.java                         # TesNG Test Methods
+        │   └── tests.java                         # TesNG Test Methods
         │   ├── Steps.java                         # Steps logic
         │   └── Verify.java                        # Assertation
         
@@ -102,7 +102,7 @@ loginButton.cssSelector = #food span.dairy.aged
   
   
    
-### 2. Create the module directory like LoginModule under Tests directory
+### 2. Create the module directory like LoginModule under tests directory
       
 ### 3. Create test class      
     

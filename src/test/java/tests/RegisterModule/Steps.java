@@ -1,4 +1,4 @@
-package Tests.RegisterModule;
+package tests.RegisterModule;
 
 /**
  * Created by Viral on 11/24/2016.

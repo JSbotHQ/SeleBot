@@ -1,6 +1,6 @@
-package Config.General;
+package config.General;
 
-import Config.SeleniumConfig.AbstractPage;
+import config.SeleniumConfig.AbstractPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;

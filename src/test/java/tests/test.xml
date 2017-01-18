@@ -4,21 +4,21 @@
 
     <test name="Login">
         <classes>
-            <class name="Tests.LoginModule.Tests">
+            <class name="tests.LoginModule.Tests">
                 <methods>
                     <include name="Login"/>
                 </methods>
-            </class> <!-- Tests.LoginModule.Tests -->
+            </class> <!-- tests.LoginModule.tests -->
         </classes>
     </test> <!-- Selenium-TestNG-Framework -->
 
     <test name="reg">
         <classes>
-            <class name="Tests.LoginModule.Tests">
+            <class name="tests.LoginModule.Tests">
                 <methods>
                     <include name="reg"/>
                 </methods>
-            </class> <!-- Tests.LoginModule.Tests -->
+            </class> <!-- tests.LoginModule.tests -->
         </classes>
     </test> <!-- Selenium-TestNG-Framework -->
 </suite> <!-- Default Suite -->

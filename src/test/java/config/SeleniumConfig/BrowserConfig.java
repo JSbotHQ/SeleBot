@@ -1,7 +1,9 @@
-package Config.SeleniumConfig;
+package config.SeleniumConfig;
 
-import Config.General.JsonFileConfig;
-import Config.General.Methods;
+import config.General.JsonFileConfig;
+import config.General.Methods;
+import config.General.PerformAction;
+import config.General.Verify;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
@@ -23,6 +25,8 @@ public class BrowserConfig {
 
     public boolean autoLog;
     protected WebDriver driver;
+    protected PerformAction performAction;
+    protected Verify verify;
     JsonFileConfig fileConfig = new JsonFileConfig();
 
 
@@ -102,7 +106,8 @@ public class BrowserConfig {
             methods.log("Open Browser : " + Browser);
         }
 
-
+        performAction = new PerformAction(driver);
+        verify = new Verify(driver);
 
 
 

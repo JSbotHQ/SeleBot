@@ -10,7 +10,7 @@
       "locatorValue" :  ".//input[@id='authEmail']",
       "default" : "vir@jsbot.io",
       "textType" : "email",
-      "auto" : true
+    "auto": false
     },
 
   "password": {

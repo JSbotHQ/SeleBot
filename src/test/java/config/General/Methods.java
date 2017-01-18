@@ -1,6 +1,6 @@
-package Config.General;
+package config.General;
 
-import Config.SeleniumConfig.AbstractPage;
+import config.SeleniumConfig.AbstractPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.*;

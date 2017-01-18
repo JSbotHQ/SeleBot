@@ -1,4 +1,4 @@
-package Config.General;
+package config.General;
 
 
 import org.json.simple.JSONObject;
