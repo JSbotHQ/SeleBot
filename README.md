@@ -17,9 +17,9 @@ Selebot is the selenium TestNG framework with the various build in functionality
        
         └── src                                   
         ├── resources                              # Resource files and general configuration files
-        │   ├── general.properties                 # General configuration 
-        │   └── ObjectRepo                         # Properties files with the locator details
-        │       └── login.properties                
+        │   ├── general.json                       # General configuration
+        │   └── ObjectRepo                         # Json files with the locator details
+        │       └── login.json
         └── test
         └── java
         ├── config                                 # configuration and methods
@@ -28,8 +28,7 @@ Selebot is the selenium TestNG framework with the various build in functionality
         │   │   ├── JsonFileConfig.java            # JSON file realated methods
         │   │   ├── Methods.java                   # Selenium and General operation method
         │   │   ├── PerformAction.java             # Selenium actions
-        │   │   ├── PropertiesConfig.java          # Property file realted methods
-        │   │   └── VerificationMethods.java
+        │   │   └── Verify.java                    # Assertation
         │   └── SeleniumConfig                     # Selenium Configuration
         │       ├── AbstractPage.java
         │       └── BrowserConfig.java             # Browser configuration
@@ -40,68 +39,53 @@ Selebot is the selenium TestNG framework with the various build in functionality
         │   └── Verify.java                        # Assertation
         
   
-        
-        
-        
+
+
         
 ## Start to create Test cases :
   
-### 1. Add all the locators in properties file under ObjectRepo directory
+### 1. Add all the locators in Json file under ObjectRepo directory
   
   For e.g
   
-###### For login screen, create login.properties
-  
- **Add locator in following format**
-  
- ``` 
- elementname.locatortype = locator 
- ```
-  
-##### For XPath
-  
-  ```
- loginButton.xpath = //a[contains(text(),'Login')]
-  ```
+###### For login screen, create login.json
 
-#####  For ID
-  
-  ```
- loginButton.id = coolestWidgetEvah
-  ```
-  
-#####  For Class Name
-  
-  ```
- loginButton.className = cheese
-  ```
-#####  For Tag Name
-   
-```   
-loginButton.tagName = iframe
-  ```
-#####  For Link Text
-  
-  ```
-loginButton.linkText = cheese
-  ```
-  
-#####  For PartialLinkText
-  
-  ```
-loginButton.partialLinkText = cheese
-  ```
-#####  For Name
-  ```
-loginButton.name = cheese
-  ```
-#####  For CSS Selector
-  ```
-loginButton.cssSelector = #food span.dairy.aged
-  ```
-  
-  
-   
+Add locator details in following format
+
+```
+"Element name": {
+    "locatorType" : "",
+    "locatorValue" :  "",
+    "default" : "",
+    "textType" : "",
+    "auto" : boolean
+  },
+
+```
+
+Property      | Description  
+----- | -----
+Element name  | variable name
+locatorType | any type of locator that is supported by selenium like xpath,classname,tagname,name etc. 
+locatorValue | value of the locator
+"auto" : true | Enter data automatically in textfield based on the textType
+"textType" |  type of data, want to entered into text fields
+"default" |  enter this data when auto mode is false
+
+Last three properties are used for entering text into textfields
+
+For example
+```
+"password": {
+    "locatorType" : "xpath",
+    "locatorValue" :  ".//input[@id='authPassword']",
+    "default" : "123456",
+    "textType" : "password",
+    "auto" : false
+  },
+```
+
+
 ### 2. Create the module directory like LoginModule under tests directory
       
 ### 3. Create test class      
@@ -109,7 +93,7 @@ loginButton.cssSelector = #food span.dairy.aged
  Add TestNG Test and steps
    
    ```
-  performAction.click("Propery file Name", "locator name");
+  performAction.click("Json file Name", "locator name");
   ```
   
     
@@ -120,7 +104,7 @@ loginButton.cssSelector = #food span.dairy.aged
         
        performAction.click("login", "loginbutton");
     
-       performAction.sendKeys(currentFileName, "email", "Test@Test.com");
+       performAction.sendKeys(currentFileName, "email");
        
        performAction.pause(3);
      }
