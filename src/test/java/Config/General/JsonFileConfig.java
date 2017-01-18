@@ -18,13 +18,6 @@ import java.util.Map;
 public class JsonFileConfig {
 
 
-    public static void main(String[] args) {
-
-        JsonFileConfig cd = new JsonFileConfig();
-
-        System.out.println(cd.getAutoHighlightValue());
-
-    }
 
     public JSONObject loadJsonFile(String jsonFilePath) {
         JSONParser parser = new JSONParser();
@@ -104,11 +97,25 @@ public class JsonFileConfig {
 
         JSONObject file = loadJsonFile(jsonFile.getAbsolutePath());
 
+
+        System.out.println(file);
+
         JSONObject object = null;
 
 
         return elementData;
     }
+
+    public static void main(String[] args) {
+
+        JsonFileConfig cd = new JsonFileConfig();
+
+        System.out.println(cd.getElementValue("login","login Button"));
+
+    }
+
+
+
 
 
 }

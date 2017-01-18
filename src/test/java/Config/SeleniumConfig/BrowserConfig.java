@@ -23,7 +23,9 @@ public class BrowserConfig {
 
     public String autoLog = "";
     protected WebDriver driver;
-    PropertiesConfig prop = new PropertiesConfig();
+
+
+
 
     @BeforeTest
     public void browserConfig() {

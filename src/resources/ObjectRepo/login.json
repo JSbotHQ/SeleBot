@@ -1,6 +1,6 @@
 {
 
-  "loginButton": {
+  "login Button": {
     "locatorType" : "xpath",
     "locatorValue" :  ".//a[contains(text(),'Login')]"
   },
