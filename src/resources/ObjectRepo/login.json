@@ -1,0 +1,38 @@
+{
+
+  "loginButton": {
+    "locatorType" : "xpath",
+    "locatorValue" :  ".//a[contains(text(),'Login')]"
+  },
+
+  "email": {
+      "locatorType" : "xpath",
+      "locatorValue" :  ".//input[@id='authEmail']",
+      "default" : "vir@jsbot.io",
+      "textType" : "email",
+      "auto" : true
+    },
+
+  "password": {
+    "locatorType" : "xpath",
+    "locatorValue" :  ".//input[@id='authPassword']",
+    "default" : "123456",
+    "textType" : "password",
+    "auto" : false
+  },
+
+  "login to VigoReport": {
+    "locatorType" : "xpath",
+    "locatorValue" :  "//button"
+  },
+
+  "project Lable On HomePage": {
+    "locatorType" : "xpath",
+    "locatorValue" :  "//h2[contains(.,'Projects')]"
+  }
+
+
+
+
+
+  }

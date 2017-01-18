@@ -1,103 +1,114 @@
 package Config.General;
 
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Viral on 11/26/2016.
  */
 public class JsonFileConfig {
 
-    PropertiesConfig prop = new PropertiesConfig();
-    /**
-     * Read Key Value into the Json File.
-     * @param KeyName Enter Get Value Key Name.
-     * @return Return Key Value in String.
-     */
-    public String readKeyValueInFile(String KeyName) {
 
-        String ReadJsonFilePath = (String) prop.getValue("general", "ReadJsonFilePath");
+    public static void main(String[] args) {
 
+        JsonFileConfig cd = new JsonFileConfig();
+
+        System.out.println(cd.getAutoHighlightValue());
+
+    }
+
+    public JSONObject loadJsonFile(String jsonFilePath) {
         JSONParser parser = new JSONParser();
-        String Value = null;
-        try {
-            Object obj = parser.parse(new FileReader(ReadJsonFilePath));
+        JSONObject jsonObject = null;
 
-            JSONObject jsonObt = (JSONObject) obj;
 
-            Value = jsonObt.get(KeyName).toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return Value;
-    }
-
-    /**
-     * Read JSON Object Into The Json File.
-     * @param ObjectKey Enter Get Value Object Name.
-     * @return Return Json Object.
-     */
-    public JSONObject readJsonObjectInFile(String ObjectKey) {
-
-        String ReadJsonFilePath = (String) prop.getValue("general", "ReadJsonFilePath");
-
-        JSONParser parser = new JSONParser();
-        JSONObject JsonObject = null;
         try {
 
-            Object File = parser.parse(new FileReader(ReadJsonFilePath));
+            Object obj = parser.parse(new FileReader(jsonFilePath));
 
-            JSONObject jsonObt = (JSONObject) File;
+            jsonObject = (JSONObject) obj;
 
-            JsonObject = (JSONObject) jsonObt.get(ObjectKey);
-        } catch (Exception e) {
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
-        return JsonObject;
+        return jsonObject;
     }
 
-    /**
-     * Read Key Value Into the Json Object.
-     * @param JsonObject Enter Get Value Object Name.
-     * @param KeyName    Enter Get Value Key Name.
-     * @return Return Key Value in String.
-     */
-    public String readKeyValueInJsonObject(JSONObject JsonObject, String KeyName) {
+    public JSONObject getGeneralFile() {
 
-        JSONObject object = JsonObject;
+        File jsonFile = new File("src\\resources\\general.json");
 
-        String value = object.get(KeyName).toString();
+        JSONObject file = loadJsonFile(jsonFile.getAbsolutePath());
 
-        return value;
+        return file;
     }
 
-    /**
-     * Create and Write in Json File.
-     * @param ObjectName Enter Get Value Object Name.
-     */
-    public void writeInJsonFile(JSONObject ObjectName) {
-        try {
+    public boolean getAutoHighlightValue() {
+        boolean bool;
 
-            String WriteJsonFilePath = (String) prop.getValue("general", "WriteJsonFilePath");
+        JSONObject object = getGeneralFile();
 
-            FileWriter jsonFileWriter = new FileWriter(WriteJsonFilePath);
-
-            jsonFileWriter.write(ObjectName.toJSONString());
-
-            jsonFileWriter.flush();
-
-            jsonFileWriter.close();
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-        }
+        bool = (boolean) ((JSONObject) object.get("general")).get("HighightElement");
+        return bool;
     }
 
+    public boolean getAutoLog() {
+        boolean bool;
+
+        JSONObject object = getGeneralFile();
+
+        bool = (boolean) ((JSONObject) object.get("general")).get("AutoLog");
+        return bool;
+
+    }
+
+    public String getURL() {
+        String bool;
+
+        JSONObject object = getGeneralFile();
+
+        bool = ((JSONObject) object.get("project")).get("URL").toString();
+        return bool;
+
+    }
+
+    public String getBrowser() {
+        String bool;
+        JSONObject object = getGeneralFile();
+
+        bool = ((JSONObject) object.get("project")).get("BrowserName").toString();
+        return bool;
+
+    }
+
+
+    public Map<String, String> getElementValue(String fileName, String elementName) {
+
+        Map<String, String> elementData = new HashMap<String, String>();
+
+        File jsonFile = new File("src\\resources\\ObjectRepo\\" + fileName + ".json");
+
+        JSONObject file = loadJsonFile(jsonFile.getAbsolutePath());
+
+        JSONObject object = null;
+
+
+        return elementData;
+    }
 
 
 }
