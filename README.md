@@ -68,9 +68,9 @@ Property      | Description
 Element name  | variable name
 locatorType | any type of locator that is supported by selenium like xpath,classname,tagname,name etc. 
 locatorValue | value of the locator
-"auto" : true | Enter data automatically in textfield based on the textType
-"textType" |  type of data, want to entered into text fields
-"default" |  enter this data when auto mode is false
+auto : true | Enter data automatically in textfield based on the textType
+textType |  type of data, want to entered into text fields
+default |  enter this data when auto mode is false
 
 Last three properties are used for entering text into textfields
 
