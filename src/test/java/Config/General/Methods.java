@@ -4,11 +4,15 @@ import Config.SeleniumConfig.AbstractPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 /**
  * Created by Viral on 11/26/2016.
@@ -393,105 +397,108 @@ public class Methods extends AbstractPage {
 //----------------------------------------------------------------------------------------------------
 
 
-
-
-/*
-    public void waitForElementToBeDisapper(String fileName, String propertyName) {
+    public void waitForElementToBeDisapper(String fileName, String elementName) {
         wait = new WebDriverWait(driver, 100);
 
         try {
 
 
-            Map<String, String> elementProperty = loadProperty(fileName, propertyName);
+            JsonFileConfig jsonfile = new JsonFileConfig();
+            JSONObject elementProperty = jsonfile.getElementValue(fileName, elementName);
 
+            String locatorType = (String) elementProperty.get("locatorType");
+            String locatorValue = (String) elementProperty.get("locatorValue");
             WebElement element = null;
 
-            if (elementProperty.get("elementType").equals("xpath")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("xpath")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("id")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("id")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(locatorValue)));
 
 
             }
 
-            if (elementProperty.get("elementType").equals("className")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("className")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("tagName")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.tagName(elementProperty.get("elementLocator"))));
-            }
-
-
-            if (elementProperty.get("elementType").equals("linkText")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("tagName")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.tagName(locatorValue)));
             }
 
 
-            if (elementProperty.get("elementType").equals("partialLinkText")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.partialLinkText(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("linkText")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.linkText(locatorValue)));
             }
 
 
-            if (elementProperty.get("elementType").equals("name")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("partialLinkText")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.partialLinkText(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("cssSelector")) {
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(elementProperty.get("elementLocator"))));
+
+            if (locatorType.equals("name")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name(locatorValue)));
+            }
+
+            if (locatorType.equals("cssSelector")) {
+                wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(locatorValue)));
             }
 
         } catch (Exception e) {
         }
     }
-*/
 
-/*
-    public void waitForElement(String fileName, String propertyName) {
+
+    public void waitForElement(String fileName, String elementName) {
         wait = new WebDriverWait(driver, 600);
         try {
 
-            Map<String, String> elementProperty = loadProperty(fileName, propertyName);
+            JsonFileConfig jsonfile = new JsonFileConfig();
+            JSONObject elementProperty = jsonfile.getElementValue(fileName, elementName);
+
+            String locatorType = (String) elementProperty.get("locatorType");
+            String locatorValue = (String) elementProperty.get("locatorValue");
             WebElement element = null;
 
-            if (elementProperty.get("elementType").equals("xpath")) {
-                wait.until(visibilityOfElementLocated(By.xpath(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("xpath")) {
+                wait.until(visibilityOfElementLocated(By.xpath(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("id")) {
-                wait.until(visibilityOfElementLocated(By.id(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("id")) {
+                wait.until(visibilityOfElementLocated(By.id(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("className")) {
-                wait.until(visibilityOfElementLocated(By.className(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("className")) {
+                wait.until(visibilityOfElementLocated(By.className(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("tagName")) {
-                wait.until(visibilityOfElementLocated(By.tagName(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("tagName")) {
+                wait.until(visibilityOfElementLocated(By.tagName(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("linkText")) {
-                wait.until(visibilityOfElementLocated(By.linkText(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("linkText")) {
+                wait.until(visibilityOfElementLocated(By.linkText(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("partialLinkText")) {
-                wait.until(visibilityOfElementLocated(By.partialLinkText(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("partialLinkText")) {
+                wait.until(visibilityOfElementLocated(By.partialLinkText(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("name")) {
-                wait.until(visibilityOfElementLocated(By.name(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("name")) {
+                wait.until(visibilityOfElementLocated(By.name(locatorValue)));
             }
 
-            if (elementProperty.get("elementType").equals("cssSelector")) {
-                wait.until(visibilityOfElementLocated(By.cssSelector(elementProperty.get("elementLocator"))));
+            if (locatorType.equals("cssSelector")) {
+                wait.until(visibilityOfElementLocated(By.cssSelector(locatorValue)));
             }
 
         } catch (Exception e) {
         }
     }
-*/
+
 
 
     public WebElement findElement(String fileName, String value) {
@@ -606,6 +613,22 @@ public class Methods extends AbstractPage {
             }
             if (textType.equalsIgnoreCase("email")) {
                 text = data.getEmail();
+            }
+
+            if (textType.equalsIgnoreCase("city")) {
+                text = data.getCity();
+            }
+
+            if (textType.equalsIgnoreCase("state")) {
+                text = data.getState();
+            }
+
+            if (textType.equalsIgnoreCase("country")) {
+                text = data.getCountry();
+            }
+
+            if (textType.equalsIgnoreCase("zipcode")) {
+                text = data.getZipCode();
             }
 
 

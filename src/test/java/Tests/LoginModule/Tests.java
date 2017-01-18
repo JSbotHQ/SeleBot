@@ -20,11 +20,10 @@ public class Tests extends BrowserConfig {
         performAction.sendKeys(currentFileName, "email");
         performAction.pause(3);
 
-
     }
 
     @Test
-    public void LoginTest() {
+    public void Register() {
 
         PerformAction performAction = new PerformAction(driver);
         String currentFileName = "login";

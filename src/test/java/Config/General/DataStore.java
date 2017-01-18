@@ -40,6 +40,32 @@ public class DataStore {
         return faker.name().title();
     }
 
+
+//----------------------------------Address Section ----------
+
+    public String getCity() {
+        return faker.address().cityName();
+    }
+
+    public String getState() {
+        return faker.address().state();
+    }
+
+    public String getCountry() {
+        return faker.address().country();
+    }
+
+    public String getZipCode() {
+        return faker.address().zipCode();
+    }
+
+    //---------------------------Date Section ----------
+
+
+
+
+
+
     public String getEmail() {
         return faker.internet().emailAddress();
     }

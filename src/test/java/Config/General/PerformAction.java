@@ -76,13 +76,6 @@ public class PerformAction extends AbstractPage {
         methods.findElement(fileName, elementName).sendKeys(text);
     }
 
-
-
-
-
-
-
-
     /**
      * @param propertyFileName : name of file where element is declared
      * @param elementName      : name of element defined into propertyfile
@@ -314,7 +307,7 @@ public class PerformAction extends AbstractPage {
     public void pause(int secs) {
         Methods methods = new Methods(driver);
         if (autoLog) {
-            methods.log("Pause for " + secs + "seconds");
+            methods.log("Pause for " + secs + " seconds");
         }
 
         try {
@@ -330,7 +323,8 @@ public class PerformAction extends AbstractPage {
      * @param elementName : name of element defined into propertyfile
      * @param text : text of element to be select
      */
-   /* public void clickOnElementFromList(String propertyFileName, String elementName, String text) {
+
+    public void clickOnElementFromList(String propertyFileName, String elementName, String text) {
         Methods methods = new Methods(driver);
         List<WebElement> list = methods.findElementList(propertyFileName, elementName);
 
@@ -342,21 +336,18 @@ public class PerformAction extends AbstractPage {
         }
 
     }
-*/
 
 
-  /*  public void waitForElement(String propertyFileName, String elementName) {
+    public void waitForElement(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
         methods.waitForElement(propertyFileName, elementName);
-    }*/
+    }
 
 
-
-   /* public void waitForElementToBeDisapper(String propertyFileName, String elementName) {
+    public void waitForElementToBeDisapper(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
         methods.waitForElementToBeDisapper(propertyFileName, elementName);
     }
-*/
     public void openURL() {
         String URL = jsonFileConfig.getURL();
         driver.get(URL);
