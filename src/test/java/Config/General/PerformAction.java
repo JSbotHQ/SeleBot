@@ -15,7 +15,8 @@ import java.util.Random;
 public class PerformAction extends AbstractPage {
 
     protected static Wait<WebDriver> wait;
-    PropertiesConfig prop = new PropertiesConfig();
+    JsonFileConfig jsonFileConfig = new JsonFileConfig();
+    boolean autoLog = jsonFileConfig.getAutoLog();
 
 
     /**
@@ -29,17 +30,17 @@ public class PerformAction extends AbstractPage {
 
 
     /**
-     * @param propertyFileName : name of file where element is declared
+     * @param fileName : name of file where element is declared
      * @param elementName      : name of element defined into propertyfile
      */
-    public void click(String propertyFileName, String elementName)
+    public void click(String fileName, String elementName)
     {
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Click on " + elementName);
 
         }
-        methods.findElement(propertyFileName, elementName).click();
+        methods.findElement(fileName, elementName).click();
     }
 
 
@@ -51,12 +52,35 @@ public class PerformAction extends AbstractPage {
     public void sendKeys(String propertyFileName, String elementName, String text) {
 
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+
+        System.out.println(autoLog);
+
+        if (autoLog) {
             methods.log("Enter Text " + text + " into " + elementName + " text fields");
 
         }
         methods.findElement(propertyFileName, elementName).sendKeys(text);
     }
+
+    public void sendKeys(String fileName, String elementName) {
+
+        Methods methods = new Methods(driver);
+
+        String text = methods.getAutoText(fileName, elementName);
+
+
+        if (autoLog) {
+            methods.log("Enter Text " + text + " into " + elementName + " text fields");
+
+        }
+        methods.findElement(fileName, elementName).sendKeys(text);
+    }
+
+
+
+
+
+
 
 
     /**
@@ -65,7 +89,7 @@ public class PerformAction extends AbstractPage {
      */
     public void clear(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Clear value from " + elementName + " text fields");
 
         }
@@ -82,7 +106,7 @@ public class PerformAction extends AbstractPage {
         String ElementText = methods.findElement(propertyFileName, elementName).getText();
 
 
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Text of " + ElementText + " is " + ElementText);
         }
         return ElementText;
@@ -96,7 +120,7 @@ public class PerformAction extends AbstractPage {
         Methods methods = new Methods(driver);
         String ElementText = methods.findElement(propertyFileName, elementName).getTagName();
 
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Tag Name of " + ElementText + " is " + ElementText);
         }
         return ElementText;
@@ -109,7 +133,7 @@ public class PerformAction extends AbstractPage {
     public void selectValueFromDroupDown(String propertyFileName, String elementName, String value) {
 
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Select" + value + " from " + elementName + " drop down box ");
         }
 
@@ -134,7 +158,7 @@ public class PerformAction extends AbstractPage {
      */
     public void scrollingToElement(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Scroll to the element " + elementName);
         }
 
@@ -148,7 +172,7 @@ public class PerformAction extends AbstractPage {
     public void scrollingToBottom() {
         Methods methods = new Methods(driver);
 
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Scroll to the bottom");
         }
 
@@ -247,7 +271,7 @@ public class PerformAction extends AbstractPage {
      */
     public void rightClickOn(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Right click on " + elementName);
         }
         Actions action = new Actions(driver).contextClick(methods.findElement(propertyFileName, elementName));
@@ -261,7 +285,7 @@ public class PerformAction extends AbstractPage {
      */
     public void doubleClick(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Double click on " + elementName);
         }
 
@@ -276,7 +300,7 @@ public class PerformAction extends AbstractPage {
     public void clickAndHold(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
 
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Click and hold " + elementName);
         }
 
@@ -289,7 +313,7 @@ public class PerformAction extends AbstractPage {
      */
     public void pause(int secs) {
         Methods methods = new Methods(driver);
-        if (autoLog.equals("on")) {
+        if (autoLog) {
             methods.log("Pause for " + secs + "seconds");
         }
 
@@ -306,7 +330,7 @@ public class PerformAction extends AbstractPage {
      * @param elementName : name of element defined into propertyfile
      * @param text : text of element to be select
      */
-    public void clickOnElementFromList(String propertyFileName, String elementName, String text) {
+   /* public void clickOnElementFromList(String propertyFileName, String elementName, String text) {
         Methods methods = new Methods(driver);
         List<WebElement> list = methods.findElementList(propertyFileName, elementName);
 
@@ -318,33 +342,23 @@ public class PerformAction extends AbstractPage {
         }
 
     }
+*/
 
-    /**
-     * @param propertyFileName : name of file where element is declared
-     * @param elementName      : name of element defined into propertyfile
-     */
 
-    public void waitForElement(String propertyFileName, String elementName) {
+  /*  public void waitForElement(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
         methods.waitForElement(propertyFileName, elementName);
-    }
+    }*/
 
 
-    /**
-     *
-     * @param propertyFileName : name of file where element is declared
-     * @param elementName : name of element defined into propertyfile
-     *
-     */
 
-    public void waitForElementToBeDisapper(String propertyFileName, String elementName) {
+   /* public void waitForElementToBeDisapper(String propertyFileName, String elementName) {
         Methods methods = new Methods(driver);
         methods.waitForElementToBeDisapper(propertyFileName, elementName);
     }
-
-
+*/
     public void openURL() {
-        String URL = (String) prop.getValue("general", "URL");
+        String URL = jsonFileConfig.getURL();
         driver.get(URL);
     }
 

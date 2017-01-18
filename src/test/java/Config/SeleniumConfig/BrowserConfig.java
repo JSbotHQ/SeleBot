@@ -1,7 +1,7 @@
 package Config.SeleniumConfig;
 
+import Config.General.JsonFileConfig;
 import Config.General.Methods;
-import Config.General.PerformAction;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
@@ -21,20 +21,21 @@ import org.testng.annotations.BeforeTest;
  */
 public class BrowserConfig {
 
-    public String autoLog = "";
+    public boolean autoLog;
     protected WebDriver driver;
+    JsonFileConfig fileConfig = new JsonFileConfig();
+
 
 
 
 
     @BeforeTest
     public void browserConfig() {
-
-        autoLog = (String) prop.getValue("general", "AutoLog");
+        autoLog = fileConfig.getAutoLog();
 
         DesiredCapabilities capability = null;
 
-        String Browser = (String) prop.getValue("general", "BrowserName");
+        String Browser = fileConfig.getBrowser();/*(String) prop.getValue("general", "BrowserName");*/
 
 
 
@@ -95,10 +96,9 @@ public class BrowserConfig {
 
         driver.manage().window().maximize();
         Methods methods = new Methods(driver);
-        PerformAction performAction = new PerformAction(driver);
-        performAction.openURL();
 
-        if (autoLog.equals("on")) {
+
+        if (autoLog) {
             methods.log("Open Browser : " + Browser);
         }
 

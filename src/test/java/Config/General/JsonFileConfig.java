@@ -18,6 +18,13 @@ import java.util.Map;
 public class JsonFileConfig {
 
 
+    public static void main(String[] args) {
+
+        JsonFileConfig s = new JsonFileConfig();
+        System.out.println(s.getElementValue("login", "login Button").get("locatorType"));
+
+
+    }
 
     public JSONObject loadJsonFile(String jsonFilePath) {
         JSONParser parser = new JSONParser();
@@ -88,30 +95,13 @@ public class JsonFileConfig {
 
     }
 
-
-    public Map<String, String> getElementValue(String fileName, String elementName) {
+    public JSONObject getElementValue(String fileName, String elementName) {
 
         Map<String, String> elementData = new HashMap<String, String>();
-
         File jsonFile = new File("src\\resources\\ObjectRepo\\" + fileName + ".json");
-
         JSONObject file = loadJsonFile(jsonFile.getAbsolutePath());
-
-
-        System.out.println(file);
-
-        JSONObject object = null;
-
-
-        return elementData;
-    }
-
-    public static void main(String[] args) {
-
-        JsonFileConfig cd = new JsonFileConfig();
-
-        System.out.println(cd.getElementValue("login","login Button"));
-
+        JSONObject object = (JSONObject) file.get(elementName);
+        return object;
     }
 
 

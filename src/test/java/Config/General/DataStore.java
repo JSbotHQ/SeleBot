@@ -40,6 +40,9 @@ public class DataStore {
         return faker.name().title();
     }
 
+    public String getEmail() {
+        return faker.internet().emailAddress();
+    }
 
 
 

@@ -2,16 +2,13 @@ package Config.General;
 
 import Config.SeleniumConfig.AbstractPage;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 /**
  * Created by Viral on 11/26/2016.
@@ -41,18 +38,6 @@ public class Methods extends AbstractPage {
         return element;
     }
 
-    public void addAutoLog(String elementName, String action) {
-
-        if (autoLog.equals("on")) {
-
-            if (action.equals("click")) {
-                log("Click on " + elementName);
-            }
-
-
-        }
-
-    }
 
 
 
@@ -512,105 +497,125 @@ public class Methods extends AbstractPage {
     public WebElement findElement(String fileName, String value) {
 
         JsonFileConfig jsonfile = new JsonFileConfig();
-        Map<String, String> elementProperty = jsonfile.getElementValue(fileName, value);
+        JSONObject elementProperty = jsonfile.getElementValue(fileName, value);
 
+        String locatorType = (String) elementProperty.get("locatorType");
+        String locatorValue = (String) elementProperty.get("locatorValue");
 
         WebElement element = null;
 
-        if (elementProperty.get("elementType").equals("xpath")) {
-            element = findByXpath(elementProperty.get("elementValue"));
+        if (locatorType.equals("xpath")) {
+            element = findByXpath(locatorValue);
         }
-
-        if (elementProperty.get("elementType").equals("id")) {
-            element = findById(elementProperty.get("elementValue"));
+        if (locatorType.equals("id")) {
+            element = findById(locatorValue);
         }
-
-        if (elementProperty.get("elementType").equals("className")) {
-            element = findByClassName(elementProperty.get("elementValue"));
+        if (locatorType.equals("className")) {
+            element = findByClassName(locatorValue);
         }
-
-        if (elementProperty.get("elementType").equals("tagName")) {
-            element = findByTagName(elementProperty.get("elementValue"));
+        if (locatorType.equals("tagName")) {
+            element = findByTagName(locatorValue);
         }
-
-        if (elementProperty.get("elementType").equals("linkText")) {
-            element = findByLinkText(elementProperty.get("elementValue"));
+        if (locatorType.equals("linkText")) {
+            element = findByLinkText(locatorValue);
         }
-
-
-        if (elementProperty.get("elementType").equals("partialLinkText")) {
-            element = findByPartialLinkText(elementProperty.get("elementValue"));
+        if (locatorType.equals("partialLinkText")) {
+            element = findByPartialLinkText(locatorValue);
         }
-
-
-        if (elementProperty.get("elementType").equals("name")) {
-            element = findByName(elementProperty.get("elementValue"));
+        if (locatorType.equals("name")) {
+            element = findByName(locatorValue);
         }
-
-        if (elementProperty.get("elementType").equals("cssSelector")) {
-            element = findByCssSelector(elementProperty.get("elementValue"));
+        if (locatorType.equals("cssSelector")) {
+            element = findByCssSelector(locatorValue);
         }
 
         return element;
-
     }
 
 
-/*
-    public List<WebElement> findElementList(String fileName, String propertyName) {
+    public List<WebElement> findElementList(String fileName, String elementName) {
 
-        Map<String, String> elementProperty = loadProperty(fileName, propertyName);
+        JsonFileConfig jsonfile = new JsonFileConfig();
+        JSONObject elementProperty = jsonfile.getElementValue(fileName, elementName);
 
         List<WebElement> elementList = null;
 
-        if (elementProperty.get("elementType").equals("xpath")) {
-            elementList = findListOfElementsByXpath(elementProperty.get("elementLocator"));
+        String locatorType = (String) elementProperty.get("locatorType");
+        String locatorValue = (String) elementProperty.get("locatorValue");
+
+        if (locatorType.equals("xpath")) {
+            elementList = findListOfElementsByXpath(locatorValue);
         }
 
-        if (elementProperty.get("elementType").equals("id")) {
-            elementList = findListOfElementsById(elementProperty.get("elementLocator"));
+        if (locatorType.equals("id")) {
+            elementList = findListOfElementsById(locatorValue);
         }
 
-        if (elementProperty.get("elementType").equals("className")) {
-            elementList = findListOfElementsByClassName(elementProperty.get("elementLocator"));
+        if (locatorType.equals("className")) {
+            elementList = findListOfElementsByClassName(locatorValue);
         }
 
-        if (elementProperty.get("elementType").equals("tagName")) {
-            elementList = findListOfElementsByTagName(elementProperty.get("elementLocator"));
-        }
-
-
-        if (elementProperty.get("elementType").equals("linkText")) {
-            elementList = findListOfElementsByLinkText(elementProperty.get("elementLocator"));
-        }
-
-
-        if (elementProperty.get("elementType").equals("partialLinkText")) {
-            elementList = findListOfElementsByPartialLinkText(elementProperty.get("elementLocator"));
+        if (locatorType.equals("tagName")) {
+            elementList = findListOfElementsByTagName(locatorValue);
         }
 
 
-        if (elementProperty.get("elementType").equals("name")) {
-            elementList = findListOfElementsByName(elementProperty.get("elementLocator"));
+        if (locatorType.equals("linkText")) {
+            elementList = findListOfElementsByLinkText(locatorValue);
         }
 
-        if (elementProperty.get("elementType").equals("cssSelector")) {
-            elementList = findListOfElementsByCssSelector(elementProperty.get("elementLocator"));
+        if (locatorType.equals("partialLinkText")) {
+            elementList = findListOfElementsByPartialLinkText(locatorValue);
+        }
+
+        if (locatorType.equals("name")) {
+            elementList = findListOfElementsByName(locatorValue);
+        }
+
+        if (locatorType.equals("cssSelector")) {
+            elementList = findListOfElementsByCssSelector(locatorValue);
         }
 
         return elementList;
     }
 
-*/
 
-    public void getTheText() {
+    public String getAutoText(String fileName, String elementName) {
+        String text = "";
+
+        JsonFileConfig fileConfig = new JsonFileConfig();
+        JSONObject object = fileConfig.getElementValue(fileName, elementName);
+        DataStore data = new DataStore();
 
 
+        if ((boolean) object.get("auto")) {
+
+            String textType = (String) object.get("textType");
+
+            if (textType.equalsIgnoreCase("firstname")) {
+                text = data.getFirstName();
+            }
+            if (textType.equalsIgnoreCase("lastname")) {
+                text = data.getLastName();
+            }
+            if (textType.equalsIgnoreCase("name")) {
+                text = data.getName();
+            }
+            if (textType.equalsIgnoreCase("namewithmiddle")) {
+                text = data.getNameWithMiddle();
+            }
+            if (textType.equalsIgnoreCase("email")) {
+                text = data.getEmail();
+            }
+
+
+        } else {
+            text = (String) object.get("default");
+        }
+
+
+        return text;
     }
-
-
-
-
 
 
 
