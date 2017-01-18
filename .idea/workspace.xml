@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30f5f58f-9f1c-459f-9666-2e3d152c5750" name="Default" comment="json file config">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Selenium-TestNG.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="2bb06d88-2353-42b4-8001-59e20b922527" name="Rejected commit: Default" comment="Add json file loading functionaliry">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/ObjectRepo/login.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" afterPath="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" />
-    </list>
+    <list id="2bb06d88-2353-42b4-8001-59e20b922527" name="Rejected commit: Default" comment="Add json file loading functionaliry" />
     <ignored path="Framework.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,9 +14,6 @@
     <ignored path="Selenium-TestNG.iml" />
     <ignored path="src/test/java/Config/General/Testing.java" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" ignored="true" />
-    <file path="$PROJECT_DIR$/src/resources/ObjectRepo/login.json" ignored="true" />
-    <file path="$PROJECT_DIR$/pom.xml" ignored="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +38,130 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="general.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/general.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <marker date="1484721652827" expanded="true" signature="482:524" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="617:694" ph="/**...*/" />
+                <marker date="1484721652827" expanded="false" signature="731:742" ph=" { " />
+                <marker date="1484721652827" expanded="false" signature="756:762" ph=" }" />
+                <marker date="1484721652827" expanded="true" signature="768:841" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="900:1006" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="1070:1232" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="1240:1358" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="1419:1529" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="1535:1644" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="1687:1779" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="1785:1904" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="1959:2063" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="2069:2174" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="2221:2317" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="2323:2452" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="2521:2639" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="2645:2757" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="2810:2912" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="2918:3041" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="3100:3208" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="3269:3346" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="3405:3481" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="3487:3644" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="3701:3776" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="3783:3915" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="3948:4081" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="4087:4197" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="4276:4414" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="4421:4509" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="4540:4620" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="4626:4718" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="4757:4838" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="4844:4919" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="4960:5086" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="5092:5176" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="5222:5308" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="5314:5494" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="5552:5773" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="5779:5874" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="5914:6252" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="6258:6413" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="6465:6574" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="6580:6745" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="6803:6911" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="6918:7080" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="7136:7242" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="7248:7404" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="7455:7558" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="7593:7661" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="7732:7913" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="7841:7907" ph="//..." />
+                <marker date="1484721652827" expanded="true" signature="7919:8064" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="8131:8235" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="8241:8380" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="8443:8543" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="8549:8711" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="8788:8902" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="8908:9076" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="9157:9275" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="9281:9440" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="9515:9627" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="9633:9815" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="9904:10030" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="10036:10192" ph="/**...*/" />
+                <marker date="1484721652827" expanded="true" signature="10265:10375" ph="{...}" />
+                <marker date="1484721652827" expanded="true" signature="14495:15947" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrowserConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonFileConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -75,7 +186,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="viral" />
       </map>
     </option>
     <option name="FORCE_PUSH_ALLOWED" value="true" />
@@ -95,7 +206,6 @@
         <option value="$PROJECT_DIR$/src/test/java/General/General.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/Config/ExcelFileConfig.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/Config/AbstractPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/Methods.java" />
         <option value="$PROJECT_DIR$/src/test/java/SeleniumConfig/BrowserConfig.java" />
@@ -108,15 +218,17 @@
         <option value="$PROJECT_DIR$/src/test/java/Config/General/PerformAction.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/ExcelFileConfig.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/PropertiesConfig.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java" />
         <option value="$PROJECT_DIR$/src/resources/ObjectRepo/login.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java" />
         <option value="$PROJECT_DIR$/src/test/java/Config/General/DataStore.java" />
-        <option value="$PROJECT_DIR$/src/resources/general.json" />
         <option value="$PROJECT_DIR$/src/resources/data.json" />
-        <option value="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" />
+        <option value="$PROJECT_DIR$/Selenium-TestNG.iml" />
+        <option value="$PROJECT_DIR$/src/resources/general.json" />
         <option value="$PROJECT_DIR$/src/resources/ObjectRepo/login.json" />
+        <option value="$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/Config/General/Methods.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java" />
       </list>
     </option>
   </component>
@@ -278,16 +390,168 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleniumConfig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="General" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ObjectRepo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SeleBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/Config/General/Testing.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
@@ -297,20 +561,20 @@
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\JSBOT\ProjectsWorkSpace\Framework\src\resources\ObjectRepo" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\JSBOT\ProjectsWorkSpace\SeleBot\src\resources" />
       <recent name="F:\JSBOT\ProjectsWorkSpace\Framework\src\resources" />
       <recent name="F:\JSBOT\ProjectsWorkSpace\Framework\src\test\java\Config" />
       <recent name="F:\JSBOT\ProjectsWorkSpace\Framework\src" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\JSBOT\ProjectsWorkSpace\Framework\src\resources\ObjectRepo" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.DataStore">
+  <component name="RunManager" selected="Application.JsonFileConfig">
     <configuration default="false" name="Tests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -405,6 +669,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="Config.General.DataStore" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Selenium-TestNG" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="JsonFileConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Config.General.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Config.General.JsonFileConfig" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -810,18 +1094,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="TestNG.Tests" />
       <item index="1" class="java.lang.String" itemvalue="Application.Testing" />
       <item index="2" class="java.lang.String" itemvalue="TestNG.Tests.Login" />
       <item index="3" class="java.lang.String" itemvalue="Application.DataStore" />
+      <item index="4" class="java.lang.String" itemvalue="Application.JsonFileConfig" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.DataStore" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.Tests" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.Tests.Login" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Testing" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.JsonFileConfig" />
+        <item index="1" class="java.lang.String" itemvalue="Application.DataStore" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.Tests" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.Tests.Login" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Testing" />
       </list>
     </recent_temporary>
   </component>
@@ -861,7 +1147,8 @@
       <workItem from="1484667652416" duration="97000" />
       <workItem from="1484671552837" duration="3210000" />
       <workItem from="1484674967942" duration="140000" />
-      <workItem from="1484714639627" duration="1035000" />
+      <workItem from="1484714639627" duration="1775000" />
+      <workItem from="1484720715692" duration="1171000" />
     </task>
     <task id="LOCAL-00001" summary="1.  Initial Commit">
       <created>1480066225235</created>
@@ -962,7 +1249,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66776000" />
+    <option name="totallyTimeSpent" value="68687000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -979,27 +1266,27 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31587562" sideWeight="0.49092284" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30605564" sideWeight="0.46530613" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5081633" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5090016" sideWeight="0.44489795" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913518" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.7377551" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2782324" sideWeight="0.68265307" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.79541737" sideWeight="0.4610687" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5090016" sideWeight="0.55510205" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2887755" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42142856" sideWeight="0.49029127" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.50970876" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29954615" sideWeight="0.50970876" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30605564" sideWeight="0.477551" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.49183673" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1067,20 +1354,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1169,14 +1442,6 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/Methods/ExcelFileConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/resources/config/general.properties" />
     <entry file="file://$PROJECT_DIR$/src/test/java/Methods/Methods.java" />
-    <entry file="file://$PROJECT_DIR$/Selenium-TestNG.iml" />
-    <entry file="file://$PROJECT_DIR$/Framework.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/General/General.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/SeleniumConfig/BrowserConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/VerificationMethods.java">
@@ -1224,13 +1489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/ExcelFileConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1246,14 +1504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/general.properties" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/DataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1261,55 +1511,183 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java">
+    <entry file="file://$PROJECT_DIR$/Framework.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
+    <entry file="file://$PROJECT_DIR$/Test Results - Tests.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Selenium-TestNG.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Tests/LoginModule/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/general.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="102">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/general.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/ObjectRepo/login.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/JsonFileConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/DataStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/General/Methods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1484721652827" expanded="true" signature="482:524" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="617:694" ph="/**...*/" />
+            <marker date="1484721652827" expanded="false" signature="731:742" ph=" { " />
+            <marker date="1484721652827" expanded="false" signature="756:762" ph=" }" />
+            <marker date="1484721652827" expanded="true" signature="768:841" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="900:1006" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="1070:1232" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="1240:1358" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="1419:1529" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="1535:1644" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="1687:1779" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="1785:1904" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="1959:2063" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="2069:2174" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="2221:2317" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="2323:2452" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="2521:2639" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="2645:2757" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="2810:2912" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="2918:3041" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="3100:3208" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="3269:3346" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="3405:3481" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="3487:3644" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="3701:3776" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="3783:3915" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="3948:4081" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="4087:4197" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="4276:4414" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="4421:4509" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="4540:4620" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="4626:4718" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="4757:4838" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="4844:4919" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="4960:5086" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="5092:5176" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="5222:5308" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="5314:5494" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="5552:5773" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="5779:5874" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="5914:6252" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="6258:6413" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="6465:6574" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="6580:6745" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="6803:6911" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="6918:7080" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="7136:7242" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="7248:7404" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="7455:7558" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="7593:7661" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="7732:7913" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="7841:7907" ph="//..." />
+            <marker date="1484721652827" expanded="true" signature="7919:8064" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="8131:8235" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="8241:8380" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="8443:8543" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="8549:8711" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="8788:8902" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="8908:9076" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="9157:9275" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="9281:9440" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="9515:9627" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="9633:9815" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="9904:10030" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="10036:10192" ph="/**...*/" />
+            <marker date="1484721652827" expanded="true" signature="10265:10375" ph="{...}" />
+            <marker date="1484721652827" expanded="true" signature="14495:15947" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Config/SeleniumConfig/BrowserConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
