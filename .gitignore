@@ -196,7 +196,7 @@ $RECYCLE.BIN/
 *.egg
 *.egg-info
 dist/
-build/
+Build/
 eggs/
 parts/
 var/
@@ -232,3 +232,5 @@ pip-log.txt
 /Test Results - Tests.html
 /_config.yml
 /.idea/
+target/generated-test-sources/
+/.idea/workspace.xml
