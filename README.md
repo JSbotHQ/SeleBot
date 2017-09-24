@@ -1,6 +1,11 @@
 # SeleBot
 
-Selebot is the selenium TestNG framework with the various build in functionality and methods.It's designed with the vision of rapidly selenium script generation.
+
+
+#NOTE : Version is Unsable as Updating Internal Structure
+
+
+Selebot is the selenium TestNG framework with the various build in functionality and seleniumUtility.It's designed with the vision of rapidly selenium script generation.
 
 #### Prerequest :
     1. Java
@@ -22,10 +27,10 @@ Selebot is the selenium TestNG framework with the various build in functionality
         │       └── login.json
         └── test
         └── java
-        ├── config                                 # configuration and methods
+        ├── config                                 # configuration and seleniumUtility
         │   ├── General
-        │   │   ├── ExcelFileConfig.java           # Excel file realated methods
-        │   │   ├── JsonFileConfig.java            # JSON file realated methods
+        │   │   ├── ExcelFileConfig.java           # Excel file realated seleniumUtility
+        │   │   ├── JsonFileConfig.java            # JSON file realated seleniumUtility
         │   │   ├── Methods.java                   # Selenium and General operation method
         │   │   ├── PerformAction.java             # Selenium actions
         │   │   └── Verify.java                    # Assertation
