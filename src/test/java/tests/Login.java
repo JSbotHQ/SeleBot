@@ -21,7 +21,7 @@ public class Login extends BrowserConfig {
         clear.text().from("email");
 
 
-        System.out.println(get.text().of().element("signUpText");
+        System.out.println(get.text().of().element("signUpText"));
         System.out.println(
                 get.text().of().tagName("signUpText")
         );
