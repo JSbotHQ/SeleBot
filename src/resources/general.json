@@ -1,11 +1,17 @@
 {
   "general": {
-    "HighightElement": true,
-    "AutoLog": true
-
+    "suiteDirectory": "/Volumes/Viral/Projects/SeleBot/src/test/java/tests",
+    "objectDirectory": "/Volumes/Viral/Projects/SeleBot/src/resources/ObjectRepo"
   },
   "project": {
     "URL": "https://vigoreport.io/",
-    "BrowserName": "chrome"
+    "browserName": "chrome"
   }
+
+
+
+
+
+
+
 }

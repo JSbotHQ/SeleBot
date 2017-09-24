@@ -23,20 +23,16 @@ public class JsonFileConfig {
         JsonFileConfig s = new JsonFileConfig();
         System.out.println(s.getElementValue("login", "login Button").get("locatorType"));
 
-
     }
 
     public JSONObject loadJsonFile(String jsonFilePath) {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = null;
 
-
         try {
 
             Object obj = parser.parse(new FileReader(jsonFilePath));
-
             jsonObject = (JSONObject) obj;
-
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -50,31 +46,13 @@ public class JsonFileConfig {
 
     public JSONObject getGeneralFile() {
 
-        File jsonFile = new File("src\\resources\\general.json");
+        File jsonFile = new File("src/resources/general.json");
 
         JSONObject file = loadJsonFile(jsonFile.getAbsolutePath());
 
         return file;
     }
 
-    public boolean getAutoHighlightValue() {
-        boolean bool;
-
-        JSONObject object = getGeneralFile();
-
-        bool = (boolean) ((JSONObject) object.get("general")).get("HighightElement");
-        return bool;
-    }
-
-    public boolean getAutoLog() {
-        boolean bool;
-
-        JSONObject object = getGeneralFile();
-
-        bool = (boolean) ((JSONObject) object.get("general")).get("AutoLog");
-        return bool;
-
-    }
 
     public String getURL() {
         String bool;
@@ -86,11 +64,28 @@ public class JsonFileConfig {
 
     }
 
+    public String getSuiteDirectory() {
+        String bool;
+
+        JSONObject object = getGeneralFile();
+        bool = ((JSONObject) object.get("general")).get("suiteDirectory").toString();
+        return bool;
+
+    }
+
+    public String getObjectDirectory() {
+        String bool;
+
+        JSONObject object = getGeneralFile();
+        bool = ((JSONObject) object.get("general")).get("objectDirectory").toString();
+        return bool;
+    }
+
     public String getBrowser() {
         String bool;
         JSONObject object = getGeneralFile();
 
-        bool = ((JSONObject) object.get("project")).get("BrowserName").toString();
+        bool = ((JSONObject) object.get("project")).get("browserName").toString();
         return bool;
 
     }
@@ -98,7 +93,9 @@ public class JsonFileConfig {
     public JSONObject getElementValue(String fileName, String elementName) {
 
         Map<String, String> elementData = new HashMap<String, String>();
-        File jsonFile = new File("src\\resources\\ObjectRepo\\" + fileName + ".json");
+
+
+        File jsonFile = new File(getObjectDirectory() + "/" + fileName + ".json");
         JSONObject file = loadJsonFile(jsonFile.getAbsolutePath());
         JSONObject object = (JSONObject) file.get(elementName);
         return object;

@@ -17,7 +17,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 /**
  * Created by Viral on 11/26/2016.
  */
-public class Methods extends AbstractPage {
+public class SeleniumUtility extends AbstractPage {
     protected static Wait<WebDriver> wait;
 
     /**
@@ -25,7 +25,7 @@ public class Methods extends AbstractPage {
      *
      * @param driver .
      */
-    public Methods(WebDriver driver) {
+    public SeleniumUtility(WebDriver driver) {
         super(driver);
     }
 
@@ -313,7 +313,7 @@ public class Methods extends AbstractPage {
         List<WebElement> elements = driver.findElements(By.xpath(Xpath));
         return elements;
         //WebElement element = elements.get(1);
-        //element.click();
+        //element.browser();
     }
 
     /**
@@ -504,7 +504,8 @@ public class Methods extends AbstractPage {
     public WebElement findElement(String fileName, String value) {
 
         JsonFileConfig jsonfile = new JsonFileConfig();
-        JSONObject elementProperty = jsonfile.getElementValue(fileName, value);
+        SelebotUtility utility = new SelebotUtility();
+        JSONObject elementProperty = jsonfile.getElementValue(utility.getJsonFileName(fileName), value);
 
         String locatorType = (String) elementProperty.get("locatorType");
         String locatorValue = (String) elementProperty.get("locatorValue");
@@ -587,7 +588,7 @@ public class Methods extends AbstractPage {
     }
 
 
-    public String getAutoText(String fileName, String elementName) {
+  /*  public String getAutoText(String fileName, String elementName) {
         String text = "";
 
         JsonFileConfig fileConfig = new JsonFileConfig();
@@ -642,7 +643,7 @@ public class Methods extends AbstractPage {
 
 
 
-
+*/
 
 
 

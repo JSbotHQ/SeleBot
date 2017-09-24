@@ -23,13 +23,13 @@ public class Verify extends AbstractPage {
 
     public void elementIsDisplayed(String fileName, String elementName) {
         boolean bool;
-        Methods methods = new Methods(driver);
+        SeleniumUtility seleniumUtility = new SeleniumUtility(driver);
         if (autoLog) {
-            methods.log("Verify " + elementName + " is displayed");
+            seleniumUtility.log("Verify " + elementName + " is displayed");
         }
-        bool = methods.findElement(fileName, elementName).isDisplayed();
+        bool = seleniumUtility.findElement(fileName, elementName).isDisplayed();
 
-        assertThat(methods.findElement(fileName, elementName).isDisplayed()).isEqualTo(true);
+        assertThat(seleniumUtility.findElement(fileName, elementName).isDisplayed()).isEqualTo(true);
     }
 
 
