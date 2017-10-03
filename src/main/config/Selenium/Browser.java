@@ -1,6 +1,8 @@
-package config.General;
+package config.Selenium;
 
-import config.SeleniumConfig.AbstractPage;
+import config.Selebot.config.AbstractPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 
@@ -35,6 +37,11 @@ public class Browser extends AbstractPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void stopPageLoading() {
+        driver.findElement(By.tagName("body")).sendKeys(Keys.ESCAPE);
     }
   /*
 

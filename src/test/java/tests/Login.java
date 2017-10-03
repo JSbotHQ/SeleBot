@@ -1,7 +1,7 @@
 package tests;
 
 
-import config.SeleniumConfig.BrowserConfig;
+import config.Selebot.config.BrowserConfig;
 import org.testng.annotations.Test;
 
 
@@ -19,12 +19,7 @@ public class Login extends BrowserConfig {
         enter.text("mahesh@jsbot.io").on("email");
         browser.pause(1);
         clear.text().from("email");
-
-
-        System.out.println(get.text().of().element("signUpText"));
-        System.out.println(
-                get.text().of().tagName("signUpText")
-        );
+        select.from("signUpText").byVisibleText("");
 
 
     }

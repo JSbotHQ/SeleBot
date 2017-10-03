@@ -1,6 +1,6 @@
-package config.General;
+package config.Selenium;
 
-import config.SeleniumConfig.AbstractPage;
+import config.Selebot.config.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
 public class Get extends AbstractPage {

@@ -1,8 +1,10 @@
-package config.General;
+package config.Selenium;
 
-import config.SeleniumConfig.AbstractPage;
+import config.Selebot.config.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class Click extends AbstractPage {
 
@@ -27,6 +29,28 @@ public class Click extends AbstractPage {
         el.click();
         return browser;
     }
+
+
+    public void OnElementFromList(String elementName, String text) {
+        String callerClassName = new Exception().getStackTrace()[1].getFileName();
+        SeleniumUtility seleniumUtility = new SeleniumUtility(driver);
+        List<WebElement> list = seleniumUtility.findElementList(callerClassName, elementName);
+
+        for (WebElement el : list) {
+            if (el.getText().equals(text)) {
+                el.click();
+                break;
+            }
+        }
+
+    }
+
+
+
+
+
+
+
 
 
 }

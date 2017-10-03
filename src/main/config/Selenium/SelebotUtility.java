@@ -1,4 +1,4 @@
-package config.General;
+package config.Selenium;
 
 public class SelebotUtility {
 

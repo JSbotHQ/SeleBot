@@ -1,6 +1,6 @@
-package config.SeleniumConfig;
+package config.Selebot.config;
 
-import config.General.*;
+import config.Selenium.*;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
@@ -20,7 +20,7 @@ public class BrowserConfig {
 
     public boolean autoLog;
     protected WebDriver driver;
-    protected PerformAction performAction;
+
     protected Verify verify;
     JsonFileConfig fileConfig = new JsonFileConfig();
     protected static String ObjectReportFileName = "";
@@ -28,6 +28,7 @@ public class BrowserConfig {
     protected Click click;
     protected Clear clear;
     protected Get get;
+    protected Select select;
     protected SendKeys enter;
 
     @BeforeTest
@@ -58,14 +59,13 @@ public class BrowserConfig {
         driver.manage().window().maximize();
         SeleniumUtility seleniumUtility = new SeleniumUtility(driver);
 
-        performAction = new PerformAction(driver);
         click = new Click(driver);
         enter = new SendKeys(driver);
         browser = new Browser(driver);
         clear = new Clear(driver);
         get = new Get(driver);
         verify = new Verify(driver);
-
+        select = new Select(driver);
         browser.openUrl();
 
     }

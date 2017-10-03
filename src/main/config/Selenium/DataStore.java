@@ -1,4 +1,4 @@
-package config.General;
+package config.Selenium;
 
 import com.github.javafaker.Faker;
 

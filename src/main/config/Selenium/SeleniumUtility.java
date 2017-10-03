@@ -1,6 +1,6 @@
-package config.General;
+package config.Selenium;
 
-import config.SeleniumConfig.AbstractPage;
+import config.Selebot.config.AbstractPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.*;
@@ -402,9 +402,9 @@ public class SeleniumUtility extends AbstractPage {
 
         try {
 
-
+            SelebotUtility utility = new SelebotUtility();
             JsonFileConfig jsonfile = new JsonFileConfig();
-            JSONObject elementProperty = jsonfile.getElementValue(fileName, elementName);
+            JSONObject elementProperty = jsonfile.getElementValue(utility.getJsonFileName(fileName), elementName);
 
             String locatorType = (String) elementProperty.get("locatorType");
             String locatorValue = (String) elementProperty.get("locatorValue");
@@ -457,7 +457,8 @@ public class SeleniumUtility extends AbstractPage {
         try {
 
             JsonFileConfig jsonfile = new JsonFileConfig();
-            JSONObject elementProperty = jsonfile.getElementValue(fileName, elementName);
+            SelebotUtility utility = new SelebotUtility();
+            JSONObject elementProperty = jsonfile.getElementValue(utility.getJsonFileName(fileName), elementName);
 
             String locatorType = (String) elementProperty.get("locatorType");
             String locatorValue = (String) elementProperty.get("locatorValue");
@@ -544,7 +545,8 @@ public class SeleniumUtility extends AbstractPage {
     public List<WebElement> findElementList(String fileName, String elementName) {
 
         JsonFileConfig jsonfile = new JsonFileConfig();
-        JSONObject elementProperty = jsonfile.getElementValue(fileName, elementName);
+        SelebotUtility utility = new SelebotUtility();
+        JSONObject elementProperty = jsonfile.getElementValue(utility.getJsonFileName(fileName), elementName);
 
         List<WebElement> elementList = null;
 
