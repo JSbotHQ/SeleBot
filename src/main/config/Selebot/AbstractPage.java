@@ -1,4 +1,4 @@
-package config.Selebot.config;
+package config.Selebot;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

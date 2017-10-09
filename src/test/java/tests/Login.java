@@ -1,7 +1,7 @@
 package tests;
 
 
-import config.Selebot.config.BrowserConfig;
+import config.Selebot.BrowserConfig;
 import org.testng.annotations.Test;
 
 

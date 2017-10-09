@@ -1,5 +1,6 @@
-package config.Selebot.config;
+package config.Selebot;
 
+import config.Asserts.Verify;
 import config.Selenium.*;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;

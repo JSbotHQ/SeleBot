@@ -1,6 +1,6 @@
 package config.Selenium;
 
-import config.Selebot.config.AbstractPage;
+import config.Selebot.AbstractPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.*;

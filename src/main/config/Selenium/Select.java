@@ -1,6 +1,6 @@
 package config.Selenium;
 
-import config.Selebot.config.AbstractPage;
+import config.Selebot.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
